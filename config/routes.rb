@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :challenges, only: [] do
     resources :challenge_subscriptions, only: [:create]
   end
+  get '/challenges_all', to: 'challenges#all', as: :challenges_all
 
   resources :users, only: [:show]
   get '/dashboard', to: 'pages#dashboard'

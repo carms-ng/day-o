@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  belongs_to :challenge, through: :challenge_category
+  has_many :challenge_categories
 end
