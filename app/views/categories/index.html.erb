@@ -2,13 +2,8 @@
 <p>Find me in app/views/categories/index.html.erb</p>
 
 <% @categories.each do |c|  %>
-  <ul>
-    <li>
-      <%= c.name %>
-    </li>
-  </ul>
+  <%= link_to category_challenges_path(1) do %>
+    <button>Link to challenge</button>
+  <% end %>
 <% end %>
 
-<%= link_to category_challenges_path(1) do %>
-  <button>Link to challenge</button>
-<% end %>
