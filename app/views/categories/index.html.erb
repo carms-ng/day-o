@@ -1,7 +1,20 @@
 <h1>Categories#index</h1>
 <p>Find me in app/views/categories/index.html.erb</p>
 
+<%= form_tag category_challenges_path(1), method: :get do %>
+  <%= text_field_tag :search,
+    params[:search],
+    class: "form-control",
+    placeholder: "Find a Challenge"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
+
+<!-- dispalay each category as a link to the challenges -->
+
 <% @categories.each do |c|  %>
+  <!-- in the path will be the categorie id instead -->
   <%= link_to category_challenges_path(1) do %>
     <button>Link to challenge</button>
   <% end %>
