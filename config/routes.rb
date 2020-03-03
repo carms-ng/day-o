@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
-  get 'task_completions/create'
-  get 'challenge_subscriptions/create'
-  get 'challenges/index'
-  get 'categories/index'
-  devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users
+  resources :categories, only: [:index] do
+    resources :challenges, only: [:index]
+  end
+
+  resources :challenges, only: [] do
+    resources :challenge_subscriptions, only: [:create]
+  end
+
+  resources :users, only: [:show]
+  get '/dashboard', to: 'pages#dashboard'
+
+  resources :tasks, only: [] do
+    resources :task_completions, only: [:create]
+  end
+
 end
