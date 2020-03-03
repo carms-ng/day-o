@@ -4,8 +4,4 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-  private
-
-  def search
-  end
 end
