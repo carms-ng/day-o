@@ -16,7 +16,12 @@
 <% @categories.each do |c|  %>
   <!-- in the path will be the categorie id instead -->
   <%= link_to category_challenges_path(c) do %>
-        <% c.name %>
+    <ul>
+      <li>
+        <%= c.name %>
+
+      </li>
+    </ul>
   <% end %>
 <% end %>
 
