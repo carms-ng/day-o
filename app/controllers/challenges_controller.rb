@@ -18,7 +18,11 @@ class ChallengesController < ApplicationController
 
   end
 
-  def all
-    @challenges = Challenge.all
+  def show
+    @challenge = Challenge.find(params[:id])
   end
+
+  # def all
+  #   @challenges = Challenge.all
+  # end
 end
