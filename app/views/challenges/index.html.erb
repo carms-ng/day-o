@@ -5,7 +5,7 @@
   <ul>
     <li>
     <!-- this should be a pop-up but I redirected to challenges_all just to test it -nour -->
-      <%= link_to category_challenge_path(params[:category_id], challenge.id) do %>
+      <%= link_to challenge_path(challenge.id) do %>
         <p><%= challenge.name %> days: <%= challenge.num_days %>  Difficulty= <%= challenge.difficulty %></p>
       <% end %>
     </li>

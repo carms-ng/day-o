@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users
-  resources :categories, only: [:index] do
-    resources :challenges, only: [:index, :show]
-  end
+
+  resources :challenges, only: [:index, :show]
+
+  resources :categories, only: [:index]
 
   resources :challenges, only: [] do
     resources :challenge_subscriptions, only: [:create]
