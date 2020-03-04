@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   get '/dashboard', to: 'pages#dashboard'
 
-  resources :tasks, only: [] do
-    resources :task_completions, only: [:create]
+  resources :actions, only: [] do
+    resources :action_completions, only: [:create]
   end
 
 end
