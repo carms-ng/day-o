@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users
   resources :categories, only: [:index] do
-    resources :challenges, only: [:index]
+    resources :challenges, only: [:index, :show]
   end
 
   resources :challenges, only: [] do
