@@ -1,7 +1,13 @@
 <h1>Challenges#index</h1>
 <p>Find me in app/views/challenges/index.html.erb</p>
 
-<%= params %>
-<%= @challenge %>
-
-
+<% @challenges.each do |challenge| %>
+  <ul>
+    <li>
+    <!-- this should be a pop-up but I redirected to challenges_all just to test it -nour -->
+      <%= link_to challenge_path(challenge.id) do %>
+        <p><%= challenge.name %> days: <%= challenge.num_days %>  Difficulty= <%= challenge.difficulty %></p>
+      <% end %>
+    </li>
+  </ul>
+<% end %>

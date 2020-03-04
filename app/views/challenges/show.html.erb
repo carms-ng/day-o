@@ -1,0 +1,12 @@
+<h1><%= @challenge.name %></h1>
+<% @challenge.actions.each do |action| %>
+  <ul>
+    <li>
+     <p><%=  action.title%></p>
+     <p>Description: <%=  action.description%></p>
+     <p>Impact: <%=  action.impact%>pts</p>
+
+    </li>
+  </ul>
+
+<% end %>

@@ -13,12 +13,16 @@ class ChallengesController < ApplicationController
       @challenges = Challenge.joins(:challenge_categories).where(challenge_categories: { category_id: category.id })
       # @challenge = Challenge.joins(:challenge_categories).where(challenge_categories: { category_id: 1 })
     else
-      all
+      @challenges = Challenge.all
     end
 
   end
 
-  def all
-    @challenges = Challenge.all
+  def show
+    @challenge = Challenge.find(params[:id])
   end
+
+  # def all
+  #   @challenges = Challenge.all
+  # end
 end
