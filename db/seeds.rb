@@ -139,6 +139,12 @@ holiday = Challenge.create!(name: 'Holiday shopping hack', num_days: 3, difficul
 ChallengeCategory.create!(challenge: holiday, category: waste)
 
 # user faker for now
+
+user.create!(username: nour, email: 'nour@day-o.cc', password: '123456', location: 'Montreal, Canada')
+user.create!(username: laurence, email: 'laurence@day-o.cc', password: '123456', location: 'Montreal, Canada')
+user.create!(username: clem, email: 'clem@day-o.cc', password: '123456', location: 'Montreal, Canada')
+user.create!(username: carms, email: 'carms@day-o.cc', password: '123456', location: 'Montreal, Canada')
+
 20. times do
   User.create!(username: Faker::Name.unique.name,
               email: Faker::Internet.email,
