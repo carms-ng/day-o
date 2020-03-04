@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_183533) do
+ActiveRecord::Schema.define(version: 2020_03_04_032632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "action_completions", force: :cascade do |t|
+    t.bigint "challenge_subscription_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "action_id"
+    t.index ["action_id"], name: "index_action_completions_on_action_id"
+    t.index ["challenge_subscription_id"], name: "index_action_completions_on_challenge_subscription_id"
+  end
+
+  create_table "actions", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "impact"
+    t.bigint "challenge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "recurring", default: true
+    t.index ["challenge_id"], name: "index_actions_on_challenge_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -44,30 +64,10 @@ ActiveRecord::Schema.define(version: 2020_03_03_183533) do
     t.integer "num_days"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "task_completions", force: :cascade do |t|
-    t.bigint "challenge_subscription_id"
-    t.bigint "task_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["challenge_subscription_id"], name: "index_task_completions_on_challenge_subscription_id"
-    t.index ["task_id"], name: "index_task_completions_on_task_id"
-  end
-
-  create_table "tasks", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.integer "emission"
-    t.bigint "challenge_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["challenge_id"], name: "index_tasks_on_challenge_id"
+    t.integer "difficulty"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -75,15 +75,16 @@ ActiveRecord::Schema.define(version: 2020_03_03_183533) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "location"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "action_completions", "challenge_subscriptions"
+  add_foreign_key "actions", "challenges"
   add_foreign_key "challenge_categories", "categories"
   add_foreign_key "challenge_categories", "challenges"
   add_foreign_key "challenge_subscriptions", "challenges"
   add_foreign_key "challenge_subscriptions", "users"
-  add_foreign_key "task_completions", "challenge_subscriptions"
-  add_foreign_key "task_completions", "tasks"
-  add_foreign_key "tasks", "challenges"
 end
