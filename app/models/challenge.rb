@@ -1,4 +1,4 @@
 class Challenge < ApplicationRecord
   has_many :categories, through: :challenge_categories
-  belongs_to :challenge_subscriptions
+  has_many :actions, dependent: :destroy
 end

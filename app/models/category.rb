@@ -1,3 +1,4 @@
 class Category < ApplicationRecord
-  has_many :challenge_categories
+  has_many :challenge_categories, dependent: :destroy
+
 end
