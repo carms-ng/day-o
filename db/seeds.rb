@@ -2,6 +2,7 @@ require 'faker'
 
 puts 'seeding'
 
+#clear db
 ChallengeCategory.destroy_all
 Category.destroy_all
 Action.destroy_all
@@ -16,8 +17,6 @@ commute = Category.create!(name: 'Commute')
 energy  = Category.create!(name: 'Energy')
 waste   = Category.create!(name: 'Waste')
 
-# 1st challenge
-Challenge.create!(name: 'Single Use Plastic, No More', num_days: 7, difficulty: 3)
 # Challenge to show in detail
 nine_five = Challenge.create!(name: '9-fivers', num_days: 5, difficulty: 1)
 Action.create!(title: "Morning Coffee! Swap out Cow milk for Non-dairy.",
@@ -44,6 +43,7 @@ Action.create!(title: "Choose a local beer at the 5a7, instead of an imported on
 ChallengeCategory.create!(challenge: nine_five, category: energy)
 ChallengeCategory.create!(challenge: nine_five, category: commute)
 ChallengeCategory.create!(challenge: nine_five, category: diet)
+
 # 1st Challenge that you completed
 starter = Challenge.create!(name: 'Starter Pack', num_days: 7, difficulty: 1)
 Action.create!(title: "Use Reusable Water Bottle",
@@ -80,6 +80,7 @@ Action.create!(title: 'Repair Something Broken, instead of buying new',
 ChallengeCategory.create!(challenge: starter, category: waste)
 ChallengeCategory.create!(challenge: starter, category: plastic)
 ChallengeCategory.create!(challenge: starter, category: diet)
+
 # 2nd Challenge that you completed
 activism = Challenge.create!(name: 'Enviro Activism 101', num_days: 5, difficulty: 2)
 Action.create!(title: 'Watch a documentary. How about "Cowspiracy"?',
@@ -107,43 +108,58 @@ Action.create!(title: 'Renew your commitment <3',
               impact: 0,
               recurring: false,
               challenge: activism)
+
 # Challenge to fill the page
+single = Challenge.create!(name: 'Single Use Plastic, No More', num_days: 7, difficulty: 3)
+ChallengeCategory.create!(challenge: single, category: plastic)
+
 flexi   = Challenge.create!(name: 'Flexi 21 Dietary', num_days: 21, difficulty: 2)
 ChallengeCategory.create!(challenge: flexi, category: diet)
+
 grocery = Challenge.create!(name: 'Grocery List Re-Write', num_days: 7, difficulty: 1)
 ChallengeCategory.create!(challenge: grocery, category: diet)
+
 zero    = Challenge.create!(name: '30 Days Zero Waste', num_days: 30, difficulty: 3)
 ChallengeCategory.create!(challenge: zero, category: waste)
+
 student =Challenge.create!(name: 'Student Hack', num_days: 7, difficulty: 2)
 ChallengeCategory.create!(challenge: student, category: diet)
 ChallengeCategory.create!(challenge: student, category: commute)
+
 parent  = Challenge.create!(name: 'Sustainability for Parents', num_days: 14, difficulty: 2)
 ChallengeCategory.create!(challenge: parent, category: energy)
 ChallengeCategory.create!(challenge: parent, category: diet)
 ChallengeCategory.create!(challenge: parent, category: plastic)
+
 biz     = Challenge.create!(name: 'Business Traveler Essentials', num_days: 2, difficulty: 1)
 ChallengeCategory.create!(challenge: biz, category: travel)
+
 mini    = Challenge.create!(name: 'Minimalism Living', num_days: 30, difficulty: 3)
 ChallengeCategory.create!(challenge: mini, category: waste)
+
 boot    = Challenge.create!(name: 'Enviromentalist Bootcamp', num_days: 45, difficulty: 3)
 ChallengeCategory.create!(challenge: boot, category: plastic)
 ChallengeCategory.create!(challenge: boot, category: waste)
 ChallengeCategory.create!(challenge: boot, category: diet)
+
 prod    = Challenge.create!(name: 'Natural Products 101', num_days: 7, difficulty: 3)
 ChallengeCategory.create!(challenge: prod, category: plastic)
+
 mason   = Challenge.create!(name: 'Mason Jar Challenge', num_days: 365, difficulty: 3)
 ChallengeCategory.create!(challenge: mason, category: waste)
+
 gt      = Challenge.create!(name: 'Grow a green thumb', num_days: 100, difficulty: 1)
 ChallengeCategory.create!(challenge: mason, category: energy)
+
 holiday = Challenge.create!(name: 'Holiday shopping hack', num_days: 3, difficulty: 1)
 ChallengeCategory.create!(challenge: holiday, category: waste)
 
-# user faker for now
 
-user.create!(username: nour, email: 'nour@day-o.cc', password: '123456', location: 'Montreal, Canada')
-user.create!(username: laurence, email: 'laurence@day-o.cc', password: '123456', location: 'Montreal, Canada')
-user.create!(username: clem, email: 'clem@day-o.cc', password: '123456', location: 'Montreal, Canada')
-user.create!(username: carms, email: 'carms@day-o.cc', password: '123456', location: 'Montreal, Canada')
+# user faker for now
+User.create!(username: 'nour', email: 'nour@day-o.cc', password: '123456', location: 'Montreal, Canada')
+User.create!(username: 'laurence', email: 'laurence@day-o.cc', password: '123456', location: 'Montreal, Canada')
+User.create!(username: 'clem', email: 'clem@day-o.cc', password: '123456', location: 'Montreal, Canada')
+User.create!(username: 'carms', email: 'carms@day-o.cc', password: '123456', location: 'Montreal, Canada')
 
 20. times do
   User.create!(username: Faker::Name.unique.name,
