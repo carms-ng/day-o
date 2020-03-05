@@ -4,14 +4,18 @@ class ActionSettingsController < ApplicationController
     @setting = ActionSetting.find(params[:id])
     @setting.toggle_habit!
     @setting.save
-    redirect_to dashboard_path
+    if @setting.habit
+      redirect_to dashboard_path
+    else
+      redirect_to habit_path
+    end
   end
 
   def update_check
     @setting = ActionSetting.find(params[:id])
     @setting.toggle_checked!
     @setting.save
-    redirect_to dashboard_path
+    redirect_to habit_path
   end
 end
 

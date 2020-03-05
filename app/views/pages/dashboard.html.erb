@@ -22,26 +22,3 @@
   <% end %>
 </ul>
 
-<!-- Phase 2: break it into 2 pages -->
-<h2>My Habits</h2>
-<ul>
-
-  <% (@habits.sort_by { |obj| obj.created_at }).each do |habit| %>
-    <li>
-      <%= habit.action.title %>
-      <span>
-        <%= link_to 'Remove from Habits', action_setting_path(habit), method: :patch %>
-
-        <%= link_to update_check_action_setting_path(habit), method: :patch do %>
-          <% if habit.checked %>
-            <i class="fas fa-check-circle"></i>
-          <% else %>
-            <i class="far fa-circle"></i>
-          <% end %>
-        <% end %>
-      </span>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to 'Done', action_completions_mass_create_path, method: :post %>

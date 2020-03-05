@@ -9,9 +9,13 @@ class ChallengesController < ApplicationController
     elsif params[:category_id].present?
       # find the category
       category = Category.find(params[:category_id])
-      # find the challenge with that category
-      @challenges = Challenge.joins(:challenge_categories).where(challenge_categories: { category_id: category.id })
+      # find the actions whith that category
+      # @actions = Action.joins(:action_categories).where(action_categories: { category_id: category.id })
       # @challenge = Challenge.joins(:challenge_categories).where(challenge_categories: { category_id: 1 })
+      # find the challenge that has those actions
+      @challenges = category.actions.map do |action|
+        action.challenge
+      end.uniq
     else
       @challenges = Challenge.all
     end
