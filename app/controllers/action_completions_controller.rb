@@ -1,4 +1,5 @@
 class ActionCompletionsController < ApplicationController
+
   def create
     action = Action.find(params[:action_id])
     # my_challenge = act.challenge
@@ -7,12 +8,38 @@ class ActionCompletionsController < ApplicationController
 
     subs = ChallengeSubscription.joins(challenge: :actions)
       .find_by(challenge_subscriptions: { user_id: current_user.id }, actions: { id: action.id} )
-    @completed_action = ActionCompletion.new(challenge_subscription: subs, action: action)
+    @completed_action = ActionCompletion.create(challenge_subscription: subs, action: action)
 
     if @completed_action.save
+      update_user_categories(action)
       redirect_to user_path(current_user)
     else
       render '/dashboard'
     end
   end
+
+  def update_user_categories(action)
+    action.categories.each do |category|
+      user_category = current_user.user_categories.find_by(category: category)
+      new_impact = user_category.impact + action.impact
+      user_category.update(impact: new_impact)
+
+
+    end
+
+
+
+  end
+
+  # def notes(cs)
+
+  #   # check if user has more than 500 points
+  #     # check if user has the badge
+  #       # if no, create badge
+  #         # evaluate the action, find the category id
+  #         # insert aprams into new badge before dsaving:
+  #           # category, user id,
+  #       # if yes, do not create badge
+  #         # save action completed
+  # end
 end
