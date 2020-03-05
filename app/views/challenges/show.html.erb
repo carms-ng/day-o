@@ -1,12 +1,12 @@
 <h1><%= @challenge.name %></h1>
-<% @challenge.actions.each do |action| %>
   <ul>
-    <li>
-     <p><%=  action.title%></p>
-     <p>Description: <%=  action.description%></p>
-     <p>Impact: <%=  action.impact%>pts</p>
-
-    </li>
+    <% @challenge.actions.each do |action| %>
+      <li>
+       <p><%=  action.title%></p>
+       <p>Description: <%=  action.description%></p>
+       <p>Impact: <%=  action.impact%>pts</p>
+      </li>
+    <% end %>
   </ul>
 
-<% end %>
+<%= link_to 'Start Now', challenge_challenge_subscriptions_path(@challenge), method: :post %>

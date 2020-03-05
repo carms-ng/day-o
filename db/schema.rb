@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_03_05_185053) do
+
+# ActiveRecord::Schema.define(version: 2020_03_05_174110) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +28,17 @@ ActiveRecord::Schema.define(version: 2020_03_05_185053) do
     t.index ["challenge_subscription_id"], name: "index_action_completions_on_challenge_subscription_id"
   end
 
+  create_table "action_settings", force: :cascade do |t|
+    t.boolean "checked", default: false
+    t.boolean "habit", default: false
+    t.bigint "challenge_subscription_id"
+    t.bigint "action_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["action_id"], name: "index_action_settings_on_action_id"
+    t.index ["challenge_subscription_id"], name: "index_action_settings_on_challenge_subscription_id"
+  end
+
   create_table "actions", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -31,7 +46,6 @@ ActiveRecord::Schema.define(version: 2020_03_05_185053) do
     t.bigint "challenge_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "recurring", default: true
     t.index ["challenge_id"], name: "index_actions_on_challenge_id"
   end
 
@@ -83,6 +97,8 @@ ActiveRecord::Schema.define(version: 2020_03_05_185053) do
   end
 
   add_foreign_key "action_completions", "challenge_subscriptions"
+  add_foreign_key "action_settings", "actions"
+  add_foreign_key "action_settings", "challenge_subscriptions"
   add_foreign_key "actions", "challenges"
   add_foreign_key "challenge_categories", "categories"
   add_foreign_key "challenge_categories", "challenges"
