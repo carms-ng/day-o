@@ -1,5 +1,3 @@
-<h1>Categories</h1>
-
 <%= form_tag challenges_path, method: :get do %>
   <%= text_field_tag :search,
     params[:search],
@@ -8,22 +6,23 @@
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %> <br>
+<div class="search-container">
+  <p class="section-title">Browse by Top Challenges</p>
+  <div class="card-challenge">
+    <img src="https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583440769/icons/info_y68o5y.svg" class="info">
+    <h5>Top 10 - 7 days challenges</h5>
+    <p> 30 challenges</p>
+  </div>
 
-<p>Browse by Top Challenges</p>
-<div class="card-challenge">
-  <div><img src="https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583440769/icons/info_y68o5y.svg" class="info"></div>
-  <h5>Top 10 - 7 days challenges</h5>
-  <p> 30 challenges</p>
+  <div class="card-challenge">
+    <img src="https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583440769/icons/info_y68o5y.svg" class="info">
+    <h5>Top beginners challenge</h5>
+    <p> 15 challenges</p>
+  </div>
+
+  <!-- display each category as a link to the challenges -->
+  <p class="section-title">Browse by categories</p>
 </div>
-
-<div class="card-challenge">
-  <div><img src="https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583440769/icons/info_y68o5y.svg" class="info"></div>
-  <h5>Top 10 - 7 days challenges</h5>
-  <p> 30 challenges</p>
-</div>
-
-<!-- dispalay each category as a link to the challenges -->
-<p>Browse by categories</p>
 <div class="card-container-categories">
   <% @categories.each do |c|  %>
     <!-- in the path will be the categorie id instead -->
