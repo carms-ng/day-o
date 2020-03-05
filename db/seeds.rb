@@ -28,7 +28,7 @@ Action.create!(title: "Commute via Bike or Public Transit or walk",
               impact: 6000,
               challenge: nine_five)
 Action.create!(title: "Prep flexitarian meal for lunches",
-              description: 'Checkout this awesome app called "begun"!',
+              description: 'Checkout this awesome app called "began"!',
               impact: 1200,
               challenge: nine_five)
 Action.create!(title: "Switch off your electronics when you leave the office",

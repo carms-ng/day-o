@@ -22,14 +22,5 @@ class UsersController < ApplicationController
     @impact_week_hash = daily_impact
     @impact_today = @impact_week_hash[Date.today]
 
-
-    # if actions_today.empty?
-    #   @impact_today = 0
-    # else
-
-    # end
-    # charts.js
-    # actions_all_time = ActionCompletion.joins(challenge_subcription: :user).where(user: @user)
-
   end
 end
