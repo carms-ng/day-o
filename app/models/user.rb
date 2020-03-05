@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :challenge_subscriptions
   has_many :action_completions, through: :challenge_subscriptions
+  has_many :action_settings, through: :challenge_subscriptions
 end

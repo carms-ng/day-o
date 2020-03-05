@@ -1,6 +1,6 @@
-<h1>Challenge Subscription</h1>
+<h1>Dashboard</h1>
 
-<h2>All Challenges</h2>
+<h2>My Challenges</h2>
 
 <ul>
   <% current_user.challenge_subscriptions.each do |sub| %>
@@ -8,20 +8,35 @@
 
       <ul>
         <% sub.challenge.actions.each do |action| %>
-          <li><%= action.title %>
-            <span>
-              <%= link_to 'Done', action_action_completions_path(action), method: :post  %>
-            </span>
-
-          </li>
+          <% if !action.setting_for(current_user).habit %>
+            <li><%= action.title %>
+              <span>
+                <%= link_to 'Done', action_action_completions_path(action), method: :post  %>
+                <%= link_to 'Add to Habits', action_setting_path(action.setting_for(current_user)), method: :patch  %>
+              </span>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </li>
   <% end %>
 </ul>
 
+<!-- Phase 2: break it into 2 pages -->
+<h2>My Habits</h2>
+<ul>
 
+  <% @habits.each do |habit| %>
+    <li>
+      <%= habit.action.title %>
+      <span>
+        <%= link_to 'Remove from Habits', action_setting_path(habit), method: :patch %>
+      </span>
+    </li>
 
+  <% end %>
+
+</ul>
 
 
 

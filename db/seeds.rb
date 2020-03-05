@@ -149,6 +149,14 @@ gt      = Challenge.create!(name: 'Grow a green thumb', num_days: 100, difficult
 holiday = Challenge.create!(name: 'Holiday shopping hack', num_days: 3, difficulty: 1)
 # ActionCategory.create!(challenge: holiday, category: waste)
 
+# creating badges
+plastic_badge = Badge.new(name: 'Plastic')
+diet_badge = Badge.new(name: 'Diet')
+travel_badge = Badge.new(name: 'Travel')
+commute_badge = Badge.new(name: 'Commute')
+energy_badge = Badge.new(name: 'Energy')
+waste_badge = Badge.new(name: 'Waste')
+
 
 # user faker for now
 User.create!(username: 'nour', email: 'nour@day-o.cc', password: '123456', location: 'Montreal, Canada')
@@ -161,6 +169,14 @@ User.create!(username: 'carms', email: 'carms@day-o.cc', password: '123456', loc
               email: Faker::Internet.email,
               password: '123456',
               location: Faker::Address.country )
+end
+
+# creating earned badges
+
+10.times do
+  user = User.all.sample
+  badge = Badge.all.sample
+  EarnedBadge.create!(user: user, badge: badge)
 end
 
 puts 'completed'
