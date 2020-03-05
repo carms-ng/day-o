@@ -1,7 +1,10 @@
 class Action < ApplicationRecord
   belongs_to :challenge
-  has_many :action_completions
-  has_many :action_categories
+
+  has_many :action_completions, dependent: :destroy
+  has_many :action_categories, dependent: :destroy
+  has_many :action_settings, dependent: :destroy
+
   has_many :categories, through: :action_categories
   has_many :action_settings, dependent: :destroy
 

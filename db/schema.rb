@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_205537) do
+ActiveRecord::Schema.define(version: 2020_03_05_230138) do
+
+# ActiveRecord::Schema.define(version: 2020_03_05_205537) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +57,12 @@ ActiveRecord::Schema.define(version: 2020_03_05_205537) do
     t.index ["challenge_id"], name: "index_actions_on_challenge_id"
   end
 
+  create_table "badges", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -76,6 +85,25 @@ ActiveRecord::Schema.define(version: 2020_03_05_205537) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "difficulty"
+  end
+
+  create_table "earned_badges", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "badge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["badge_id"], name: "index_earned_badges_on_badge_id"
+    t.index ["user_id"], name: "index_earned_badges_on_user_id"
+  end
+
+  create_table "user_categories", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "category_id"
+    t.integer "impact"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_user_categories_on_category_id"
+    t.index ["user_id"], name: "index_user_categories_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -101,4 +129,8 @@ ActiveRecord::Schema.define(version: 2020_03_05_205537) do
   add_foreign_key "actions", "challenges"
   add_foreign_key "challenge_subscriptions", "challenges"
   add_foreign_key "challenge_subscriptions", "users"
+  add_foreign_key "earned_badges", "badges"
+  add_foreign_key "earned_badges", "users"
+  add_foreign_key "user_categories", "categories"
+  add_foreign_key "user_categories", "users"
 end
