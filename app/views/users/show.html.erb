@@ -1,10 +1,38 @@
-<div class="user-info">
-  <h1><%= @user.username.capitalize %></h1>
-  <h2><%= @user.location %></h2>
-</div><!-- add avatar -->
+<div class="profile-container">
+  <div id="user-info-card">
+    <!-- add avatar -->
+    <div id="avatar-container">
+      <% if @user.photo.present? %>
+        <%= image_tag @user.photo, class: "profile-avatar" %>
+      <% else %>
+        <%= image_tag "user.png", class: "profile-avatar" %>
+      <% end %>
+    </div>
+    <!--name & location -->
+    <div id="user-info">
+      <h1><%= @user.username.capitalize %></h1>
+      <h2><%= @user.location %></h2>
+    </div>
+  </div>
+</div>
 
 <!-- Badge Collection -->
+<div id="badges-container">
+  <div class="badges">
+      <img class="badge" src="https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583438643/icons/plastic_1_vhcmqa.svg">
+      <%= image_tag "solar-energy.svg", class: "profile-badge" %>
+      <%= image_tag "aircraft.svg", class: "profile-badge" %>
+      <%= image_tag "bike (1).svg", class: "profile-badge" %>
+      <%= image_tag "fruit_black.svg", class: "profile-badge" %>
+      <%= image_tag "jar (2).svg", class: "profile-badge" %>
+  </div>
+</div>
 
 <!-- Progress -->
 <p>Today's Impact: <%= @impact_today %></p>
-<p>Weekly Impact: <%= @impact_week_hash %></p>
+
+<!--Weekly impact -->
+<p>Weekly Impact:</p>
+<canvas  data-impact="<%= @impact_week_hash.to_json %>"id="weekChart" width="400" height="400"></canvas>
+
+<!--Life impact -->
