@@ -67,7 +67,6 @@ local_diet = Action.create!(title: "Look up Local Farmer's Market / Bulk Store",
 grocery_diet = Action.create!(title: 'Grocery Shop: Replace 1 Meat with 1 plant-based protein',
               description: "######",
               impact: 1200,
-              recurring: false,
               challenge: starter)
 repair_waste = Action.create!(title: 'Repair Something Broken, instead of buying new',
               description: "Reach out to somebody in your community that can teach you it to fix it?",
@@ -87,27 +86,22 @@ activism = Challenge.create!(name: 'Enviro Activism 101', num_days: 5, difficult
 Action.create!(title: 'Watch a documentary. How about "Cowspiracy"?',
               description: "######",
               impact: 0,
-              recurring: false,
               challenge: activism)
 Action.create!(title: 'Have a conversation with your stranger about Sustainability',
               description: "######",
               impact: 0,
-              recurring: false,
               challenge: activism)
 Action.create!(title: 'Check out a local environmental group / organizing',
               description: "######",
               impact: 0,
-              recurring: false,
               challenge: activism)
 Action.create!(title: 'Be in solidarity with the Indigenous Community in your land',
               description: "######",
               impact: 0,
-              recurring: false,
               challenge: activism)
 Action.create!(title: 'Renew your commitment <3',
               description: "######",
               impact: 0,
-              recurring: false,
               challenge: activism)
 
 # Challenge to fill the page
