@@ -18,4 +18,5 @@ Rails.application.routes.draw do
     resources :action_completions, only: [:create]
   end
 
+  resources :action_settings, only: [:update]
 end

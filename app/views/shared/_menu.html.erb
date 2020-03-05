@@ -1,13 +1,26 @@
-<h1>menu</h1>
+<div class="menu-container">
+  <div class="menu">
+    <ul class="icons">
+      <%= link_to root_path do %>
+        <span class="iconify" data-icon="mdi-light:home" data-inline="false"></span>
+      <% end %>
 
-<ul>
-  <li>
-    <%= link_to 'Home', root_path %>
-  </li>
-  <li><%= link_to 'Dashboard', dashboard_path %></li>
-  <li>
-    <%= link_to 'Search', categories_path %>
-  </li>
-  <li>request</li>
-  <li><%= link_to 'Profile', user_path(current_user) %></li>
-</ul>
+      <%= link_to dashboard_path do %>
+        <span class="iconify" data-icon="mdi-light:format-list-checks" data-inline="false"></span>
+      <% end %>
+
+        <%= link_to categories_path do %>
+          <span class="iconify" data-icon="ei:search" data-inline="false"></span>
+        <% end %>
+
+        <span class="iconify" data-icon="ei:bell" data-inline="false"></span>
+
+      <%  if current_user %>
+        <%= link_to user_path(current_user.id) do %>
+          <span class="iconify" data-icon="ei:user" data-inline="false"></span>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
