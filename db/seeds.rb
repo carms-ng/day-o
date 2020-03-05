@@ -12,12 +12,12 @@ Challenge.destroy_all
 User.destroy_all
 
 # Categories
-plastic = Category.create!(name: 'Plastic')
-diet    = Category.create!(name: 'Diet')
-travel  = Category.create!(name: 'Travel')
-commute = Category.create!(name: 'Commute')
-energy  = Category.create!(name: 'Energy')
-waste   = Category.create!(name: 'Waste')
+plastic = Category.create!(name: 'Plastic', icon: "https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583438643/icons/plastic_1_vhcmqa.svg")
+diet    = Category.create!(name: 'Diet', icon: "https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583438643/icons/healthy-food_kopxt4.svg")
+travel  = Category.create!(name: 'Travel', icon: "https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583438641/icons/aircraft_qx4lui.svg")
+commute = Category.create!(name: 'Commute', icon: "https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583438877/icons/bike_1_osxcrs.svg")
+energy  = Category.create!(name: 'Energy', icon: "https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583438643/icons/solar-energy_xqk7oo.svg")
+waste   = Category.create!(name: 'Waste', icon: "https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583438643/icons/jar_2_evcvpa.svg")
 
 # Challenge to show in detail
 nine_five = Challenge.create!(name: '9-fivers', num_days: 5, difficulty: 1)
@@ -74,7 +74,6 @@ repair_waste = Action.create!(title: 'Repair Something Broken, instead of buying
               description: "Reach out to somebody in your community that can teach you it to fix it?",
               impact: 500,
               challenge: starter)
-
 
 ActionCategory.create!(action: bottle_plastic, category: plastic)
 ActionCategory.create!(action: tupperware_plastic, category: plastic)

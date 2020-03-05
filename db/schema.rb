@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_03_05_230138) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "icon"
   end
 
   create_table "challenge_subscriptions", force: :cascade do |t|
@@ -112,6 +113,7 @@ ActiveRecord::Schema.define(version: 2020_03_05_230138) do
     t.datetime "updated_at", null: false
     t.string "username"
     t.string "location"
+    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

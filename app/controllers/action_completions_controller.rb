@@ -42,4 +42,11 @@ class ActionCompletionsController < ApplicationController
   #       # if yes, do not create badge
   #         # save action completed
   # end
+
+  def mass_create
+    current_user.action_settings.where(checked: true, habit: true).each do |setting|
+      ActionCompletion.create(action: setting.action, challenge_subscription: setting.challenge_subscription)
+    end
+    redirect_to user_path(current_user)
+  end
 end

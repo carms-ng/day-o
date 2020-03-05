@@ -1,0 +1,52 @@
+
+<!-- container? -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h1>Habits</h1>
+      <div class="cards-habits">
+
+        <% (@habits.sort_by { |obj| obj.created_at }).each do |habit| %>
+          <div class="card-habit">
+            <div class="info-habit">
+              <h3><%= habit.action.title %></h3>
+              <p>Impact:<%= habit.action.impact %>g CO2</p>
+            </div>
+            <div class="check-habit">
+              <% if habit.done_today? %>
+                <i id='done-icon' class="fas fa-check-circle"></i>
+                <p id='done'>DONE</p>
+              <% else %>
+                <%= link_to update_check_action_setting_path(habit), method: :patch do %>
+                  <% if habit.checked %>
+                    <i class="fas fa-check-circle"></i>
+                  <% else %>
+                    <i class="far fa-circle"></i>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+
+            <!-- dropdown -->
+            <div class="dropdown">
+              <a href="#" data-toggle="dropdown"><i class="fas fa-ellipsis-v"></i></a>
+              <div class="dropdown-menu">
+                  <%= link_to 'Done', action_action_completions_path(habit.action), method: :post, class: 'dropdown-item' %>
+                  <%= link_to 'Remove', action_setting_path(habit), method: :patch, class: 'dropdown-item' %>
+              </div>
+            </div>
+
+          </div>
+
+        <% end %>
+      </div>
+
+      <%= link_to 'BIG-DONE', action_completions_mass_create_path, method: :post %>
+
+
+    </div>
+  </div>
+
+</div>
+
