@@ -9,5 +9,4 @@ class ActionSetting < ApplicationRecord
   def toggle_checked!
     self.checked = !self.checked
   end
-
 end
