@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_032632) do
+ActiveRecord::Schema.define(version: 2020_03_05_172348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "action_categories", force: :cascade do |t|
+    t.bigint "action_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["action_id"], name: "index_action_categories_on_action_id"
+    t.index ["category_id"], name: "index_action_categories_on_category_id"
+  end
 
   create_table "action_completions", force: :cascade do |t|
     t.bigint "challenge_subscription_id"
@@ -39,15 +48,6 @@ ActiveRecord::Schema.define(version: 2020_03_04_032632) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "challenge_categories", force: :cascade do |t|
-    t.bigint "challenge_id"
-    t.bigint "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_challenge_categories_on_category_id"
-    t.index ["challenge_id"], name: "index_challenge_categories_on_challenge_id"
   end
 
   create_table "challenge_subscriptions", force: :cascade do |t|
@@ -81,10 +81,10 @@ ActiveRecord::Schema.define(version: 2020_03_04_032632) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "action_categories", "actions"
+  add_foreign_key "action_categories", "categories"
   add_foreign_key "action_completions", "challenge_subscriptions"
   add_foreign_key "actions", "challenges"
-  add_foreign_key "challenge_categories", "categories"
-  add_foreign_key "challenge_categories", "challenges"
   add_foreign_key "challenge_subscriptions", "challenges"
   add_foreign_key "challenge_subscriptions", "users"
 end
