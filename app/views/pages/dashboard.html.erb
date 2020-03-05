@@ -1,0 +1,27 @@
+<h1>Challenge Subscription</h1>
+
+<h2>All Challenges</h2>
+
+<ul>
+  <% current_user.challenge_subscriptions.each do |sub| %>
+    <li><%= link_to sub.challenge.name, challenge_path(sub.challenge) %>
+
+      <ul>
+        <% sub.challenge.actions.each do |action| %>
+          <li><%= action.title %>
+            <span>
+              <%= link_to 'Done', action_action_completions_path(action), method: :post  %>
+            </span>
+
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
+
+
+
+
+
+
