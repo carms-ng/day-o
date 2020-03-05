@@ -1,0 +1,68 @@
+.card-categories {
+  box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
+  border-radius: 10px;
+  width: 137px;
+  height: 137px;
+  text-align: center;
+  color: white;
+  margin-left: 22px;
+  font-family: Nunito;
+  padding-top: 30px;
+}
+
+.card-container-categories {
+  padding: 2px 16px;
+  justify-content: center;
+  display: flex;
+  justify-content: space-between;
+  overflow-x: scroll;
+  width: 400px;
+}
+
+.card-challenge {
+  box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  width: 360px;
+  height: 137px;
+  margin-bottom: 15px;
+  color: $dark-green;
+  font-family: Nunito;
+  text-align: center;
+  padding-top: 40px;
+
+  h5 {
+    font-weight: bold;
+  }
+}
+
+.info {
+  width: 25px;
+  height: 25px;
+}
+
+#card-category-plastic {
+  background-color: #f4934e;
+}
+
+#card-category-diet {
+  background-color: #d69262;
+}
+
+#card-category-travel {
+  background-color: #C9631A;
+}
+
+#card-category-commute {
+  background-color: #FB7429;
+}
+
+#card-category-energy {
+  background-color: #c6804d;
+}
+
+#card-category-waste {
+  background-color: #FFB672;
+}
+
+
