@@ -3,6 +3,8 @@ require 'faker'
 puts 'seeding'
 
 #clear db
+EarnedBadge.destroy_all
+Badge.destroy_all
 ActionCategory.destroy_all
 Category.destroy_all
 Action.destroy_all
@@ -149,6 +151,7 @@ holiday = Challenge.create!(name: 'Holiday shopping hack', num_days: 3, difficul
 # ActionCategory.create!(challenge: holiday, category: waste)
 
 
+
 # user faker for now
 User.create!(username: 'nour', email: 'nour@day-o.cc', password: '123456', location: 'Montreal, Canada')
 User.create!(username: 'laurence', email: 'laurence@day-o.cc', password: '123456', location: 'Montreal, Canada')
@@ -160,6 +163,21 @@ User.create!(username: 'carms', email: 'carms@day-o.cc', password: '123456', loc
               email: Faker::Internet.email,
               password: '123456',
               location: Faker::Address.country )
+end
+
+# creating badges
+plastic_badge = Badge.create!(name: 'Plastic')
+diet_badge = Badge.create!(name: 'Diet')
+travel_badge = Badge.create!(name: 'Travel')
+commute_badge = Badge.create!(name: 'Commute')
+energy_badge = Badge.create!(name: 'Energy')
+waste_badge = Badge.create!(name: 'Waste')
+
+# creating earned badges
+10. times do
+  user = User.all.sample
+  badge = Badge.all.sample
+  EarnedBadge.create!(user: user, badge: badge)
 end
 
 puts 'completed'
