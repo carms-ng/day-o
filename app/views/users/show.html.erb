@@ -1,38 +1,76 @@
-<div class="profile-container">
-  <div id="user-info-card">
-    <!-- add avatar -->
-    <div id="avatar-container">
-      <% if @user.photo.present? %>
-        <%= image_tag @user.photo, class: "profile-avatar" %>
-      <% else %>
-        <%= image_tag "user.png", class: "profile-avatar" %>
-      <% end %>
-    </div>
-    <!--name & location -->
-    <div id="user-info">
-      <h1><%= @user.username.capitalize %></h1>
-      <h2><%= @user.location %></h2>
-    </div>
+
+  <!-- Profile Row -->
+<div id="user-info-card">
+  <!-- add avatar -->
+  <div id="avatar-container">
+    <% if @user.photo.present? %>
+      <%= image_tag @user.photo, class: "profile-avatar" %>
+    <% else %>
+      <%= image_tag "user.png", class: "profile-avatar" %>
+    <% end %>
+  </div>
+  <!--name & location -->
+  <div id="user-info">
+    <h1><%= @user.username.capitalize %></h1>
+    <h2><%= @user.location %></h2>
   </div>
 </div>
+
 
 <!-- Badge Collection -->
 <div id="badges-container">
   <div class="badges">
-      <img class="badge" src="https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583438643/icons/plastic_1_vhcmqa.svg">
-      <%= image_tag "solar-energy.svg", class: "profile-badge" %>
-      <%= image_tag "aircraft.svg", class: "profile-badge" %>
-      <%= image_tag "bike (1).svg", class: "profile-badge" %>
-      <%= image_tag "fruit_black.svg", class: "profile-badge" %>
-      <%= image_tag "jar (2).svg", class: "profile-badge" %>
+    <div class="badge-header">
+      <h5>Badges Collection</h5>
+    </div>
+    <div class="badge-list">
+      <ul>
+        <%= image_tag "plastic_black.svg", class: "profile-badge" %>
+        <%= image_tag "solar-energy_black.svg", class: "profile-badge" %>
+        <%= image_tag "aircraft_black.svg", class: "profile-badge" %>
+        <%= image_tag "bike_black.svg", class: "profile-badge" %>
+        <%= image_tag "fruit_black.svg", class: "profile-badge" %>
+        <%= image_tag "jar_black.svg", class: "profile-badge" %>
+      </ul>
+    </div>
   </div>
 </div>
 
-<!-- Progress -->
-<p>Today's Impact: <%= @impact_today %></p>
 
-<!--Weekly impact -->
-<p>Weekly Impact:</p>
-<canvas  data-impact="<%= @impact_week_hash.to_json %>"id="weekChart" width="400" height="400"></canvas>
+<!-- Today score -->
+<div class="daily-score">
+  <h5>Today's Impact: </h5><p><%= @impact_today %></p>
+</div>
 
-<!--Life impact -->
+<!-- Impact Charts -->
+<div class="impact-charts-container">
+  <!--Weekly impact -->
+  <div class="weekly-impact">
+    <p>Weekly Impact:</p>
+    <canvas  data-impact="<%= @impact_week_hash.to_json %>" id="weekChart" width="175" height="218"></canvas>
+  </div>
+
+  <!--Life impact -->
+  <div class="life-impact">
+    <p>Overall Impact:</p>
+    <canvas id="lifeChart" width="400" height="400"></canvas>
+
+  </div>
+</div>
+
+
+<!--CO2 stats -->
+<div class="CO2-comparison">
+  <!--User Average -->
+  <div class="user-average-CO2">
+    <h6>Your average CO2:</h6>
+    <h5>67%</h5>
+  </div>
+  <!-- break line -->
+  <div class="vl"></div>
+  <!-- Neighborhood Average -->
+  <div class="neighborhood-average-CO2">
+    <h6>Neighborhood  CO2:</h6>
+    <h5>71%</h5>
+  </div>
+</div>

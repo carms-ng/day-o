@@ -3,11 +3,14 @@ import "bootstrap";
 import Chart from 'chart.js';
 
 const ctx = document.getElementById('weekChart');
+const ctxLifeChart = document.getElementById('lifeChart');
+
 
 const data = JSON.parse(ctx.dataset.impact)
 
 console.log(data)
 
+// Week Chart
 const xAxis = Object.keys(data);
 const yAxis = Object.values(data);
 console.log(xAxis);
@@ -53,3 +56,32 @@ const weekChart = new Chart(ctx, {
         }
     }
 });
+
+// Life Chart
+
+// For a pie chart
+
+var dataLifeChart = {
+    datasets: [{
+        data: [10, 20, 30],
+        backgroundColor: [
+            'red',
+            '#3F4C29',
+            'blue'
+        ]
+    }],
+
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+    labels: [
+        'Plastic',
+        'Commute',
+        'Food'
+    ]
+};
+
+var lifeChart = new Chart(ctxLifeChart, {
+    type: 'pie',
+    data: dataLifeChart
+    //options: options
+});
+

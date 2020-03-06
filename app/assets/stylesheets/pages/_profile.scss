@@ -42,3 +42,84 @@
   height: 120px;
   text-align: center;
 }
+
+.impact-charts-container {
+  display: flex;
+  justify-content: center;
+}
+
+.daily-score {
+  display: flex;
+  width: 360px;
+  height: 56px;
+  margin: 0 auto;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 0px 40px 0px 40px;
+  background: $white;
+  border-radius: 5px;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    margin-bottom: 0px;
+    font-weight: 400px;
+    color: $darkest-green;
+    font-size: 18px;
+  }
+
+  h5 {
+    margin-bottom: 0px;
+    font-weight: 700px;
+    color: $darkest-green;
+  }
+}
+
+.CO2-comparison {
+  width: 360px;
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  background: $white;
+  border-radius: 5px;
+  margin-top: 8px;
+}
+
+.user-average-CO2 {
+  width: 175px;
+  text-align: center;
+  color: $darkest-green;
+  h5 {
+    margin-bottom: 0px;
+    font-weight: 300px;
+  }
+
+  h6 {
+    margin-bottom: 0px;
+    font-weight: 600px;
+  }
+}
+
+.vl {
+  border-left: 1px solid $darkest-green;
+  height: 47px;
+  vertical-align: middle;
+}
+
+.neighborhood-average-CO2 {
+  width: 175px;
+  text-align: center;
+  color: $darkest-green;
+  h5 {
+    margin-bottom: 0px;
+    font-weight: 300px;
+  }
+
+  h6 {
+    margin-bottom: 0px;
+    font-weight: 600px;
+  }
+}
