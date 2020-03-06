@@ -1,20 +1,52 @@
 class ActionCompletionsController < ApplicationController
+
   def create
-    act = Action.find(params[:action_id])
-    my_challenge = act.challenge
-    cs = ChallengeSubscription.where(challenge_id: my_challenge.id, user_id: current_user.id)
-    @ac = ActionCompletion.new(challenge_subscription: cs[0], action: action)
+    action = Action.find(params[:action_id])
+    # my_challenge = act.challenge
+    # cs = ChallengeSubscription.where(challenge_id: my_challenge.id, user_id: current_user.id)
+    # @ac = ActionCompletion.new(challenge_subscription: cs[0], action: action)
 
-    # subs = ChallengeSubscription.joins(:challenge, :action)
-    #   .where(challenge_subscriptions: { user_id: current_user.id }, actions: { id: action.id} )
-    # @completed_action = ActionCompletion.new(challenge_subscription: subs[0], action: action)
+    subs = ChallengeSubscription.joins(challenge: :actions)
+      .find_by(challenge_subscriptions: { user_id: current_user.id }, actions: { id: action.id} )
+    @completed_action = ActionCompletion.create(challenge_subscription: subs, action: action)
 
-    if @ac.save
+    if @completed_action.save
+      update_user_categories(action)
       redirect_to user_path(current_user)
     else
       render '/dashboard'
     end
   end
-end
 
-    # @reviews_received = Review.joins(booking: :service).where(services: { user_id: @user.id })
+  def update_user_categories(action)
+    action.categories.each do |category|
+      user_category = current_user.user_categories.find_by(category: category)
+      new_impact = user_category.impact + action.impact
+      user_category.update(impact: new_impact)
+
+
+    end
+
+
+
+  end
+
+  # def notes(cs)
+
+  #   # check if user has more than 500 points
+  #     # check if user has the badge
+  #       # if no, create badge
+  #         # evaluate the action, find the category id
+  #         # insert aprams into new badge before dsaving:
+  #           # category, user id,
+  #       # if yes, do not create badge
+  #         # save action completed
+  # end
+
+  def mass_create
+    current_user.action_settings.where(checked: true, habit: true).each do |setting|
+      ActionCompletion.create(action: setting.action, challenge_subscription: setting.challenge_subscription)
+    end
+    redirect_to user_path(current_user)
+  end
+end

@@ -1,0 +1,33 @@
+.menu-container {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 26px;
+}
+.menu {
+  display: flex;
+  margin: 0 auto;
+  width: 368px;
+  height: 47px;
+  background: $white;
+  border-radius: 16px;
+  box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
+  justify-content: center;
+  align-items: center;
+}
+
+.iconify {
+  width: 37px;
+  height: 37px;
+  color: $black;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.icons {
+  padding-inline-start: 0px;
+  margin-bottom: 0px;
+}
