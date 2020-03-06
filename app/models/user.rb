@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :badges, through: :earned_badges
 
   has_many :user_categories, dependent: :destroy
-  has_many :categories, dependent: :destroy
+  has_many :categories, through: :user_categories
 
   after_create :initialize_user_categories
 
