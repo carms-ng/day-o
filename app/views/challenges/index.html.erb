@@ -1,4 +1,4 @@
-<h2>Category: Diet </h2> <br>
+<h4>Top beginner challenges </h4> <br>
 
 <% @challenges.each do |challenge| %>
     <!-- this should be a pop-up but I redirected to challenges_all just to test it -nour -->
@@ -8,9 +8,10 @@
           <h5><%= challenge.name %></h5>
           <p class="no-days">Duration: <%= challenge.num_days %> days</p>
           <p class="difficulty">Difficulty: <%= challenge.difficulty %></p>
-          <img src= "https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583438643/icons/plastic_1_vhcmqa.svg" class="small-icons">
-          <img src= "https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583438643/icons/healthy-food_kopxt4.svg" class="small-icons">
-          <img src= "https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583438643/icons/solar-energy_xqk7oo.svg" class="small-icons">
+          <div class="icons-place">
+            <%= image_tag("solar-energy_black.svg", class:"small-icons")%>
+            <%= image_tag("fruit_black.svg", class:"small-icons")%>
+          </div>
         </div>
       </div>
       <% end %>
