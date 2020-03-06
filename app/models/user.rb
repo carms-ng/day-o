@@ -5,10 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :challenge_subscriptions
   has_many :action_completions, through: :challenge_subscriptions
+
   has_many :action_settings, through: :challenge_subscriptions
+
   has_many :earned_badges, dependent: :destroy
   has_many :badges, through: :earned_badges
+
   has_many :user_categories, dependent: :destroy
+  has_many :categories, through: :user_categories
 
   after_create :initialize_user_categories
 

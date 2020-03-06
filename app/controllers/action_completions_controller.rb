@@ -21,12 +21,17 @@ class ActionCompletionsController < ApplicationController
   def update_user_categories(action)
     action.categories.each do |category|
       user_category = current_user.user_categories.find_by(category: category)
+
       new_impact = user_category.impact + action.impact
       user_category.update(impact: new_impact)
 
-
+      category_points_added = user_category.category.name
+      badge_category = current_user.earned_badges.first.badge.name
+      if user_category.impact > 500 && badge_category != category_points_added
+        badge = Badge.create!(name: category_points_added)
+        @new_badge = EarnedBadge.create!(user: current_user, badge: badge)
+      end
     end
-
 
 
   end
