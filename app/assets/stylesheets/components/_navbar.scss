@@ -1,3 +1,26 @@
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $turquoise;
+  width: 100%;
+  border-radius: 0px 0px 8px 8px;
+  color: white;
+  padding: 20px;
+
+  h1 {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    margin-bottom: 0px;
+  }
+
+  i {
+    color: white;
+  }
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;

@@ -16,11 +16,10 @@ class UsersController < ApplicationController
     daily_impact = ((Date.today - 7)..Date.today).to_a.map { |day| [ day, 0 ] }.to_h
 
     actions_week.each do |action|
-      daily_impact[action.created_at.to_date] += action.impact
+      daily_impact[action.created_at.in_time_zone('Eastern Time (US & Canada)').to_date] += action.impact
     end
 
     @impact_week_hash = daily_impact
     @impact_today = @impact_week_hash[Date.today]
-
   end
 end

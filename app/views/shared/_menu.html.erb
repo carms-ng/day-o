@@ -13,7 +13,11 @@
           <span class="iconify" data-icon="ei:search" data-inline="false"></span>
         <% end %>
 
-        <span class="iconify" data-icon="ei:bell" data-inline="false"></span>
+        <%= link_to habit_path do %>
+          <span class="iconify" data-icon="bpmn:loop-marker" data-inline="false"></span>
+        <% end %>
+
+        <!-- <span class="iconify" data-icon="ei:bell" data-inline="false"></span> -->
 
       <%  if current_user %>
         <%= link_to user_path(current_user.id) do %>
