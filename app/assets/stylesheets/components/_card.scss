@@ -112,6 +112,7 @@ h4 {
   padding: 30px;
   border-radius: 8px;
   position: relative;
+  box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
 
   h2 {
     font-weight: bold;
@@ -154,3 +155,39 @@ h4 {
   color: $green;
 }
 
+.card-habit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  margin: 20px;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
+
+  .options-habit {
+    display: flex;
+  }
+
+  h3 {
+    font-size: 16px;
+    color: $black;
+    margin-bottom: 0px;
+  }
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+#three-dots {
+  margin-left: 10px;
+  color: lightgray;
+}
+
+#three-dots:hover {
+  color: $black;
+}
+
+#done {
+  color: $green;
+}
