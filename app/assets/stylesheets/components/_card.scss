@@ -63,19 +63,24 @@
 }
 
 .small-icons {
-  width: 25px;
-  height: 25px;
+  width: 31px;
+  height: 31px;
   border-radius: 5px;
-  padding: 2px;
-  background-color: #5E7B7D;
+  padding: 3px;
+  background-color: #DDE8CB;
 }
 
-h2 {
+h4 {
   font-family: Nunito;
   font-weight: bold;
   color: #5e7b7d;
 }
 
+.icons-place {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
 
 #card-category-plastic {
   background-color: #f4934e;
