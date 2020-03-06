@@ -23,7 +23,7 @@ class ActionCompletionsController < ApplicationController
       user_category = current_user.user_categories.find_by(category: category)
       new_impact = user_category.impact + action.impact
       user_category.update(impact: new_impact)
-
+      raise
 
     end
 
