@@ -11,12 +11,28 @@ class ActionCompletionsController < ApplicationController
     @completed_action = ActionCompletion.create(challenge_subscription: subs, action: action)
 
     if @completed_action.save
-      update_user_categories(action)
-      redirect_to user_path(current_user)
+      as = @completed_action.challenge_subscription.action_settings.find_by(action: action)
+      if as.habit
+        redirect_to habit_path
+      else
+      # update_user_categories(action)
+        redirect_to dashboard_path
+        flash[:notice] = "Checked! Wanna make it a habit?"
+      end
     else
       render '/dashboard'
     end
   end
+
+  def mass_create
+    current_user.action_settings.where(checked: true, habit: true).each do |setting|
+      ActionCompletion.create(action: setting.action, challenge_subscription: setting.challenge_subscription)
+    end
+    redirect_to habit_path
+    flash[:notice] = "Sweetttt!"
+  end
+
+  private
 
   def update_user_categories(action)
     action.categories.each do |category|
@@ -36,22 +52,4 @@ class ActionCompletionsController < ApplicationController
 
   end
 
-  # def notes(cs)
-
-  #   # check if user has more than 500 points
-  #     # check if user has the badge
-  #       # if no, create badge
-  #         # evaluate the action, find the category id
-  #         # insert aprams into new badge before dsaving:
-  #           # category, user id,
-  #       # if yes, do not create badge
-  #         # save action completed
-  # end
-
-  def mass_create
-    current_user.action_settings.where(checked: true, habit: true).each do |setting|
-      ActionCompletion.create(action: setting.action, challenge_subscription: setting.challenge_subscription)
-    end
-    redirect_to user_path(current_user)
-  end
 end

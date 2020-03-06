@@ -21,32 +21,21 @@ const weekChart = new Chart(ctx, {
     data: {
         labels: xAxis,
         datasets: [{
-            label: 'Weekly Impact',
+            label: "",
             data: yAxis,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
+                '#7F915E',
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
+                '#7F915E',
             ],
             borderWidth: 1
         }]
     },
     options: {
+      legend: {
+            display: false,
+        },
         scales: {
             yAxes: [{
                 ticks: {
@@ -57,17 +46,21 @@ const weekChart = new Chart(ctx, {
     }
 });
 
+
 // Life Chart
 
 // For a pie chart
 
 var dataLifeChart = {
     datasets: [{
-        data: [10, 20, 30],
+        data: [10, 20, 30, 50, 60, 90],
         backgroundColor: [
-            'red',
-            '#3F4C29',
-            'blue'
+            '#09A66D',
+            '#FB7429',
+            '#43CCE5',
+            '#ECD0B4',
+            '#94514C',
+            '#B29DC8'
         ]
     }],
 
@@ -75,13 +68,23 @@ var dataLifeChart = {
     labels: [
         'Plastic',
         'Commute',
-        'Food'
+        'Food',
+        'Energy',
+        'Travel',
+        'Diet'
     ]
 };
 
 var lifeChart = new Chart(ctxLifeChart, {
     type: 'pie',
-    data: dataLifeChart
+    data: dataLifeChart,
+    options: {
+      legend: {
+        labels: {
+          usePointStyle: true,
+        }
+    },
+  }
     //options: options
 });
 

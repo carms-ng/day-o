@@ -1,29 +1,84 @@
-<div class="menu-container">
-  <div class="menu">
-    <ul class="icons">
-      <%= link_to root_path do %>
-        <span class="iconify" data-icon="mdi-light:home" data-inline="false"></span>
-      <% end %>
-
-      <%= link_to dashboard_path do %>
-        <span class="iconify" data-icon="mdi-light:format-list-checks" data-inline="false"></span>
-      <% end %>
-
-        <%= link_to categories_path do %>
-          <span class="iconify" data-icon="ei:search" data-inline="false"></span>
+<% if controller_name == "pages" && action_name == "habit" %>
+  <div class="menu-container">
+    <div class="menu menu-habit">
+      <div class="menu-habit-section">
+        <div class="menu-habit-progress">
+          <p>Good stuff!!</p>
+<!--           <div class="progress" style="height: 8px;">
+            <div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 20%"></div>
+            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 10%"></div>
+          </div> -->
+        </div>
+        <% if @can_mass_create %>
+          <%= link_to action_completions_mass_create_path, method: :post do %>
+            <i id='checkable' class="fas fa-check-circle"></i>
+          <% end %>
+        <% else %>
+            <i id='uncheckable' class="fas fa-check-circle"></i>
         <% end %>
 
-        <%= link_to habit_path do %>
-          <span class="iconify" data-icon="bpmn:loop-marker" data-inline="false"></span>
+
+      </div>
+      <hr style= "width: 90%; text-align: center;">
+      <ul class="icons">
+        <%= link_to root_path do %>
+          <span class="iconify" data-icon="mdi-light:home" data-inline="false"></span>
         <% end %>
 
-        <!-- <span class="iconify" data-icon="ei:bell" data-inline="false"></span> -->
-
-      <%  if current_user %>
-        <%= link_to user_path(current_user.id) do %>
-          <span class="iconify" data-icon="ei:user" data-inline="false"></span>
+        <%= link_to dashboard_path do %>
+          <span class="iconify" data-icon="mdi-light:format-list-checks" data-inline="false"></span>
         <% end %>
-      <% end %>
-    </ul>
+
+          <%= link_to categories_path do %>
+            <span class="iconify" data-icon="ei:search" data-inline="false"></span>
+          <% end %>
+
+          <%= link_to habit_path do %>
+            <span class="iconify" data-icon="cil:calendar-check" data-inline="false"></span>
+          <% end %>
+
+          <!-- <span class="iconify" data-icon="ei:bell" data-inline="false"></span> -->
+
+        <%  if current_user %>
+          <%= link_to user_path(current_user.id) do %>
+            <span class="iconify" data-icon="ei:user" data-inline="false"></span>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
   </div>
-</div>
+
+<% else %>
+
+  <div class="menu-container">
+    <div class="menu">
+      <ul class="icons">
+        <%= link_to root_path do %>
+          <span class="iconify" data-icon="mdi-light:home" data-inline="false"></span>
+        <% end %>
+
+        <%= link_to dashboard_path do %>
+          <span class="iconify" data-icon="mdi-light:format-list-checks" data-inline="false"></span>
+        <% end %>
+
+          <%= link_to categories_path do %>
+            <span class="iconify" data-icon="ei:search" data-inline="false"></span>
+          <% end %>
+
+          <%= link_to habit_path do %>
+            <span class="iconify" data-icon="bpmn:loop-marker" data-inline="false"></span>
+          <% end %>
+
+          <!-- <span class="iconify" data-icon="ei:bell" data-inline="false"></span> -->
+
+        <%  if current_user %>
+          <%= link_to user_path(current_user.id) do %>
+            <span class="iconify" data-icon="ei:user" data-inline="false"></span>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+<% end %>
+
