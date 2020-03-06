@@ -11,12 +11,14 @@ class ActionCompletionsController < ApplicationController
     @completed_action = ActionCompletion.create(challenge_subscription: subs, action: action)
 
     if @completed_action.save
-      update_user_categories(action)
+      # update_user_categories(action)
       redirect_to user_path(current_user)
     else
       render '/dashboard'
     end
   end
+
+  private
 
   def update_user_categories(action)
     action.categories.each do |category|
