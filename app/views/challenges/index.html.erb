@@ -1,13 +1,17 @@
-<h1>Challenges#index</h1>
-<p>Find me in app/views/challenges/index.html.erb</p>
+<h2>Category: Diet </h2> <br>
 
 <% @challenges.each do |challenge| %>
-  <ul>
-    <li>
     <!-- this should be a pop-up but I redirected to challenges_all just to test it -nour -->
       <%= link_to challenge_path(challenge.id) do %>
-        <p><%= challenge.name %> days: <%= challenge.num_days %>  Difficulty= <%= challenge.difficulty %></p>
+      <div class="card-challenge">
+        <div>
+          <h5><%= challenge.name %></h5>
+          <p class="no-days">Duration: <%= challenge.num_days %> days</p>
+          <p class="difficulty">Difficulty: <%= challenge.difficulty %></p>
+          <img src= "https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583438643/icons/plastic_1_vhcmqa.svg" class="small-icons">
+          <img src= "https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583438643/icons/healthy-food_kopxt4.svg" class="small-icons">
+          <img src= "https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583438643/icons/solar-energy_xqk7oo.svg" class="small-icons">
+        </div>
+      </div>
       <% end %>
-    </li>
-  </ul>
 <% end %>
