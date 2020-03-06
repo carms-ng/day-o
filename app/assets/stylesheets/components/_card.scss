@@ -76,7 +76,7 @@
 .card-sub {
   background-color: white;
   margin: 20px;
-  padding: 10px;
+  padding: 30px;
   border-radius: 8px;
   position: relative;
 
@@ -111,6 +111,7 @@
     font-size: 30px;
     color: lightgray;
   }
+
   i:hover {
     color: $green;
   }

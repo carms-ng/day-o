@@ -8,6 +8,9 @@ class ChallengeSubscription < ApplicationRecord
     (self.action_completions.map { |ac| ac.action }).uniq.count
   end
 
+  def num_actions_habit
+    self.action_settings.count { |as| as.habit == true }
+  end
   # def percentage_done
   #   num_action_done.to_f / self.challenge.actions.count
   # end

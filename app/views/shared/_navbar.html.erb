@@ -9,7 +9,8 @@
 <!-- render search bar -->
 
 <% elsif (
-  (controller_name == "pages" && action_name == "home")
+  (controller_name == "pages" && action_name == "home") ||
+  (controller_name == "users" && action_name == "show")
 ) %>
 
 <!-- render nothing -->

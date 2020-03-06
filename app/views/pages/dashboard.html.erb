@@ -15,36 +15,36 @@
             <h2><%= link_to sub.challenge.name, challenge_path(sub.challenge) %>
               <span class="badge badge-pill badge-warning"><%= sub.challenge.total_impact %>g CO2</span>
             </h2>
-            <p><%= sub.num_actions_done %> out of <%= sub.challenge.actions.count %> habits checked</p>
+            <p><%= sub.num_actions_done %> out of <%= sub.challenge.actions.count %> checked</p>
+
             <div class="progress">
-              <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%= sub.num_actions_done.to_f / sub.challenge.actions.count * 100 %>%"></div>
+              <div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: <%= (sub.num_actions_done - sub.num_actions_habit) / sub.challenge.actions.count.to_f  * 100 %>%"></div>
+              <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%= sub.num_actions_habit / sub.challenge.actions.count.to_f  * 100 %>%"></div>
             </div>
             <% sub.challenge.actions.each do |action| %>
-              <hr>
-              <div class="section-action">
-                <h3 class="title-action"><%= action.title %></h3>
+              <% if !action.setting_for(current_user).habit %>
+                <hr>
+                <div class="section-action">
+                  <h3 class="title-action"><%= action.title %></h3>
 
 
-                <div class="buttons-action">
-                  <% if action.setting_for(current_user).habit %>
-                    <i class="fas fa-redo" id="icon-habit-true"></i>
-                    <p id="icon-habit-true">HABIT</p>
-                  <% elsif ActionCompletion.find_by(action: action, challenge_subscription: sub) %>
-                    <%= link_to action_setting_path(action.setting_for(current_user)), method: :patch do %>
-                      <i class="fas fa-redo"></i>
+                  <div class="buttons-action">
+                    <% if ActionCompletion.find_by(action: action, challenge_subscription: sub) %>
+                      <%= link_to action_setting_path(action.setting_for(current_user)), method: :patch do %>
+                        <i id="icon-habit-true" class="fas fa-redo"></i>
+                      <% end %>
+                      <p>HABIT</p>
+                    <% else %>
+                      <%= link_to action_action_completions_path(action), method: :post do %>
+                        <i class="fas fa-check-circle"></i>
+                      <% end %>
+                      <p>DONE</p>
                     <% end %>
-                    <p>HABIT</p>
-                  <% else %>
-                    <%= link_to action_action_completions_path(action), method: :post do %>
-                      <i class="fas fa-check-circle"></i>
-                    <% end %>
-                    <p>DONE</p>
-                  <% end %>
+                  </div>
+
                 </div>
 
-              </div>
-
-
+              <% end %>
             <% end %>
 
           </div>
