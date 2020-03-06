@@ -1,11 +1,69 @@
 .badges {
+  display: flex;
   width: 360px;
   height: 84px;
-  background: $black;
+  margin: 0 auto;
+  background: $white;
+  border-radius: 5px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: -50px;
+  flex-wrap: wrap;
+}
+.badge-header {
+  width: 360px;
+  justify-content: center;
+  h5 {
+    margin-bottom: 0px;
+    font-weight: 400px;
+    font-family: nunito;
+    font-size: 18px;
+    color: $darkest-green;
+  }
+}
+
+.badge-list {
+
+  ul {
+    padding-left: 0px;
+    margin-bottom: 0px;
+  }
 }
 
 .profile-badge {
-  width: 21px;
-  height: 19px;
+  width: 25px;
+  height: 25px;
   fill: $black;
+  margin-left: 12px;
+  margin-right: 12px;
+  padding: 4px;
+  border-radius: 4px;
+  background: rgba(153, 157, 166, 0.2)
+}
+
+.weekly-impact {
+  position: relative;
+  display: block;
+  width: 175px;
+  height: 218px;
+  margin-left: 20px;
+  background: $white;
+  box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.life-impact {
+  margin: 0px;
+  position: relative;
+  display: block;
+  width: 175px;
+  height: 218px;
+  background: $white;
+  box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
 }
