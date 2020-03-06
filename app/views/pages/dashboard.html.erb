@@ -31,7 +31,7 @@
                   <div class="buttons-action">
                     <% if ActionCompletion.find_by(action: action, challenge_subscription: sub) %>
                       <%= link_to action_setting_path(action.setting_for(current_user)), method: :patch do %>
-                        <i id="icon-active" class="fas fa-redo"></i>
+                        <i id="icon-active"class="far fa-calendar-check"></i>
                       <% end %>
                       <p>HABIT</p>
                     <% else %>
