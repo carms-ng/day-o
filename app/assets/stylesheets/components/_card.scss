@@ -73,4 +73,50 @@
   background-color: #FFB672;
 }
 
+.card-sub {
+  background-color: white;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  position: relative;
+
+  h2 {
+    font-weight: bold;
+    font-size: 22px;
+    color: $black;
+  }
+
+  h3 {
+    font-size: 16px;
+    color: $black;
+  }
+
+}
+
+.section-action {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons-action {
+  margin: 0 5px;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+  color: lightgray;
+  font-size: 14px;
+
+  i {
+    font-size: 30px;
+    color: lightgray;
+  }
+  i:hover {
+    color: $green;
+  }
+}
+
+#icon-habit-true {
+  color: $green;
+}
 
