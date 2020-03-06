@@ -7,6 +7,7 @@
   right: 0;
   margin-bottom: 26px;
 }
+
 .menu {
   display: flex;
   margin: 0 auto;
@@ -17,6 +18,13 @@
   box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
   justify-content: center;
   align-items: center;
+}
+
+.menu-habit {
+  flex-direction: column;
+  height: auto;
+  justify-content: space-evenly;
+  padding: 5px 0;
 }
 
 .iconify {
@@ -30,4 +38,27 @@
 .icons {
   padding-inline-start: 0px;
   margin-bottom: 0px;
+}
+
+.menu-habit-section {
+  display: flex;
+  padding: 0 40px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+
+  a {
+    font-size: 48px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+  }
+}
+
+.menu-habit-progress {
+  flex-grow: 1;
+
+  p {
+    margin-bottom: 0px;
+  }
 }
