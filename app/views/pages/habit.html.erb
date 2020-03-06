@@ -2,9 +2,9 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <div class="cards-habits">
+    <div class="col-xs-12" style="width: 100%;">
 
+      <div class="cards-habits">
         <% (@habits.sort_by { |obj| obj.created_at }).each do |habit| %>
           <div class="card-habit">
             <div class="info-habit">
@@ -14,14 +14,14 @@
             <div class="options-babit">
               <div class="buttons-action">
                 <% if habit.done_today? %>
-                  <i id='done' class="fas fa-check-circle"></i>
-                  <p id='done'>DONE</p>
+                  <i id="checkable" class="fas fa-check-circle"></i>
+                  <p>DONE</p>
                 <% else %>
                   <%= link_to update_check_action_setting_path(habit), method: :patch do %>
                     <% if habit.checked %>
-                      <i class="fas fa-check-circle"></i>
+                      <i id="icon-inactive" class="fas fa-check-circle"></i>
                     <% else %>
-                      <i class="far fa-circle"></i>
+                      <i id="icon-inactive" class="far fa-circle"></i>
                     <% end %>
                   <% end %>
                 <% end %>
@@ -41,9 +41,6 @@
 
         <% end %>
       </div>
-
-      <%= link_to 'BIG-DONE', action_completions_mass_create_path, method: :post %>
-
 
     </div>
   </div>

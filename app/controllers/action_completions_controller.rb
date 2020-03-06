@@ -17,6 +17,7 @@ class ActionCompletionsController < ApplicationController
       else
       # update_user_categories(action)
         redirect_to dashboard_path
+        flash[:notice] = "Checked! Wanna make it a habit?"
       end
     else
       render '/dashboard'
@@ -28,6 +29,7 @@ class ActionCompletionsController < ApplicationController
       ActionCompletion.create(action: setting.action, challenge_subscription: setting.challenge_subscription)
     end
     redirect_to habit_path
+    flash[:notice] = "Sweetttt!"
   end
 
   private
