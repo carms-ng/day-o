@@ -3,19 +3,18 @@
     <div class="menu menu-habit">
       <div class="menu-habit-section">
         <div class="menu-habit-progress">
-          <p>Good job</p>
-
-          <div class="progress" style="height: 8px;">
+          <p>Good stuff!!</p>
+<!--           <div class="progress" style="height: 8px;">
             <div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 20%"></div>
             <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 10%"></div>
-          </div>
+          </div> -->
         </div>
         <% if @can_mass_create %>
           <%= link_to action_completions_mass_create_path, method: :post do %>
-            <i id='done' class="fas fa-check-circle"></i>
+            <i id='checkable' class="fas fa-check-circle"></i>
           <% end %>
         <% else %>
-          <i id='done' class="fas fa-check-circle"></i>
+            <i id='uncheckable' class="fas fa-check-circle"></i>
         <% end %>
 
 
