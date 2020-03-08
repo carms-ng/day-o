@@ -245,12 +245,34 @@ ActionCategory.create!(action: gifts_waste, category: waste)
 
 
 
-# user faker for now
 User.create!(username: 'nour', email: 'nour@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1579149593/iim2zl17j0v23pfdx7xj.jpg")
 User.create!(username: 'laurence', email: 'laurence@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1579045386/pk9il9h1gsobqbzehlpb.jpg")
 User.create!(username: 'clem', email: 'clem@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://lh3.googleusercontent.com/j4zwi0uxUGpcTL34MXH3wiz1IWuKwDgbzUNGd1M9QfuAkjaMi_TuN7aAcT_dEekXPrCzeA=s85")
-User.create!(username: 'carms', email: 'carms@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars1.githubusercontent.com/u/59268689?v=4")
+carms = User.create!(username: 'carms', email: 'carms@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars1.githubusercontent.com/u/59268689?v=4")
 
+cs = ChallengeSubscription.create!(user: carms, challenge: starter)
+cs.update!(created_at: 7.day.ago)
+
+cs.challenge.actions.each_with_index do |action, i|
+  if i < 2
+    ActionSetting.create!(challenge_subscription: cs, action: action, habit: true, checked: true )
+    5. times do
+      ActionCompletion.create!(challenge_subscription: cs, action: action).update(created_at: rand(2..5).day.ago)
+    end
+  elsif i == 2
+    ActionSetting.create!(challenge_subscription: cs, action: action, habit: true, checked: false )
+    ActionCompletion.create!(challenge_subscription: cs, action: action).update(created_at: 2.day.ago)
+  else
+    ActionSetting.create!(challenge_subscription: cs, action: action)
+  end
+end
+
+
+
+
+
+
+# user faker for now
 20. times do
   User.create!(username: Faker::Name.unique.name,
               email: Faker::Internet.email,

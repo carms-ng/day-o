@@ -14,4 +14,5 @@ class ChallengeSubscription < ApplicationRecord
   # def percentage_done
   #   num_action_done.to_f / self.challenge.actions.count
   # end
+
 end
