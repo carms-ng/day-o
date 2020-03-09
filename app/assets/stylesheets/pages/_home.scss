@@ -1,1 +1,44 @@
 // Specific CSS for your home-page
+
+
+// CSS for Sign-in
+.bg-devise {
+  width: 100%;
+  background-color: $turquoise;
+  height: 100vh;
+  color: white;
+  padding-top: 50px;
+}
+
+.display-devise {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+
+  #logo {
+    color: $orange;
+  }
+
+  h1 {
+    font-weight: 900;
+    font-size: 48px;
+    margin-bottom: 0;
+  }
+
+  #app-genre {
+    font-weight: 300px;
+    font-size: 16px;
+  }
+
+  #tagline {
+    font-size: 20px;
+    margin: 24px 0;
+  }
+
+  p {
+    margin-bottom: 0px;
+  }
+
+}
