@@ -2,49 +2,62 @@ import "bootstrap";
 
 import Chart from 'chart.js';
 
-const ctx = document.getElementById('weekChart');
-const ctxLifeChart = document.getElementById('lifeChart');
+const drawChart = (data) => {
+  const xAxis = Object.keys(data);
+  const yAxis = Object.values(data);
 
-
-const data = JSON.parse(ctx.dataset.impact)
-
-console.log(data)
-
-// Week Chart
-const xAxis = Object.keys(data);
-const yAxis = Object.values(data);
-console.log(xAxis);
-console.log(yAxis);
-
-const weekChart = new Chart(ctx, {
-    type: 'bar',
+  new Chart(timeChart, {
+    type: 'line',
     data: {
-        labels: xAxis,
-        datasets: [{
-            label: "",
-            data: yAxis,
-            backgroundColor: [
-                '#7F915E',
-            ],
-            borderColor: [
-                '#7F915E',
-            ],
-            borderWidth: 1
-        }]
+      labels: xAxis,
+      datasets: [{
+        label: "",
+        data: yAxis,
+        // backgroundColor: ['#7CB518'],
+        borderColor: ['#7CB518'],
+        borderWidth: 2
+      }]
     },
     options: {
       legend: {
-            display: false,
-        },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
+        display: false,
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
     }
+  });
+}
+
+
+const timeChart = document.getElementById('time-chart');
+const ctxLifeChart = document.getElementById('lifeChart');
+
+const weeklyData = JSON.parse(timeChart.dataset.weeklyImpact);
+const monthlyData = JSON.parse(timeChart.dataset.monthlyImpact);
+const allTimeData = JSON.parse(timeChart.dataset.allTimeImpact);
+
+
+document.querySelector("#seven-days").addEventListener("click", () => {
+  drawChart(weeklyData);
 });
+
+document.querySelector("#thirty-days").addEventListener("click", () => {
+  drawChart(monthlyData);
+
+});
+
+document.querySelector("#all-time").addEventListener("click", () => {
+  drawChart(allTimeData);
+
+});
+
+// initialally, start with week
+drawChart(weeklyData);
 
 
 // Life Chart
@@ -85,6 +98,7 @@ var lifeChart = new Chart(ctxLifeChart, {
         }
     },
   }
+
     //options: options
 });
 
