@@ -1,0 +1,13 @@
+<h1>Received</h1>
+<% @received.each do |r| %>
+  <%= User.find(r.sender_id).username %>
+  <%= Challenge.find(r.challenge_id).name %>
+  <%= r.status %>
+<% end %>
+
+<h1>Sent</h1>
+<% @received.each do |r| %>
+  <%= User.find(r.receiver_id).username %>
+  <%= Challenge.find(r.challenge_id).name %>
+  <%= r.status %>
+<% end %>
