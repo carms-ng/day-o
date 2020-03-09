@@ -14,6 +14,10 @@ class User < ApplicationRecord
   has_many :user_categories, dependent: :destroy
   has_many :categories, through: :user_categories
 
+  has_many :sent_challenges, class_name: 'BuddyChallenge', foreign_key: 'sender_id'
+  has_many :received_challenges, class_name: 'BuddyChallenge', foreign_key: 'receiver_id'
+
+
   after_create :initialize_user_categories
 
   def initialize_user_categories
