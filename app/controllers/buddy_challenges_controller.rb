@@ -5,6 +5,6 @@ class BuddyChallengesController < ApplicationController
   end
 
   def create
-
+    raise
   end
 end
