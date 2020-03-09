@@ -1,12 +1,35 @@
-<h1><%= @challenge.name %></h1>
-  <ul>
-    <% @challenge.actions.each do |action| %>
-      <li>
-       <p><%=  action.title%></p>
-       <p>Description: <%=  action.description%></p>
-       <p>Impact: <%=  action.impact%>pts</p>
-      </li>
-    <% end %>
-  </ul>
 
-<%= link_to 'Start Now', challenge_challenge_subscriptions_path(@challenge), method: :post %>
+<div class="search-container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div class="challenge-with-actions">
+
+        <h2><%= @challenge.name %></h2>
+        <div class="line">
+        </div>
+        <div class="actions-card">
+            <% day = 0 %>
+            <% @challenge.actions.each do |action| %>
+              <div class="action-card">
+                <p>Day <%= day += 1 %>: <%=  action.title%></p>
+
+              </div>
+               <!-- <p>Description: <%=  action.description%></p> -->
+               <!-- <p>Impact: <%=  action.impact%>pts</p> -->
+            <% end %>
+
+        </div>
+
+        <div class="links">
+          <%= link_to 'START CHALLENGE', challenge_challenge_subscriptions_path(@challenge), method: :post, class: "btn-start" %>
+          <%= link_to 'BOOKMARK', '#', class: "btn-book"  %>
+          <%= link_to 'select a buddy', '#', class: "btn-buddy"  %>
+
+        </div>
+
+    </div>
+
+    </div>
+  </div>
+</div>

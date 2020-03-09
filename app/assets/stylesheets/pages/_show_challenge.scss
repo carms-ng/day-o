@@ -1,0 +1,97 @@
+.actions-card {
+  width: 312px;
+  margin-bottom: 40px;
+}
+
+.challenge-with-actions {
+  h2 {
+    text-align: center;
+    color: #4C6C6F;
+    margin-bottom: 0;
+    margin-top: 15px;
+
+  }
+}
+
+  .line {
+    height: 3px;
+    width: 111px;
+    margin: 0 auto;
+    margin-bottom: 16px;
+    background-color: #ECD0B4;
+  }
+
+.action-card {
+  width: 345px;
+  height: 15px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
+  border-radius: 25px;
+  margin-bottom: 14px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+
+  p {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: left;
+    margin: 0;
+  }
+
+}
+
+
+.links {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 300px;
+}
+
+.btn-start {
+    background-color: #4C6C6F;
+    color: #FFFFFF;
+    text-align: center;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 16px;
+    width: 345px;
+    border-radius: 25px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-book {
+  background-color: #ECD0B4;
+  color: #FFFFFF;
+  text-align: center;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 16px;
+  width: 345px;
+  border-radius: 25px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-buddy {
+  background: #FFFFFF;
+  color: #4C6C6F;
+  border: 1px solid #4C6C6F;
+  box-sizing: border-box;
+  border-radius: 25px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 10px;
+  width: 345px;
+}

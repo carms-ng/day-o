@@ -1,19 +1,23 @@
 <br>
-<h4>Top beginner challenges </h4> <br>
+<div class="search-container">
+  <h4>Top beginner challenges </h4>
+  <div class="line">
+  </div>
 
-<% @challenges.each do |challenge| %>
-    <!-- this should be a pop-up but I redirected to challenges_all just to test it -nour -->
-      <%= link_to challenge_path(challenge.id) do %>
-      <div class="card-challenge">
-        <div>
-          <h5><%= challenge.name %></h5>
-          <p class="no-days">Duration: <%= challenge.num_days %> days</p>
-          <p class="difficulty">Difficulty: <%= challenge.difficulty %></p>
-          <div class="icons-place">
-            <%= image_tag("solar-energy_black.svg", class:"small-icons")%>
-            <%= image_tag("fruit_black.svg", class:"small-icons")%>
+  <% @challenges.each do |challenge| %>
+      <!-- this should be a pop-up but I redirected to challenges_all just to test it -nour -->
+        <%= link_to challenge_path(challenge.id) do %>
+        <div class="card-challenge">
+          <div>
+            <h5><%= challenge.name %></h5>
+            <p class="no-days">Duration: <%= challenge.num_days %> days</p>
+            <p class="difficulty">Difficulty: <%= challenge.difficulty %></p>
+            <div class="icons-place">
+              <%= image_tag("solar-energy_black.svg", class:"small-icons")%>
+              <%= image_tag("fruit_black.svg", class:"small-icons")%>
+            </div>
           </div>
         </div>
-      </div>
-      <% end %>
-<% end %>
+        <% end %>
+  <% end %>
+</div>

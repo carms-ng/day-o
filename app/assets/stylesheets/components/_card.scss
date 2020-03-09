@@ -83,15 +83,15 @@ h4 {
 }
 
 #card-category-plastic {
-  background-color: #f4934e;
+  background-color: #09A66D;
 }
 
 #card-category-diet {
-  background-color: #d69262;
+  background-color: #B29DC8;
 }
 
 #card-category-travel {
-  background-color: #C9631A;
+  background-color: #94514C;
 }
 
 #card-category-commute {
@@ -99,13 +99,14 @@ h4 {
 }
 
 #card-category-energy {
-  background-color: #c6804d;
+  background-color: #ECD0B4;
 }
 
 #card-category-waste {
   background-color: #FFB672;
 }
 
+// dashboard page
 .card-sub {
   background-color: white;
   margin: 20px;
@@ -141,21 +142,24 @@ h4 {
   color: lightgray;
   font-size: 14px;
 
-  i {
+  #icon-inactive {
     font-size: 30px;
     color: lightgray;
   }
 
-  i:hover {
+  #icon-inactive:hover {
     color: $green;
   }
 }
 
-#icon-habit-true {
+#icon-active {
+  font-size: 30px;
   color: $green;
 }
 
+
 .card-habit {
+  // width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -165,10 +169,9 @@ h4 {
   border-radius: 8px;
   box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
 
-  .options-habit {
-    display: flex;
+  .info-habit {
+    flex-grow: 1;
   }
-
   h3 {
     font-size: 16px;
     color: $black;
@@ -188,6 +191,20 @@ h4 {
   color: $black;
 }
 
-#done {
+#checkable {
+  font-size: 30px;
   color: $green;
+  margin-left: 10px;
+}
+
+#uncheckable {
+  font-size: 30px;
+  color: lightgray;
+  margin-left: 10px;
+}
+
+
+.options-babit {
+  display: flex;
+  align-items: center;
 }
