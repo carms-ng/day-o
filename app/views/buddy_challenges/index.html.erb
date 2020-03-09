@@ -1,13 +1,16 @@
 <h1>Received</h1>
-<% @received.each do |r| %>
-  <%= r.sender.username %>
-  <%= r.challenge.name %>
-  <%= r.status %>
+<% @received.each do |receive| %>
+  <%= receive.sender.username %>
+  <%= receive.challenge.name %>
+  <%= receive.status %>
+  <%= link_to "accept", buddy_challenge_path(receive), method: :patch %>
+  <%= link_to "decline", buddy_challenge_path(receive), method: :delete %>
 <% end %>
 
 <h1>Sent</h1>
-<% @sent.each do |r| %>
-  <%= r.receiver.username %>
-  <%= r.challenge.name %>
-  <%= r.status %>
+<% @sent.each do |sent| %>
+  <%= sent.receiver.username %>
+  <%= sent.challenge.name %>
+  <%= sent.status %>
+  <%= link_to "cancel", buddy_challenge_path(sent), method: :delete %>
 <% end %>
