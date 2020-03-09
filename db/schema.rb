@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_230138) do
+ActiveRecord::Schema.define(version: 2020_03_09_144727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,22 @@ ActiveRecord::Schema.define(version: 2020_03_05_230138) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "buddy_challenges", force: :cascade do |t|
+    t.boolean "status"
+    t.bigint "sender_subscription_id"
+    t.bigint "receiver_subscription_id"
+    t.bigint "sender_id"
+    t.bigint "receiver_id"
+    t.bigint "challenge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_id"], name: "index_buddy_challenges_on_challenge_id"
+    t.index ["receiver_id"], name: "index_buddy_challenges_on_receiver_id"
+    t.index ["receiver_subscription_id"], name: "index_buddy_challenges_on_receiver_subscription_id"
+    t.index ["sender_id"], name: "index_buddy_challenges_on_sender_id"
+    t.index ["sender_subscription_id"], name: "index_buddy_challenges_on_sender_subscription_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -124,6 +140,11 @@ ActiveRecord::Schema.define(version: 2020_03_05_230138) do
   add_foreign_key "action_settings", "actions"
   add_foreign_key "action_settings", "challenge_subscriptions"
   add_foreign_key "actions", "challenges"
+  add_foreign_key "buddy_challenges", "challenge_subscriptions", column: "receiver_subscription_id"
+  add_foreign_key "buddy_challenges", "challenge_subscriptions", column: "sender_subscription_id"
+  add_foreign_key "buddy_challenges", "challenges"
+  add_foreign_key "buddy_challenges", "users", column: "receiver_id"
+  add_foreign_key "buddy_challenges", "users", column: "sender_id"
   add_foreign_key "challenge_subscriptions", "challenges"
   add_foreign_key "challenge_subscriptions", "users"
   add_foreign_key "earned_badges", "badges"
