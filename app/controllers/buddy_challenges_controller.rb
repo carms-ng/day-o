@@ -10,4 +10,18 @@ class BuddyChallengesController < ApplicationController
     @buddy_challenge.save
     redirect_to buddy_challenges_path
   end
+
+  def update
+    @buddy_challenge = BuddyChallenge.find(params[:id])
+    @buddy_challenge.update(status: true)
+    ChallengeSubscription.create(user: @buddy_challenge.sender, challenge: @buddy_challenge.challenge)
+    ChallengeSubscription.create(user: @buddy_challenge.receiver, challenge: @buddy_challenge.challenge)
+    redirect_to buddy_challenges_path
+  end
+
+  def destroy
+    @buddy_challenge = BuddyChallenge.find(params[:id])
+    @buddy_challenge.destroy
+    redirect_to buddy_challenges_path
+  end
 end
