@@ -245,10 +245,16 @@ ActionCategory.create!(action: gifts_waste, category: waste)
 
 
 
-User.create!(username: 'nour', email: 'nour@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1579149593/iim2zl17j0v23pfdx7xj.jpg")
-User.create!(username: 'laurence', email: 'laurence@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1579045386/pk9il9h1gsobqbzehlpb.jpg")
-User.create!(username: 'clem', email: 'clem@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://lh3.googleusercontent.com/j4zwi0uxUGpcTL34MXH3wiz1IWuKwDgbzUNGd1M9QfuAkjaMi_TuN7aAcT_dEekXPrCzeA=s85")
+
+nour = User.create!(username: 'nour', email: 'nour@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1579149593/iim2zl17j0v23pfdx7xj.jpg")
+laurence = User.create!(username: 'laurence', email: 'laurence@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1579045386/pk9il9h1gsobqbzehlpb.jpg")
+clem = User.create!(username: 'clem', email: 'clem@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://lh3.googleusercontent.com/j4zwi0uxUGpcTL34MXH3wiz1IWuKwDgbzUNGd1M9QfuAkjaMi_TuN7aAcT_dEekXPrCzeA=s85")
 carms = User.create!(username: 'carms', email: 'carms@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars1.githubusercontent.com/u/59268689?v=4")
+
+# Buddy Challenges received
+BuddyChallenge.create!(sender_id: nour.id, status: false, challenge: holiday, receiver_id: clem.id)
+# Buddy Challenges sent
+
 
 cs = ChallengeSubscription.create!(user: carms, challenge: starter)
 cs.update!(created_at: 7.day.ago)
