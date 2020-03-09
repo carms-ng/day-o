@@ -287,12 +287,12 @@ end
 end
 
 # creating badges
-plastic_badge = Badge.create!(name: 'Plastic')
-diet_badge = Badge.create!(name: 'Diet')
-travel_badge = Badge.create!(name: 'Travel')
-commute_badge = Badge.create!(name: 'Commute')
-energy_badge = Badge.create!(name: 'Energy')
-waste_badge = Badge.create!(name: 'Waste')
+plastic_badge = Badge.create!(name: 'Plastic', color: '#09A66D')
+diet_badge = Badge.create!(name: 'Diet', color: '#B29DC8')
+travel_badge = Badge.create!(name: 'Travel', color: '#94514C')
+commute_badge = Badge.create!(name: 'Commute', color: '#FB7429')
+energy_badge = Badge.create!(name: 'Energy', color: '#ECD0B4')
+waste_badge = Badge.create!(name: 'Waste', color: '#FFB672')
 
 # creating earned badges
 10. times do

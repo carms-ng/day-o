@@ -4,6 +4,7 @@ class BuddyChallengesController < ApplicationController
     @sent = current_user.sent_challenges
   end
 
+
   def create
     raise
   end
