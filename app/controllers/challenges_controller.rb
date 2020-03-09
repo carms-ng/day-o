@@ -24,6 +24,7 @@ class ChallengesController < ApplicationController
 
   def show
     @challenge = Challenge.find(params[:id])
+    @buddy_challenge = BuddyChallenge.new
   end
 
   # def all
