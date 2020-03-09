@@ -11,9 +11,11 @@ Rails.application.routes.draw do
 
   resources :challenges, only: [] do
     resources :challenge_subscriptions, only: [:create]
+    resources :buddy_challenges, only: [:create]
   end
 
   # get '/challenges_all', to: 'challenges#all', as: :challenges_all
+  resources :buddy_challenges, only: [:index]
 
   resources :actions, only: [] do
     resources :action_completions, only: [:create]

@@ -23,14 +23,45 @@
     <div class="badge-header">
       <h5>Badges Collection</h5>
     </div>
+
+
     <div class="badge-list">
       <ul>
-        <%= image_tag "plastic_black.svg", class: "profile-badge" %>
-        <%= image_tag "solar-energy_black.svg", class: "profile-badge" %>
-        <%= image_tag "aircraft_black.svg", class: "profile-badge" %>
-        <%= image_tag "bike_black.svg", class: "profile-badge" %>
-        <%= image_tag "fruit_black.svg", class: "profile-badge" %>
-        <%= image_tag "jar_black.svg", class: "profile-badge" %>
+        <% if current_user.earned_badges.joins(:badge).where(badges: { name: 'Plastic' }).exists? %>
+          <%= image_tag "plastic (1).svg", class: "profile-badge", style: "background-color: #09A66D" %>
+        <% else %>
+          <%= image_tag "plastic_black.svg", class: "profile-badge"%>
+        <% end %>
+
+        <% if current_user.earned_badges.joins(:badge).where(badges: { name: 'Energy' }).exists? %>
+          <%= image_tag "solar-energy.svg", class: "profile-badge", style: "background-color: #ECD0B4" %>
+        <% else %>
+          <%= image_tag "solar-energy_black.svg", class: "profile-badge"%>
+        <% end %>
+
+        <% if current_user.earned_badges.joins(:badge).where(badges: { name: 'Travel' }).exists? %>
+          <%= image_tag "aircraft.svg", class: "profile-badge", style: "background-color: #94514C" %>
+        <% else %>
+          <%= image_tag "aircraft_black.svg", class: "profile-badge"%>
+        <% end %>
+
+        <% if current_user.earned_badges.joins(:badge).where(badges: { name: 'Commute' }).exists? %>
+          <%= image_tag "bike (1).svg", class: "profile-badge", style: "background-color: #FB7429" %>
+        <% else %>
+          <%= image_tag "bike_black.svg", class: "profile-badge"%>
+        <% end %>
+
+        <% if current_user.earned_badges.joins(:badge).where(badges: { name: 'Diet' }).exists? %>
+          <%= image_tag "fruit.svg", class: "profile-badge", style: "background-color: #B29DC8" %>
+        <% else %>
+          <%= image_tag "fruit_black.svg", class: "profile-badge"%>
+        <% end %>
+
+        <% if current_user.earned_badges.joins(:badge).where(badges: { name: 'Waste' }).exists? %>
+          <%= image_tag "jar (2).svg", class: "profile-badge", style: "background-color: #FFB672" %>
+        <% else %>
+          <%= image_tag "jar_black.svg", class: "profile-badge"%>
+        <% end %>
       </ul>
     </div>
   </div>

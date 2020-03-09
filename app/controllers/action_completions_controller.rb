@@ -15,7 +15,7 @@ class ActionCompletionsController < ApplicationController
       if as.habit
         redirect_to habit_path
       else
-      # update_user_categories(action)
+        update_user_categories(action)
         redirect_to dashboard_path
         flash[:notice] = "Checked! Wanna make it a habit?"
       end
@@ -45,7 +45,7 @@ class ActionCompletionsController < ApplicationController
       badge = Badge.find_by(name: category_name)
       existing_user_badge = current_user.earned_badges.find_by(badge: badge)
       if user_category.impact > 500 && existing_user_badge.nil?
-        @new_badge = EarnedBadge.create!(user: current_user, badge: badge)
+        new_badge = EarnedBadge.create!(user: current_user, badge: badge)
       end
     end
 
