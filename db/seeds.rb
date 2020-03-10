@@ -255,7 +255,7 @@ erin = User.create!(username: 'Erin', email: 'erin@day-o.cc', password: '123456'
 james = User.create!(username: 'James', email: 'james@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars0.githubusercontent.com/u/55299151?v=4")
 mohammad = User.create!(username: 'Mohammad', email: 'mohammad@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars2.githubusercontent.com/u/45085126?v=4")
 habib = User.create!(username: 'Habib', email: 'habib@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars2.githubusercontent.com/u/43456512?v=4")
-alex = User.create!(username: 'Alex', email: 'alex@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars3.githubusercontent.com/u/58195877?v=4")
+alex_s = User.create!(username: 'Alex-S', email: 'alex-s@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars3.githubusercontent.com/u/58195877?v=4")
 rose = User.create!(username: 'Rose', email: 'rose@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars2.githubusercontent.com/u/56726205?v=4")
 katell = User.create!(username: 'Katell', email: 'katell@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars3.githubusercontent.com/u/57771985?v=4")
 santiago = User.create!(username: 'Santiago', email: 'santiago@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars1.githubusercontent.com/u/57045353?v=4")
