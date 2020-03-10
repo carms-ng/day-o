@@ -21,12 +21,12 @@ waste   = Category.create!(name: 'Waste', icon: "https://res.cloudinary.com/dhc2
 
 # Challenge to show in detail
 nine_five = Challenge.create!(name: '9-fivers', num_days: 5, difficulty: 1)
-coffee_diet = Action.create!(title: "Morning Coffee! Swap out Cow milk for Non-dairy.",
-                              description: "That cup of coffee’s footprint just got reduces by ~50% CO2e! Try Oat milk! It's delicous!",
+coffee_diet = Action.create!(title: "Morning Coffee!",
+                              description: "Swap out Cow milk for Non-dairy. That cup of coffee’s footprint just got reduces by ~50% CO2e! Try Oat milk! It's delicous!",
                               impact: 30,
                               challenge: nine_five)
-bike_commute = Action.create!(title: "Commute via Bike or Public Transit or walk",
-                              description: "If your commute is 20-miles, the switch could lower your carbon footprint by 4,800 pounds annually",
+bike_commute = Action.create!(title: "Commute via Bike",
+                              description: "Or Public Transit or walk. If your commute is 20-miles, the switch could lower your carbon footprint by 4,800 pounds annually",
                               impact: 6000,
                               challenge: nine_five)
 flexitarian_diet = Action.create!(title: "Prep flexitarian meal for lunches",
