@@ -1,34 +1,74 @@
+<%= content_for(:title) { "Challenges" } %>
 
-<br>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-xs-12">
+
+      <!--search bar -->
+      <div class="search-bar">
+        <%= form_tag challenges_path, method: :get, class: 'input-group' do %>
+          <%= text_field_tag :search,
+            params[:search],
+            class: "form-control",
+            placeholder: "Find a Challenge"
+          %>
+          <%= submit_tag "Search", class: "btn btn-outline-secondary input-group-append" do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+        <% end %>
+      </div>
+
+      <!-- category cards -->
+      <div class="section-title">
+        <h4>Browse Categories</h4>
+        <div class="line"></div>
+      </div>
+
+      <div class="cards-category">
+        <% @categories.each do |c|  %>
+          <!-- in the path will be the categorie id instead -->
+          <%= link_to challenges_path(category_id: c.id ) do %>
+            <div id="card-category-<%= c.name.downcase %>" class="card-categories">
+              <img src="<%= c.icon %>" class="category-icon"> <br>
+              <%= c.name %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="section-title">
+        <h4>Browse Top Challenges</h4>
+        <div class="line"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+      <!-- top challenges cards -->
+
+<div class="cards-genre">
+  <div class="card-genre">
+    <!-- <img src="https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583440769/icons/info_y68o5y.svg" class="info"> -->
+    <h5>Most Completed</h5>
+  </div>
+
+  <div class="card-genre">
+    <!-- <img src="https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583440769/icons/info_y68o5y.svg" class="info"> -->
+    <h5>Most Impactful</h5>
+  </div>
+
+  <div class="card-genre">
+    <!-- <img src="https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583440769/icons/info_y68o5y.svg" class="info"> -->
+    <h5>New Release</h5>
+  </div>
+</div>
+
+<!--
 <div class="search-container">
-  <p class="section-title">Browse by Top Challenges</p>
-  <div class="line">
-  </div>
-  <div class="card-challenge">
-    <img src="https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583440769/icons/info_y68o5y.svg" class="info">
-    <h5>Top 10 - 7 days challenges</h5>
-    <p> 30 challenges</p>
-  </div>
-
   <div class="card-challenge">
     <img src="https://res.cloudinary.com/dhc2cbdw0/image/upload/v1583440769/icons/info_y68o5y.svg" class="info">
     <h5>Top beginners challenge</h5>
-    <p> 13 challenges</p>
-  </div>
-
-  <!-- display each category as a link to the challenges -->
-  <p class="section-title">Browse by categories</p>
-  <div class="line">
   </div>
 </div>
-<div class="card-container-categories">
-  <% @categories.each do |c|  %>
-    <!-- in the path will be the categorie id instead -->
-    <%= link_to challenges_path(category_id: c.id ) do %>
-      <div id="card-category-<%= c.name.downcase %>" class="card-categories">
-        <img src="<%= c.icon %>" class="category-icon"> <br>
-        <%= c.name %>
-      </div>
-    <% end %>
-  <% end %>
-</div>
+ -->

@@ -1,5 +1,17 @@
+.modal-challenge {
+  position: relative;
+  border-radius: 10px;
+
+  #close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    z-index: 2;
+  }
+}
+
 .actions-card {
-  width: 312px;
+  // width: 312px;
   margin-bottom: 40px;
 }
 
@@ -9,20 +21,17 @@
     color: #4C6C6F;
     margin-bottom: 0;
     margin-top: 15px;
-
   }
 }
 
-  .line {
-    height: 3px;
-    width: 111px;
-    margin: 0 auto;
-    margin-bottom: 16px;
-    background-color: #ECD0B4;
-  }
+.line {
+  height: 3px;
+  width: 111px;
+  margin: 5px auto;
+  background-color: #ECD0B4;
+}
 
 .action-card {
-  width: 345px;
   height: 15px;
   background: #FFFFFF;
   box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
@@ -48,7 +57,6 @@
 .links {
   display: flex;
   flex-direction: column;
-  margin-bottom: 300px;
 }
 
 .btn-start {
@@ -60,7 +68,6 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 16px;
-    width: 345px;
     border-radius: 25px;
     padding: 10px;
     margin-bottom: 10px;
@@ -75,7 +82,6 @@
   font-weight: normal;
   font-size: 18px;
   line-height: 16px;
-  width: 345px;
   border-radius: 25px;
   padding: 10px;
   margin-bottom: 10px;
@@ -93,5 +99,4 @@
   font-size: 16px;
   line-height: 16px;
   padding: 10px;
-  width: 345px;
 }

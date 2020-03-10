@@ -48,3 +48,63 @@
   }
 
 }
+
+.home-icon {
+  width: 100px;
+  height: 100px;
+  // margin-top: 15px;
+}
+
+.home-icon-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 190px;
+  position: relative;
+  padding-top: 15px;
+}
+
+.day-o-home-page {
+  font-weight: 900;
+  font-size: 80px;
+  color: #4C6C6F;
+  font-family: Nunito;
+}
+
+.logo-homepage {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  p {
+    margin: 0 8px 0 0;
+  }
+}
+
+#line-homepage {
+  position: absolute;
+  bottom: -10px;
+  left: calc( ( 100% - 111px) / 2);
+}
+
+.user-info-card-homepage {
+  position: relative;
+}
+
+.tagline-homepage {
+  color: #4C6C6F;
+  font-size: 17px;
+}
+
+.typed-cursor {
+  display: none;
+}
+
+.home-icon-small {
+  width: 50px;
+  height: 50px;
+}
+
+
+

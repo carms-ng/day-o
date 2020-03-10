@@ -21,12 +21,12 @@ waste   = Category.create!(name: 'Waste', icon: "https://res.cloudinary.com/dhc2
 
 # Challenge to show in detail
 nine_five = Challenge.create!(name: '9-fivers', num_days: 5, difficulty: 1)
-coffee_diet = Action.create!(title: "Morning Coffee! Swap out Cow milk for Non-dairy.",
-                              description: "That cup of coffee’s footprint just got reduces by ~50% CO2e! Try Oat milk! It's delicous!",
+coffee_diet = Action.create!(title: "Morning Coffee!",
+                              description: "Swap out Cow milk for Non-dairy. That cup of coffee’s footprint just got reduces by ~50% CO2e! Try Oat milk! It's delicous!",
                               impact: 30,
                               challenge: nine_five)
-bike_commute = Action.create!(title: "Commute via Bike or Public Transit or walk",
-                              description: "If your commute is 20-miles, the switch could lower your carbon footprint by 4,800 pounds annually",
+bike_commute = Action.create!(title: "Commute via Bike",
+                              description: "Or Public Transit or walk. If your commute is 20-miles, the switch could lower your carbon footprint by 4,800 pounds annually",
                               impact: 6000,
                               challenge: nine_five)
 flexitarian_diet = Action.create!(title: "Prep flexitarian meal for lunches",
@@ -228,7 +228,7 @@ holidaytable_diet = Action.create!(title: "Set a more earth-friendly holiday tab
               challenge: holiday)
 onlineshopping_waste = Action.create!(title: "Smile and don't choose two-day shipping",
               description: "One- or two-day shipping is extremely convenient, but the emissions from such rapid shipment methods tend to be extreme in comparison to slower methods.",
-              impact: 1200,
+              impact: 400,
               challenge: holiday)
 gifts_waste = Action.create!(title: 'Instead of gifts, donate',
               description: "Consider asking your mom to donate to a cause you believe in, rather than give you another sweater you’ll never wear.",
@@ -250,6 +250,29 @@ nour = User.create!(username: 'nour', email: 'nour@day-o.cc', password: '123456'
 laurence = User.create!(username: 'laurence', email: 'laurence@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1579045386/pk9il9h1gsobqbzehlpb.jpg")
 clem = User.create!(username: 'clem', email: 'clem@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://lh3.googleusercontent.com/j4zwi0uxUGpcTL34MXH3wiz1IWuKwDgbzUNGd1M9QfuAkjaMi_TuN7aAcT_dEekXPrCzeA=s85")
 carms = User.create!(username: 'carms', email: 'carms@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars1.githubusercontent.com/u/59268689?v=4")
+felix = User.create!(username: 'Felix', email: 'felix@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars3.githubusercontent.com/u/54404722?v=4")
+erin = User.create!(username: 'Erin', email: 'erin@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars2.githubusercontent.com/u/26800578?v=4")
+james = User.create!(username: 'James', email: 'james@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars0.githubusercontent.com/u/55299151?v=4")
+mohammad = User.create!(username: 'Mohammad', email: 'mohammad@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars2.githubusercontent.com/u/45085126?v=4")
+habib = User.create!(username: 'Habib', email: 'habib@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars2.githubusercontent.com/u/43456512?v=4")
+alex_s = User.create!(username: 'Alex-S', email: 'alex-s@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars3.githubusercontent.com/u/58195877?v=4")
+rose = User.create!(username: 'Rose', email: 'rose@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars2.githubusercontent.com/u/56726205?v=4")
+katell = User.create!(username: 'Katell', email: 'katell@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars3.githubusercontent.com/u/57771985?v=4")
+santiago = User.create!(username: 'Santiago', email: 'santiago@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars1.githubusercontent.com/u/57045353?v=4")
+augustin = User.create!(username: 'Augustin', email: 'augustin@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1580077448/umemwbtimiltbmfxowi2.jpg")
+antoine = User.create!(username: 'Antoine', email: 'antoine@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1578966127/rxo4dwbjhvujeaueo42d.jpg")
+ines = User.create!(username: 'Inès', email: 'ines@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars0.githubusercontent.com/u/58077064?v=4")
+cricket = User.create!(username: 'Cricket', email: 'cricket@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars3.githubusercontent.com/u/58791911?v=4")
+vicky = User.create!(username: 'Vicky', email: 'vicky@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars0.githubusercontent.com/u/59230296?v=4")
+stephane = User.create!(username: 'Stephane', email: 'sephane@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars0.githubusercontent.com/u/37821714?v=4")
+frederic = User.create!(username: 'Frederic', email: 'frederic@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars3.githubusercontent.com/u/43460113?v=4")
+camille = User.create!(username: 'Camille', email: 'camille@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars1.githubusercontent.com/u/28571921?v=4")
+benjamin = User.create!(username: 'Benjamin', email: 'benjamin@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1562611376/kbyjx4l1lcnulkla2gjq.jpg")
+alex = User.create!(username: 'Alex', email: 'alex@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars2.githubusercontent.com/u/36859062?v=4")
+martin = User.create!(username: 'Martin', email: 'martin@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1533305351/pwlstconwxh7zetwsz1w.jpg")
+richard = User.create!(username: 'Richard', email: 'richard@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1546902451/oyfiqksipakhgmfvbbsd.jpg")
+aline = User.create!(username: 'Aline', email: 'aline@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://ca.slack-edge.com/T02NE0241-UCC9WMF43-6f6807edc16c-512")
+mg = User.create!(username: 'Marie-Gabrielle', email: 'marie-gabrielle@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://ca.slack-edge.com/T02NE0241-U2MK8GVRB-220c24d240e0-72")
 
 # Buddy Challenges received
 BuddyChallenge.create!(sender_id: nour.id, status: false, challenge: holiday, receiver_id: clem.id)
@@ -272,10 +295,6 @@ cs.challenge.actions.each_with_index do |action, i|
     ActionSetting.create!(challenge_subscription: cs, action: action)
   end
 end
-
-
-
-
 
 
 # user faker for now

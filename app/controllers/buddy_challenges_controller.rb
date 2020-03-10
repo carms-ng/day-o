@@ -3,6 +3,9 @@ class BuddyChallengesController < ApplicationController
     @received = current_user.received_challenges
     @sent = current_user.sent_challenges
     @sent_status = request_status(@sent)
+
+    @link_active = "buddy"
+
   end
 
 

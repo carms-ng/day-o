@@ -1,8 +1,8 @@
 <%= content_for(:title) { "Challenges" } %>
 
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
+  <div class="row d-flex justify-content-center">
+    <div class="col-xs-12" style="width: 100%;>
 
       <div class="cards-sub">
 
@@ -31,14 +31,14 @@
                   <div class="buttons-action">
                     <% if ActionCompletion.find_by(action: action, challenge_subscription: sub) %>
                       <%= link_to action_setting_path(action.setting_for(current_user)), method: :patch do %>
-                        <i id="icon-active"class="far fa-calendar-check"></i>
+                        <!-- <i id="icon-active"class="far fa-calendar-check"></i> -->
+                        <p>HABIT</p>
                       <% end %>
-                      <p>HABIT</p>
                     <% else %>
                       <%= link_to action_action_completions_path(action), method: :post do %>
-                        <i id="icon-inactive" class="far fa-circle"></i>
+                        <!-- <i id="icon-inactive" class="far fa-circle"></i> -->
+                        <p>DONE</p>
                       <% end %>
-                      <p>DONE</p>
                     <% end %>
                   </div>
 
