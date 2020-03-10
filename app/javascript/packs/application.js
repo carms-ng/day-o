@@ -35,7 +35,6 @@ const drawChart = (data) => {
 
 
 const timeChart = document.getElementById('time-chart');
-const ctxLifeChart = document.getElementById('lifeChart');
 
 const weeklyData = JSON.parse(timeChart.dataset.weeklyImpact);
 const monthlyData = JSON.parse(timeChart.dataset.monthlyImpact);
@@ -61,12 +60,22 @@ drawChart(weeklyData);
 
 
 // Life Chart
+const ctxLifeChart = document.getElementById('lifeChart');
+
+const categoryData = JSON.parse(ctxLifeChart.dataset.categoryImpact);
+
+const plastic = categoryData['Plastic']
+const commute = categoryData['Commute']
+const waste = categoryData['Waste']
+const energy = categoryData['Energy']
+const travel = categoryData['Travel']
+const diet = categoryData['Diet']
 
 // For a pie chart
 
 var dataLifeChart = {
     datasets: [{
-        data: [10, 20, 30, 50, 60, 90],
+        data: [plastic, commute, waste, energy, travel, diet],
         backgroundColor: [
             '#09A66D',
             '#FB7429',
@@ -81,7 +90,7 @@ var dataLifeChart = {
     labels: [
         'Plastic',
         'Commute',
-        'Food',
+        'Waste',
         'Energy',
         'Travel',
         'Diet'

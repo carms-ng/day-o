@@ -13,11 +13,22 @@ class UsersController < ApplicationController
     @impact_month_hash = monthly
     @impact_all_time_hash = all_time
 
+    @impact_per_category_hash = impact_per_category
     # 7 is today
     @impact_today = @impact_week_hash[Date.today.strftime("%b%e")]
   end
 
   private
+
+  def impact_per_category
+    category_impact = {}
+    Category.all.each do |category|
+      user_category = current_user.user_categories.find_by(category: category)
+      user_category.impact
+      category_impact["#{category.name}"] = user_category.impact
+    end
+    category_impact
+  end
 
   def weekly
     actions_week = ActionCompletion.joins(:challenge_subscription)
