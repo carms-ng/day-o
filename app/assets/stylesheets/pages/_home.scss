@@ -61,12 +61,14 @@
   justify-content: center;
   align-items: center;
   height: 190px;
+  position: relative;
+  padding-top: 15px;
 }
 
 .day-o-home-page {
   font-weight: 900;
   font-size: 80px;
-  color: $pink;
+  color: #4C6C6F;
   font-family: Nunito;
 }
 
@@ -82,10 +84,27 @@
 
 #line-homepage {
   position: absolute;
-  bottom: 24px;
+  bottom: -10px;
   left: calc( ( 100% - 111px) / 2);
 }
 
 .user-info-card-homepage {
   position: relative;
 }
+
+.tagline-homepage {
+  color: #4C6C6F;
+  font-size: 17px;
+}
+
+.typed-cursor {
+  display: none;
+}
+
+.home-icon-small {
+  width: 50px;
+  height: 50px;
+}
+
+
+
