@@ -48,3 +48,44 @@
   }
 
 }
+
+.home-icon {
+  width: 100px;
+  height: 100px;
+  // margin-top: 15px;
+}
+
+.home-icon-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 190px;
+}
+
+.day-o-home-page {
+  font-weight: 900;
+  font-size: 80px;
+  color: $pink;
+  font-family: Nunito;
+}
+
+.logo-homepage {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  p {
+    margin: 0 8px 0 0;
+  }
+}
+
+#line-homepage {
+  position: absolute;
+  bottom: 24px;
+  left: calc( ( 100% - 111px) / 2);
+}
+
+.user-info-card-homepage {
+  position: relative;
+}
