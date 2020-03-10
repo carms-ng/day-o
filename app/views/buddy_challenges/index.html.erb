@@ -1,16 +1,96 @@
-<h1>Received</h1>
-<% @received.each do |receive| %>
-  <%= receive.sender.username %>
-  <%= receive.challenge.name %>
-  <%= receive.status %>
-  <%= link_to "accept", buddy_challenge_path(receive), method: :patch %>
-  <%= link_to "decline", buddy_challenge_path(receive), method: :delete %>
-<% end %>
+<%= content_for(:title) { "Requests" } %>
 
-<h1>Sent</h1>
-<% @sent.each do |sent| %>
-  <%= sent.receiver.username %>
-  <%= sent.challenge.name %>
-  <%= sent.status %>
-  <%= link_to "cancel", buddy_challenge_path(sent), method: :delete %>
-<% end %>
+  <div class="requests">
+
+    <section id="tabs">
+    <div class="container">
+      <div class="row">
+        <div class="col-s-12 " style="width: 100%;">
+          <nav>
+            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" style="flex: 50%;" >Received</a>
+              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false" style="flex: 50%;">Sent</a>
+            </div>
+          </nav>
+          <div class="tab-content py-3 px-sm-0" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" >
+
+              <% @received.each do |receive| %>
+                <div class="buddy-cards">
+
+                  <div class="buddy-ch-info">
+                    <% if receive.sender.photo.present? %>
+                      <%= image_tag receive.sender.photo, class: "avatar" %>
+                    <% else %>
+                      <%= image_tag "user.png", class: "avatar" %>
+                    <% end %>
+
+                    <div class="ch-info">
+                      <p class="receiver"><%= receive.sender.username.capitalize %></p>
+                      <p class="buddy-ch"><%= receive.challenge.name %></p>
+                    </div>
+
+                  </div>
+
+                  <div class="accept-buttons">
+                  <%= link_to "Accept", buddy_challenge_path(receive), method: :patch, class: "status" %>
+                  <%= link_to "Decline", buddy_challenge_path(receive), method: :delete, class: "cancel" %>
+                </div>
+                </div>
+              <% end %>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" style="height: 120px;;" >
+              <% @sent.each do |sent| %>
+                <div class="buddy-cards">
+
+                  <div class="buddy-ch-info">
+                    <% if sent.receiver.photo.present? %>
+                      <%= image_tag sent.receiver.photo, class: "avatar" %>
+                    <% else %>
+                      <%= image_tag "user.png", class: "avatar" %>
+                    <% end %>
+
+                    <div class="ch-info">
+                      <p class="receiver"><%= sent.receiver.username.capitalize %></p>
+                      <p class="buddy-ch"><%= sent.challenge.name %></p>
+                    </div>
+
+                  </div>
+
+                  <div class="accept-buttons">
+                    <p class="status"><%= @sent_status%></p>
+                    <%= link_to "Cancel", buddy_challenge_path(sent), method: :delete,  class: "cancel"%>
+
+                  </div>
+                </div>
+              <% end %>
+            </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
