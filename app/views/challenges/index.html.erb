@@ -1,23 +1,52 @@
-<br>
-<div class="search-container">
-  <h4>Top beginner challenges </h4>
-  <div class="line">
-  </div>
+<%= content_for(:title) { "Challenges" } %>
 
-  <% @challenges.each do |challenge| %>
-      <!-- this should be a pop-up but I redirected to challenges_all just to test it -nour -->
-        <%= link_to challenge_path(challenge.id) do %>
-        <div class="card-challenge">
-          <div>
-            <h5><%= challenge.name %></h5>
-            <p class="no-days">Duration: <%= challenge.num_days %> days</p>
-            <p class="difficulty">Difficulty: <%= challenge.difficulty %></p>
-            <div class="icons-place">
-              <%= image_tag("solar-energy_black.svg", class:"small-icons")%>
-              <%= image_tag("fruit_black.svg", class:"small-icons")%>
-            </div>
-          </div>
-        </div>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-xs-12" style="width: 100%;">
+
+      <div class="section-title">
+        <% if @category.present? %>
+          <h4>Category: <%= @category.name %> </h4>
+        <% elsif @query.present? %>
+          <h4>Search Result: <%= @query %> </h4>
+        <% else %>
+          <h4>All Challenges</h4>
         <% end %>
-  <% end %>
+        <div class="line"></div>
+      </div>
+
+      <!-- challenge cards start -->
+      <div>
+        <% @challenges.each do |challenge| %>
+          <%= render "shared/challenge_modal", { challenge: challenge } %>
+            <div class="card-challenge" data-toggle="modal" data-target="#challenge-<%= challenge.id %>">
+              <div class="card-property">
+                <div>
+                  <p><%= challenge.num_days %> DAYS CHALLENGE</p>
+                  <p><%= challenge.total_impact %>G CO2 OFFSET</p>
+                </div>
+                <p>DIFFICULTY:
+                  <% challenge.difficulty.times do %>
+                    <i class="fas fa-circle" style="color: #4C6C6F;"></i>
+                  <% end %>
+                  <% (3 - challenge.difficulty).times do %>
+                    <i class="fas fa-circle" style="color: #C8D7D9"></i>
+                  <% end %>
+                </p>
+              </div>
+              <h5><%= challenge.name %></h5>
+              <div class="challenge-category-icons">
+                <!-- display category icon by color & image tag -->
+                <% categories = challenge.actions.map { |action| action.categories }.flatten.uniq %>
+                <% categories.each do |category| %>
+                  <%= image_tag(category.icon, id: "card-category-#{category.name.downcase}", class:"small-icons")%>
+                <% end %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+      <!-- challenge cards end -->
+
+    </div>
+  </div>
 </div>

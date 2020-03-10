@@ -1,0 +1,46 @@
+<!-- BS Modal -->
+<div class="modal fade" id="challenge-<%= challenge.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-challenge">
+<!--       <div class="modal-header">
+      </div> -->
+        <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      <div class="modal-body">
+        <div class="challenge-with-actions">
+
+          <div class="section-title">
+            <h4><%= challenge.name %></h4>
+            <div class="line"></div>
+          </div>
+
+          <div class="actions-card">
+            <% day = 0 %>
+            <% challenge.actions.each do |action| %>
+              <div class="action-card">
+                <p><strong>#<%= day += 1 %></strong>: <%= action.title%></p>
+              </div>
+               <!-- <p>Description: <%=  action.description%></p> -->
+               <!-- <p>Impact: <%=  action.impact%>pts</p> -->
+            <% end %>
+          </div>
+
+          <div class="links">
+            <%= link_to 'START CHALLENGE', challenge_challenge_subscriptions_path(challenge), method: :post, class: "btn-start" %>
+            <%= link_to 'BOOKMARK', '#', class: "btn-book"  %>
+            <%= link_to 'select a buddy', '#', class: "btn-buddy"  %>
+          </div>
+
+        </div>
+
+      </div>
+<!--       <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+

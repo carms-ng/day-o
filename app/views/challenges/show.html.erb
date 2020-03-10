@@ -1,19 +1,19 @@
 
-<div class="search-container">
-  <div class="row">
-    <div class="col-sm-12">
-
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-xs-12">
       <div class="challenge-with-actions">
 
-        <h2><%= @challenge.name %></h2>
-        <div class="line">
+        <div class="section-title">
+          <h4><%= @challenge.name %></h4>
+          <div class="line"></div>
         </div>
+
         <div class="actions-card">
             <% day = 0 %>
             <% @challenge.actions.each do |action| %>
               <div class="action-card">
-                <p>Day <%= day += 1 %>: <%=  action.title%></p>
-
+                <p><strong>#<%= day += 1 %></strong>: <%= action.title%></p>
               </div>
                <!-- <p>Description: <%=  action.description%></p> -->
                <!-- <p>Impact: <%=  action.impact%>pts</p> -->

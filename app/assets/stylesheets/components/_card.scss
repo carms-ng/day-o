@@ -1,3 +1,14 @@
+// Category index
+
+.cards-category {
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  // justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .card-categories {
   box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
   border-radius: 10px;
@@ -8,78 +19,7 @@
   margin-left: 15px;
   font-family: Nunito;
   padding-top: 30px;
-}
-
-.card-container-categories {
-  margin-bottom: 100px;
-  padding: 2px 0px;
-  justify-content: center;
-  display: flex;
-  justify-content: space-between;
-  overflow-x: scroll;
-  width: 100%;
-}
-
-.card-challenge {
-  position: relative;
-  box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
-  border-radius: 10px;
-  background-color: #FFFFFF;
-  width: 360px;
-  height: 137px;
-  margin-bottom: 15px;
-  color: $dark-green;
-  font-family: Nunito;
-  text-align: center;
-  padding-top: 40px;
-
-  .info {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-
-  h5 {
-    color: #5e7b7d;
-    font-weight: bold;
-  }
-}
-
-.info {
-  width: 25px;
-  height: 25px;
-}
-
-.no-days {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-.difficulty {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
-
-.small-icons {
-  width: 31px;
-  height: 31px;
-  border-radius: 5px;
-  padding: 3px;
-  background-color: #DDE8CB;
-}
-
-h4 {
-  font-family: Nunito;
-  font-weight: bold;
-  color: #5e7b7d;
-}
-
-.icons-place {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
+  margin: 10px;
 }
 
 #card-category-plastic {
@@ -106,6 +46,134 @@ h4 {
   background-color: #FFB672;
 }
 
+.cards-genre {
+  display: flex;
+  justify-content: center;
+  overflow-x: scroll;
+}
+
+.card-genre {
+  // width: auto;
+  background-color: white;
+  box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
+  margin: 20px 10px 20px 10px;
+  padding: 40px;
+  color: $dark-green;
+  text-align: center;
+  border-radius: 10px;
+
+  h5 {
+    font-weight: bold;
+  }
+}
+
+.card-challenge {
+  margin: 15px;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+
+  .card-property {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  p {
+    color: gray;
+    margin-bottom: 0;
+    font-size: 12px;
+  }
+
+  h5 {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 24px;
+    // color: $dark-green;
+  }
+}
+
+.challenge-category-icons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.small-icons {
+  width: 31px;
+  height: 31px;
+  border-radius: 5px;
+  padding: 3px;
+  margin: 0 5px;
+  background-color: #DDE8CB;
+}
+
+
+// Archive
+// .card-challenge {
+//   position: relative;
+//   box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
+//   border-radius: 10px;
+//   background-color: white;
+//   width: 340px;
+//   height: 137px;
+//   margin: 15px auto;
+//   color: $dark-green;
+//   text-align: center;
+//   padding-top: 40px;
+
+//   .info {
+//     position: absolute;
+//     top: 10px;
+//     right: 10px;
+//   }
+
+//   h5 {
+//     color: #5e7b7d;
+//     font-weight: bold;
+//   }
+// }
+
+// .info {
+//   width: 25px;
+//   height: 25px;
+// }
+
+// .no-days {
+//   position: absolute;
+//   top: 10px;
+//   right: 10px;
+// }
+
+// .difficulty {
+//   position: absolute;
+//   top: 10px;
+//   left: 10px;
+// }
+
+// .small-icons {
+//   width: 31px;
+//   height: 31px;
+//   border-radius: 5px;
+//   padding: 3px;
+//   background-color: #DDE8CB;
+// }
+
+// h4 {
+//   font-family: Nunito;
+//   font-weight: bold;
+//   color: #5e7b7d;
+// }
+
+// .icons-place {
+//   position: absolute;
+//   bottom: 10px;
+//   left: 10px;
+// }
+
+// old
+
 // dashboard page
 .card-sub {
   background-color: white;
@@ -125,7 +193,6 @@ h4 {
     font-size: 16px;
     color: $black;
   }
-
 }
 
 .section-action {
@@ -134,22 +201,27 @@ h4 {
 }
 
 .buttons-action {
-  margin: 0 5px;
+  margin: 0 0 0 10px;
   display: flex;
-  flex-direction: column;
-  // justify-content: center;
   align-items: center;
-  color: lightgray;
-  font-size: 14px;
 
-  #icon-inactive {
-    font-size: 30px;
-    color: lightgray;
-  }
 
-  #icon-inactive:hover {
-    color: $green;
+  p {
+    color: $dark-green;
+    margin-bottom: 0;
+    margin-right: 3px;
   }
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  // color: lightgray;
+  // font-size: 14px;
+
+  // #icon-inactive {
+  //   font-size: 30px;
+  //   color: lightgray;
+  // }
 }
 
 #icon-active {
@@ -157,30 +229,33 @@ h4 {
   color: $green;
 }
 
-
+// habit
 .card-habit {
-  // width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: white;
   margin: 20px;
-  padding: 30px;
+  padding: 15px;
   border-radius: 8px;
   box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
+}
 
-  .info-habit {
-    flex-grow: 1;
-  }
-  h3 {
+.info-habit {
+  flex-grow: 1;
+
+  h5 {
     font-size: 16px;
     color: $black;
     margin-bottom: 0px;
   }
   p {
+    font-size: 10px;
+    color: gray;
     margin-bottom: 0px;
   }
 }
+
 
 #three-dots {
   margin-left: 10px;
@@ -191,14 +266,14 @@ h4 {
   color: $black;
 }
 
-#checkable {
-  font-size: 30px;
-  color: $green;
+#addon-checkable {
+  font-size: 35px;
+  color: $turquoise;
   margin-left: 10px;
 }
 
-#uncheckable {
-  font-size: 30px;
+#addon-uncheckable {
+  font-size: 35px;
   color: lightgray;
   margin-left: 10px;
 }

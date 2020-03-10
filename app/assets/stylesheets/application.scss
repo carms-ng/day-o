@@ -15,13 +15,12 @@
 @import "components/card";
 @import "components/icon";
 
-@import "pages/search";
-
 
 //Overall app content CSS
 
 body {
   height: 100%;
+  margin-bottom: 100px;
   // background-color: #FAFAFA;
 }
 
@@ -30,5 +29,5 @@ body {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
