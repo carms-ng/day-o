@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   has_many :challenge_subscriptions
   has_many :action_completions, through: :challenge_subscriptions
 
@@ -14,8 +15,8 @@ class User < ApplicationRecord
   has_many :user_categories, dependent: :destroy
   has_many :categories, through: :user_categories
 
-  has_many :sent_challenges, class_name: 'BuddyChallenge', foreign_key: 'sender_id'
-  has_many :received_challenges, class_name: 'BuddyChallenge', foreign_key: 'receiver_id'
+  has_many :sent_challenges, class_name: 'BuddyChallenge', foreign_key: 'sender_id', dependent: :destroy
+  has_many :received_challenges, class_name: 'BuddyChallenge', foreign_key: 'receiver_id', dependent: :destroy
 
 
   after_create :initialize_user_categories

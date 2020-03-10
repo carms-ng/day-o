@@ -24,8 +24,10 @@
         <div class="links">
           <%= link_to 'START CHALLENGE', challenge_challenge_subscriptions_path(@challenge), method: :post, class: "btn-start" %>
           <%= link_to 'BOOKMARK', '#', class: "btn-book"  %>
-          <%= link_to 'select a buddy', '#', class: "btn-buddy"  %>
-
+          <%= simple_form_for [@challenge, @buddy_challenge] do |f| %>
+            <%= f.association :receiver, collection: User.where.not(id: current_user.id), label_method: :username %>
+            <%= f.submit :select, class: "btn-buddy" %>
+          <% end %>
         </div>
 
     </div>

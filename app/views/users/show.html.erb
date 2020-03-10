@@ -1,5 +1,4 @@
-
-  <!-- Profile Row -->
+<!-- Profile Row -->
 <div id="user-info-card">
   <!-- add avatar -->
   <div id="avatar-container">
@@ -23,14 +22,45 @@
     <div class="badge-header">
       <h5>Badges Collection</h5>
     </div>
+
+
     <div class="badge-list">
       <ul>
-        <%= image_tag "plastic_black.svg", class: "profile-badge" %>
-        <%= image_tag "solar-energy_black.svg", class: "profile-badge" %>
-        <%= image_tag "aircraft_black.svg", class: "profile-badge" %>
-        <%= image_tag "bike_black.svg", class: "profile-badge" %>
-        <%= image_tag "fruit_black.svg", class: "profile-badge" %>
-        <%= image_tag "jar_black.svg", class: "profile-badge" %>
+        <% if current_user.earned_badges.joins(:badge).where(badges: { name: 'Plastic' }).exists? %>
+          <%= image_tag "plastic (1).svg", class: "profile-badge", style: "background-color: #09A66D" %>
+        <% else %>
+          <%= image_tag "plastic_black.svg", class: "profile-badge"%>
+        <% end %>
+
+        <% if current_user.earned_badges.joins(:badge).where(badges: { name: 'Energy' }).exists? %>
+          <%= image_tag "solar-energy.svg", class: "profile-badge", style: "background-color: #ECD0B4" %>
+        <% else %>
+          <%= image_tag "solar-energy_black.svg", class: "profile-badge"%>
+        <% end %>
+
+        <% if current_user.earned_badges.joins(:badge).where(badges: { name: 'Travel' }).exists? %>
+          <%= image_tag "aircraft.svg", class: "profile-badge", style: "background-color: #94514C" %>
+        <% else %>
+          <%= image_tag "aircraft_black.svg", class: "profile-badge"%>
+        <% end %>
+
+        <% if current_user.earned_badges.joins(:badge).where(badges: { name: 'Commute' }).exists? %>
+          <%= image_tag "bike (1).svg", class: "profile-badge", style: "background-color: #FB7429" %>
+        <% else %>
+          <%= image_tag "bike_black.svg", class: "profile-badge"%>
+        <% end %>
+
+        <% if current_user.earned_badges.joins(:badge).where(badges: { name: 'Diet' }).exists? %>
+          <%= image_tag "fruit.svg", class: "profile-badge", style: "background-color: #B29DC8" %>
+        <% else %>
+          <%= image_tag "fruit_black.svg", class: "profile-badge"%>
+        <% end %>
+
+        <% if current_user.earned_badges.joins(:badge).where(badges: { name: 'Waste' }).exists? %>
+          <%= image_tag "jar (2).svg", class: "profile-badge", style: "background-color: #FFB672" %>
+        <% else %>
+          <%= image_tag "jar_black.svg", class: "profile-badge"%>
+        <% end %>
       </ul>
     </div>
   </div>
@@ -41,23 +71,6 @@
 <div class="daily-score">
   <h5>Today's Impact: </h5><p><%= @impact_today %></p>
 </div>
-
-<!-- Impact Charts -->
-<div class="impact-charts-container">
-  <!--Weekly impact -->
-  <div class="weekly-impact">
-    <p>Weekly Impact:</p>
-    <canvas  data-impact="<%= @impact_week_hash.to_json %>" id="weekChart" width="175" height="218"></canvas>
-  </div>
-
-  <!--Life impact -->
-  <div class="life-impact">
-    <p>Overall Impact:</p>
-    <canvas id="lifeChart" width="400" height="400"></canvas>
-  </div>
-</div>
-
-
 <!--CO2 stats -->
 <div class="CO2-comparison">
   <!--User Average -->
@@ -73,3 +86,30 @@
     <h5>71%</h5>
   </div>
 </div>
+
+<!-- Impact Charts -->
+<div class="impact-charts-container">
+  <!--Weekly impact -->
+  <div class="weekly-impact">
+    <p>Weekly Impact:</p>
+    <canvas
+      data-weekly-impact="<%= @impact_week_hash.to_json %>"
+      data-monthly-impact="<%= @impact_month_hash.to_json %>"
+      data-all-time-impact="<%= @impact_all_time_hash.to_json %>"
+      id="time-chart"
+      width="100"
+      height="95"
+    ></canvas>
+    <span id="seven-days">7 Days | </span>
+    <span id="thirty-days">30 Days | </span>
+    <span id="all-time">All Time</span>
+  </div>
+
+  <!--Life impact -->
+  <div class="life-impact">
+    <p>Overall Impact:</p>
+    <canvas data-category-impact="<%= @impact_per_category_hash.to_json %>" id="lifeChart" width="100%" height="70%"></canvas>
+  </div>
+</div>
+
+

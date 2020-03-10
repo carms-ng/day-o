@@ -9,11 +9,13 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @link_active = "dashboard"
   end
 
   def habit
     @habits = ActionSetting.joins(:challenge_subscription)
       .where(challenge_subscriptions: { user_id: current_user.id }, action_settings: { habit: true })
+    @link_active = "habit"
   end
 
   private
