@@ -16,53 +16,17 @@
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" >
 
               <% @received.each do |receive| %>
-                <div class="buddy-cards">
-
-                  <div class="buddy-ch-info">
-                    <% if receive.sender.photo.present? %>
-                      <%= image_tag receive.sender.photo, class: "avatar" %>
-                    <% else %>
-                      <%= image_tag "user.png", class: "avatar" %>
-                    <% end %>
-
-                    <div class="ch-info">
-                      <p class="receiver"><%= receive.sender.username.capitalize %></p>
-                      <p class="buddy-ch"><%= receive.challenge.name %></p>
-                    </div>
-
-                  </div>
-
-                  <div class="accept-buttons">
-                  <%= link_to "Accept", buddy_challenge_path(receive), method: :patch, class: "status" %>
-                  <%= link_to "Decline", buddy_challenge_path(receive), method: :delete, class: "cancel" %>
-                </div>
+                <div id="<%= receive.id%>">
+                  <%= render 'received_card', receive: receive  %>
                 </div>
               <% end %>
             </div>
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" style="height: 120px;;" >
               <% @sent.each do |sent| %>
-                <div class="buddy-cards">
-
-                  <div class="buddy-ch-info">
-                    <% if sent.receiver.photo.present? %>
-                      <%= image_tag sent.receiver.photo, class: "avatar" %>
-                    <% else %>
-                      <%= image_tag "user.png", class: "avatar" %>
-                    <% end %>
-
-                    <div class="ch-info">
-                      <p class="receiver"><%= sent.receiver.username.capitalize %></p>
-                      <p class="buddy-ch"><%= sent.challenge.name %></p>
-                    </div>
-
-                  </div>
-
-                  <div class="accept-buttons">
-                    <p class="status"><%= @sent_status%></p>
-                    <%= link_to "Cancel", buddy_challenge_path(sent), method: :delete,  class: "cancel"%>
-
-                  </div>
+                <div id="<%= sent.id%>">
+                  <%= render 'sent_card', sent: sent  %>
                 </div>
+
               <% end %>
             </div>
 

@@ -27,9 +27,13 @@
           </div>
 
           <div class="links">
-            <%= link_to 'START CHALLENGE', challenge_challenge_subscriptions_path(challenge), method: :post, class: "btn-start" %>
+            <%= link_to 'START CHALLENGE', challenge_challenge_subscriptions_path(challenge), method: :post, class: "btn-start", id: "new-challenge-button" %>
             <%= link_to 'BOOKMARK', '#', class: "btn-book"  %>
-            <%= link_to 'select a buddy', '#', class: "btn-buddy"  %>
+            <p id="challenge-buddy">challenge your buddy</p>
+            <%= simple_form_for [challenge, buddy_challenge], html: { class: "d-none" } do |f| %>
+              <%= f.input :receiver_id, as: :hidden %>
+              <%= f.submit "Challenge your Buddy", class: "btn-buddy" %>
+            <% end %>
           </div>
 
         </div>
@@ -39,6 +43,17 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div> -->
+    </div>
+
+    <div class="modal-content modal-buddy d-none">
+      <p id="back-to-challenge">Back</p>
+      <% User.all.each do |u| %>
+        <p
+          class="buddy-user"
+          data-user-id="<%= u.id %>"
+          data-user-username="<%= u.username %>"
+        ><%= u.username.capitalize %></p>
+      <% end %>
     </div>
   </div>
 </div>

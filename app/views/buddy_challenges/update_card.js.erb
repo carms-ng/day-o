@@ -1,0 +1,9 @@
+console.log('hey')
+received = document.querySelector("#<%= @receive.id%>");
+sent = document.querySelector("#<%= @sent.id%>");
+
+if (received) {
+  received.innerHTML = "<%= j render 'received_card', receive: @receive %>";
+} else {
+  sent.innerHTML = "<%= j render 'sent_card', sent: @sent %>";
+}

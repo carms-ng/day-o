@@ -1,4 +1,6 @@
 import "bootstrap";
+import "../components/buddy_challenge";
+
 
 import Chart from 'chart.js';
 
