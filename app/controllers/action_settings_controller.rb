@@ -17,7 +17,11 @@ class ActionSettingsController < ApplicationController
     @setting = ActionSetting.find(params[:id])
     @setting.toggle_checked!
     @setting.save
-    redirect_to habit_path
+    respond_to do |format|
+      format.html { render 'pages/habit' }
+      format.js  # <-- idem
+    end
+    # redirect_to habit_path
   end
 end
 

@@ -5,26 +5,28 @@
         <div class="menu-addon-left">
 
           <% if @num_habit_checked == 0 %>
-            <p>No habits checked</p>
+            <p id="progress-text">No habits checked</p>
           <% elsif @num_habit_checked == @num_habit_checkable %>
-            <p>All habits checked</p>
+            <p id="progress-text">All habits checked</p>
           <% else %>
-            <p><%= @num_habit_checked %> out of <%= @num_habit_checkable %> habits checked</p>
+            <p id="progress-text"><%= @num_habit_checked %> out of <%= @num_habit_checkable %> habits checked</p>
           <% end %>
 
 
-          <div class="progress" style="height: 8px;">
-            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%= @num_habit_checked.to_f / @num_habit_checkable *100 %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="progress" style="height: 6px;">
+            <div id='progress-bar' class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%= @num_habit_checked.to_f / @num_habit_checkable *100 %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
         </div>
 
-        <% if @can_mass_create %>
-          <%= link_to action_completions_mass_create_path, method: :post do %>
-            <i id='addon-checkable' class="fas fa-check-circle"></i>
-          <% end %>
-        <% else %>
+        <div id="mass-section">
+          <% if @can_mass_create %>
+            <%= link_to action_completions_mass_create_path, method: :post do %>
+              <i id='addon-checkable' class="fas fa-check-circle"></i>
+            <% end %>
+          <% else %>
             <i id='addon-uncheckable' class="fas fa-check-circle"></i>
-        <% end %>
+          <% end %>
+        </div>
 
       </div>
       <hr>

@@ -29,6 +29,10 @@ class ActionCompletionsController < ApplicationController
       ActionCompletion.create(action: setting.action, challenge_subscription: setting.challenge_subscription)
     end
     redirect_to habit_path
+    # respond_to do |format|
+    #   format.html { render 'pages/habit' }
+    #   format.js  # <-- idem
+    # end
     flash[:notice] = "Sweetttt!"
   end
 

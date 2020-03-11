@@ -17,11 +17,11 @@
                   <p>DONE</p>
                   <i class="fas fa-check" style="margin-left: 3px; color: #4C6C6F; font-size: 25px;"></i>
                 <% else %>
-                  <%= link_to update_check_action_setting_path(habit), method: :patch do %>
+                  <%= link_to update_check_action_setting_path(habit), method: :patch, remote: true do %>
                     <% if habit.checked %>
-                      <i class="fas fa-check-circle" style="color: lightgray; font-size: 30px;"></i>
+                      <i id='habit-<%= habit.id %>' class="fas fa-check-circle habit-checkbox-checked" style="color: lightgray; font-size: 30px;"></i>
                     <% else %>
-                      <i class="far fa-circle" style="color: lightgray; font-size: 30px;"></i>
+                      <i id='habit-<%= habit.id %>' class="far fa-circle habit-checkbox-unchecked" style="color: lightgray; font-size: 30px;"></i>
                     <% end %>
                   <% end %>
                 <% end %>
