@@ -28,18 +28,21 @@
       <hr style= "width: 90%; text-align: center;">
       <ul class="icons">
         <%= link_to root_path, class: "icon-label" do %>
-          <span class="iconify" data-icon="mdi-light:home" data-inline="false" data-width="30" data-height="30"></span>
-          <span>Home</span>
+          <% @active = params[:action] == 'home' ? 'active' : '' %>
+          <span class="iconify <%= @active %>" data-icon="mdi-light:home" data-inline="false" data-width="30" data-height="30"></span>
+          <span class="<%= @active %>">Home</span>
         <% end %>
 
         <%= link_to dashboard_path, class: "icon-label" do %>
-          <span class="iconify" data-icon="mdi-light:format-list-checks" data-inline="false" data-width="30" data-height="30"></span>
-          <span>Challenges</span>
+          <% @active = @link_active == 'dashboard' ? 'active' : '' %>
+          <span class="iconify <%= @active %>" data-icon="mdi-light:format-list-checks" data-inline="false" data-width="30" data-height="30"></span>
+          <span class="<%= @active %>">Challenges</span>
         <% end %>
 
-        <%= link_to categories_path, class: "icon-label" do %>
-          <span class="iconify" data-icon="simple-line-icons:people" data-inline="false" data-width="22" data-height="20"></span>
-          <span>Buddy</span>
+        <%= link_to buddy_challenges_path, class: "icon-label" do %>
+          <% @active = @link_active == 'buddy' ? 'active' : '' %>
+          <span class="iconify <%= @active %>" data-icon="simple-line-icons:people" data-inline="false" data-width="22" data-height="20"></span>
+          <span class="<%= @active %>">Buddy</span>
         <% end %>
 
         <%= link_to habit_path, class: "icon-label" do %>
@@ -50,8 +53,9 @@
 
         <%  if current_user %>
           <%= link_to user_path(current_user.id), class: "icon-label" do %>
-            <span class="iconify" data-icon="ei:user" data-inline="false" data-width="30" data-height="30"></span>
-            <span>Profile</span>
+            <% @active = @link_active == 'profile' ? 'active' : '' %>
+            <span class="iconify <%= @active %>" data-icon="ei:user" data-inline="false" data-width="30" data-height="30"></span>
+            <span class="<%= @active %>">Profile</span>
           <% end %>
         <% end %>
       </ul>
@@ -77,27 +81,35 @@
       </div>
       <hr style= "width: 90%; text-align: center;">
       <ul class="icons">
-        <%= link_to root_path do %>
-          <span class="iconify" data-icon="mdi-light:home" data-inline="false"></span>
+        <%= link_to root_path, class: "icon-label" do %>
+          <% @active = params[:action] == 'home' ? 'active' : '' %>
+          <span class="iconify <%= @active %>" data-icon="mdi-light:home" data-inline="false" data-width="30" data-height="30"></span>
+          <span class="<%= @active %>">Home</span>
         <% end %>
 
-        <%= link_to dashboard_path do %>
-          <span class="iconify" data-icon="mdi-light:format-list-checks" data-inline="false"></span>
+        <%= link_to dashboard_path, class: "icon-label" do %>
+          <% @active = @link_active == 'dashboard' ? 'active' : '' %>
+          <span class="iconify <%= @active %>" data-icon="mdi-light:format-list-checks" data-inline="false" data-width="30" data-height="30"></span>
+          <span class="<%= @active %>">Challenges</span>
         <% end %>
 
-          <%= link_to categories_path do %>
-            <span class="iconify" data-icon="ei:search" data-inline="false"></span>
+          <%= link_to buddy_challenges_path, class: "icon-label" do %>
+            <% @active = @link_active == 'buddy' ? 'active' : '' %>
+            <span class="iconify <%= @active %>" data-icon="simple-line-icons:people" data-inline="false" data-width="22" data-height="20"></span>
+            <span class="<%= @active %>">Buddy</span>
           <% end %>
 
-          <%= link_to habit_path do %>
-            <span class="iconify" data-icon="cil:calendar-check" data-inline="false"></span>
+          <%= link_to habit_path, class: "icon-label" do %>
+            <% @active = @link_active == 'habit' ? 'active' : '' %>
+            <span class="iconify <%= @active %>" data-icon="cil:calendar-check" data-inline="false" data-width="24" data-height="24"></span>
+            <span class="<%= @active %>">Habits</span>
           <% end %>
-
-          <!-- <span class="iconify" data-icon="ei:bell" data-inline="false"></span> -->
 
         <%  if current_user %>
-          <%= link_to user_path(current_user.id) do %>
-            <span class="iconify" data-icon="ei:user" data-inline="false"></span>
+          <%= link_to user_path(current_user.id), class: "icon-label" do %>
+            <% @active = @link_active == 'profile' ? 'active' : '' %>
+            <span class="iconify <%= @active %>" data-icon="ei:user" data-inline="false" data-width="30" data-height="30"></span>
+            <span class="<%= @active %>">Profile</span>
           <% end %>
         <% end %>
       </ul>
