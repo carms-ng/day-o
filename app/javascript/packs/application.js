@@ -2,6 +2,11 @@ import "bootstrap";
 
 import Chart from 'chart.js';
 
+import { loadActionDropdown } from '../components/dropdown';
+loadActionDropdown();
+
+
+// chart
 const drawChart = (data) => {
   const xAxis = Object.keys(data);
   const yAxis = Object.values(data);
