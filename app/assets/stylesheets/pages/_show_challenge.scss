@@ -10,6 +10,17 @@
   }
 }
 
+.modal-buddy {
+  position: relative;
+  border-radius: 10px;
+}
+
+#challenge-buddy {
+  text-align: center;
+  color: #B0B0B0;
+  font-size: 16px;
+}
+
 .actions-card {
   // width: 312px;
   margin-bottom: 40px;
@@ -52,11 +63,17 @@
   }
 
 }
-
-
+// width: 100px;
+//     height: 100px;
+//     border-radius: 50%;
 .links {
   display: flex;
   flex-direction: column;
+  .profile-avatar {
+    align-self: center;
+    margin-top: 0;
+    margin-bottom: 18px;
+  }
 }
 
 .btn-start {

@@ -1,7 +1,7 @@
 <!-- BS Modal -->
 <div class="modal fade" id="challenge-<%= challenge.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content modal-challenge">
+    <div class="modal-content modal-challenge" id="modal-challenge-<%= challenge.id %>">
 <!--       <div class="modal-header">
       </div> -->
         <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
@@ -27,13 +27,23 @@
           </div>
 
           <div class="links">
-            <%= link_to 'START CHALLENGE', challenge_challenge_subscriptions_path(challenge), method: :post, class: "btn-start", id: "new-challenge-button" %>
-            <%= link_to 'BOOKMARK', '#', class: "btn-book"  %>
-            <p id="challenge-buddy">challenge your buddy</p>
-            <%= simple_form_for [challenge, buddy_challenge], html: { class: "d-none" } do |f| %>
+            <!-- the big button that should work :)  -->
+            <div id="avatar-container">
+              <% if current_user.photo.present? %>
+                <%= image_tag current_user.photo, class: "profile-avatar" %>
+              <% else %>
+                <%= image_tag "user.png", class: "profile-avatar" %>
+              <% end %>
+            </div>
+            <p id="challenge-buddy" data-challenge="<%= challenge.id %>">challenge your buddy</p>
+
+            <%= simple_form_for [challenge, buddy_challenge], html: { class: "d-none", id: "challenge-receiver-#{challenge.id}" } do |f| %>
               <%= f.input :receiver_id, as: :hidden %>
-              <%= f.submit "Challenge your Buddy", class: "btn-buddy" %>
+              <%= f.submit "Challenge the name", class: "btn-buddy", id: "new-buddy-challenge-form-#{challenge.id}" %>
             <% end %>
+
+            <%= link_to 'START CHALLENGE', challenge_challenge_subscriptions_path(challenge), method: :post, class: "btn-start", id: "new-challenge-button-#{challenge.id}" %>
+
           </div>
 
         </div>
@@ -45,15 +55,29 @@
       </div> -->
     </div>
 
-    <div class="modal-content modal-buddy d-none">
-      <p id="back-to-challenge">Back</p>
-      <% User.all.each do |u| %>
-        <p
-          class="buddy-user"
-          data-user-id="<%= u.id %>"
-          data-user-username="<%= u.username %>"
-        ><%= u.username.capitalize %></p>
-      <% end %>
+    <div class="modal-content modal-buddy d-none" id="modal-buddy-<%= challenge.id %>">
+      <div class="modal-body">
+        <div class="challenge-with-actions">
+          <p id="back-to-challenge" class="back-button-challenge-<%= challenge.id%>">Back</p>
+          <div class="section-title">
+            <h4>Select a Buddy</h4>
+            <div class="line"></div>
+          </div>
+          <div class="actions-card">
+            <% User.where.not(id: current_user.id).each do |u| %>
+            <div class="action-card">
+                <p
+                  class="buddy-user"
+                  data-challenge="<%= challenge.id %>"
+                  data-user-id="<%= u.id %>"
+                  data-user-username="<%= u.username %>"
+                  data-user-photo="<%= u.photo %>"
+                ><%= u.username.capitalize %></p>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

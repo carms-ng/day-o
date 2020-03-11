@@ -1,32 +1,32 @@
 <%= content_for(:title) { "Requests" } %>
 
-  <div class="requests">
+<div class="requests">
 
-    <section id="tabs">
+  <section id="tabs">
     <div class="container">
       <div class="row">
         <div class="col-s-12 " style="width: 100%;">
           <nav>
             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" style="flex: 50%;" >Received</a>
-              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false" style="flex: 50%;">Sent</a>
+              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" style="flex: 50%;" >Sent</a>
+              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false" style="flex: 50%;">Received</a>
             </div>
           </nav>
           <div class="tab-content py-3 px-sm-0" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" >
-
-              <% @received.each do |receive| %>
-                <div id="<%= receive.id%>">
-                  <%= render 'received_card', receive: receive  %>
-                </div>
-              <% end %>
-            </div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" style="height: 120px;;" >
-              <% @sent.each do |sent| %>
+              <% @sent.order(created_at: :desc).each do |sent| %>
                 <div id="<%= sent.id%>">
                   <%= render 'sent_card', sent: sent  %>
                 </div>
 
+              <% end %>
+
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" style="height: 120px;;" >
+              <% @received.order(created_at: :desc).each do |receive| %>
+                <div id="<%= receive.id%>">
+                  <%= render 'received_card', receive: receive  %>
+                </div>
               <% end %>
             </div>
 
