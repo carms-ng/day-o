@@ -67,23 +67,26 @@
 </div>
 
 
-<!-- Today score -->
-<div class="daily-score">
-  <h5>Today's Impact: </h5><p><%= @impact_today %></p>
-</div>
 <!--CO2 stats -->
 <div class="CO2-comparison">
-  <!--User Average -->
-  <div class="user-average-CO2">
-    <h6>Your average CO2:</h6>
-    <h5>67%</h5>
+  <!-- Today score -->
+  <div class="daily-score">
+    <h5><%= @impact_today %></h5>
+    <p>gCO2e Your total today </p>
   </div>
   <!-- break line -->
   <div class="vl"></div>
-  <!-- Neighborhood Average -->
+  <!--User Average CO2-->
+  <div class="user-average-CO2">
+    <h5>1.2</h5>
+    <p>kgCO2e Your average</p>
+  </div>
+  <!-- break line -->
+  <div class="vl"></div>
+  <!-- Neighborhood Average CO2 -->
   <div class="neighborhood-average-CO2">
-    <h6>Neighborhood  CO2:</h6>
-    <h5>71%</h5>
+    <h5>1.4</h5>
+    <p>kgCO2e Neighborhood</p>
   </div>
 </div>
 
@@ -91,25 +94,84 @@
 <div class="impact-charts-container">
   <!--Weekly impact -->
   <div class="weekly-impact">
-    <p>Weekly Impact:</p>
+    <p>Weekly Impact</p>
+    <!--graph -->
     <canvas
       data-weekly-impact="<%= @impact_week_hash.to_json %>"
       data-monthly-impact="<%= @impact_month_hash.to_json %>"
       data-all-time-impact="<%= @impact_all_time_hash.to_json %>"
       id="time-chart"
-      width="100"
-      height="95"
+      width="80"
+      height="100"
     ></canvas>
-    <span id="seven-days">7 Days | </span>
-    <span id="thirty-days">30 Days | </span>
-    <span id="all-time">All Time</span>
+    <div class="week-graph-nav">
+      <span id="seven-days">7 Days | </span>
+      <span id="thirty-days">30 Days | </span>
+      <span id="all-time">All Time</span>
+    </div>
+    <!-- button layer -->
+    <button type="button" class="btn btn-primary graph-modal-triggered" data-toggle="modal" data-target="#exampleModalCenter">
+      &nbsp;
+    </button>
   </div>
+
 
   <!--Life impact -->
   <div class="life-impact">
-    <p>Overall Impact:</p>
-    <canvas data-category-impact="<%= @impact_per_category_hash.to_json %>" id="lifeChart" width="100%" height="70%"></canvas>
+    <p>Overall Impact</p>
+    <canvas data-category-impact="<%= @impact_per_category_hash.to_json %>" id="lifeChart" width="120px" height="120px"></canvas>
+    <!-- button layer -->
+    <button type="button" class="btn btn-primary life-graph-modal-triggered" data-toggle="modal" data-target="#life-chart-popup">
+      &nbsp;
+    </button>
   </div>
 </div>
 
+<!-- Modal Week Chart-->
+<div class="modal fade week-chart" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="iconify" data-icon="cil:x" data-inline="false">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!--Week Chart -->
+        <p>Weekly Impact</p>
+        <!--graph -->
+        <canvas
+          data-weekly-impact="<%= @impact_week_hash.to_json %>"
+          data-monthly-impact="<%= @impact_month_hash.to_json %>"
+          data-all-time-impact="<%= @impact_all_time_hash.to_json %>"
+          id="time-chart-modal"
+          width="80"
+          height="75"
+        ></canvas>
+        <div class="week-graph-nav">
+          <span id="seven-days">7 Days | </span>
+          <span id="thirty-days">30 Days | </span>
+          <span id="all-time">All Time</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- Modal Categories Chart-->
+<div class="modal fade week-chart" id="life-chart-popup" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="iconify" data-icon="cil:x" data-inline="false">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!--Week Chart -->
+          <p>Overall Impact</p>
+          <canvas data-category-impact="<%= @impact_per_category_hash.to_json %>" id="life-chart-modal" width="100%" height="100%"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
