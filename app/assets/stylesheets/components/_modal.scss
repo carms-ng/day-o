@@ -1,0 +1,11 @@
+.modal-challenge {
+  position: relative;
+  border-radius: 10px;
+
+  #close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    z-index: 2;
+  }
+}
