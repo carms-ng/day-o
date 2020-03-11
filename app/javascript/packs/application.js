@@ -100,6 +100,21 @@ const weeklyDataModal = JSON.parse(timeChartModal.dataset.weeklyImpact);
 const monthlyDataModal = JSON.parse(timeChartModal.dataset.monthlyImpact);
 const allTimeDataModal = JSON.parse(timeChartModal.dataset.allTimeImpact);
 
+
+document.querySelector("#seven-days-modal").addEventListener("click", () => {
+  drawChartModal(weeklyDataModal);
+});
+
+document.querySelector("#thirty-days-modal").addEventListener("click", () => {
+  drawChartModal(monthlyDataModal);
+
+});
+
+document.querySelector("#all-time-modal").addEventListener("click", () => {
+  drawChartModal(allTimeDataModal);
+
+});
+
 drawChartModal(weeklyDataModal);
 
 
