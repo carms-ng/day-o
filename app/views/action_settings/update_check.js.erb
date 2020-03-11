@@ -1,0 +1,46 @@
+// AJAX for Habit Page checking unchecking! => BEGIN
+
+habit = document.getElementById('habit-<%= @setting.id %>');
+isChecked = habit.classList.contains('habit-checkbox-checked');
+
+// AJAX habits checked or unchecked
+if (isChecked) {
+  habit.classList.remove('fa-check-circle', 'fas', 'habit-checkbox-checked');
+  habit.classList.add('fa-circle', 'far', 'habit-checkbox-unchecked');
+} else {
+  habit.classList.remove('fa-circle', 'far', 'habit-checkbox-unchecked');
+  habit.classList.add('fa-check-circle', 'fas', 'habit-checkbox-checked');
+}
+
+checked = document.querySelectorAll('.habit-checkbox-checked').length;
+unchecked = document.querySelectorAll('.habit-checkbox-unchecked').length;
+progress = parseFloat(checked / (unchecked + checked));
+
+// AJAX Prograss Bar
+progressBar = document.getElementById('progress-bar');
+progressBar.style.width = `${progress *100}%`;
+
+// AJAX Progress text
+progressText = document.getElementById('progress-text');
+if (checked === 0) {
+  progressText.innerText = 'No habits checked';
+} else if (checked === (unchecked + checked)) {
+  progressText.innerText = 'All habits checked';
+} else {
+  progressText.innerText = `${checked} out of ${checked + unchecked} habits checked`;
+}
+
+// AJAX Mass-Create Button
+massSection = document.getElementById('mass-section');
+
+if (checked === 0) {
+  fullLink = `<i id='addon-uncheckable' class="fas fa-check-circle"></i>`;
+  massSection.innerHTML = fullLink;
+} else {
+  fullLink = `<%= link_to action_completions_mass_create_path, method: :post do %>
+                <i id='addon-checkable' class="fas fa-check-circle"></i>
+              <% end %>`;
+  massSection.innerHTML = fullLink;
+}
+
+// AJAX for Habit Page => END

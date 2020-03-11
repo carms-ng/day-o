@@ -65,8 +65,10 @@ svg.active path {
   padding: 5px 0;
 
   hr {
-    margin-top: 0px;
+    margin-top: 10px;
     margin-bottom: 5px;
+    width: 90%;
+    text-align: center;
   }
 }
 
@@ -83,24 +85,31 @@ svg.active path {
 
 .menu-top-section {
   display: flex;
-  padding: 0 40px;
+  margin-top: 5px;
+  padding: 0 30px;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0;
 
-  a {
-    font-size: 48px;
-    margin-left: 20px;
-    margin-bottom: 8px;
-    line-height: 0.7;
-  }
 }
+
 
 .menu-addon-left {
   flex-grow: 1;
 
   p {
-    margin-bottom: 0px;
+    margin-bottom: 3px;
   }
+}
+
+#addon-checkable {
+  font-size: 35px;
+  color: $turquoise;
+  margin-left: 30px;
+}
+
+#addon-uncheckable {
+  font-size: 35px;
+  color: white;
+  margin-left: 30px;
 }
