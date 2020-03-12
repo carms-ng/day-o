@@ -1,8 +1,8 @@
 <%= content_for(:title) { "Habits" } %>
 
 <div class="container">
-  <div class="row d-flex justify-content-center">
-    <div class="col-xs-12">
+  <div class="row">
+    <div class="col-xs-12" style="width: 100%;">
 
       <div class="cards-habits">
         <% (@habits.sort_by { |obj| obj.created_at }).each do |habit| %>

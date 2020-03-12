@@ -72,21 +72,24 @@
   <!-- Today score -->
   <div class="daily-score">
     <h5><%= @impact_today %></h5>
-    <p>gCO2e Your total today </p>
+    <p>gCO2e</p>
+    <p>Impact Today</p>
   </div>
   <!-- break line -->
   <div class="vl"></div>
   <!--User Average CO2-->
   <div class="user-average-CO2">
     <h5>1.2</h5>
-    <p>kgCO2e Your average</p>
+    <p>kgCO2e</p>
+    <p>Daily Average</p>
   </div>
   <!-- break line -->
   <div class="vl"></div>
   <!-- Neighborhood Average CO2 -->
   <div class="neighborhood-average-CO2">
     <h5>1.4</h5>
-    <p>kgCO2e Neighborhood</p>
+    <p>kgCO2e</p>
+    <p>City Average</p>
   </div>
 </div>
 
@@ -130,15 +133,15 @@
 <!-- Modal Week Chart-->
 <div class="modal fade week-chart" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" class="iconify" data-icon="cil:x" data-inline="false">&times;</span>
-        </button>
-      </div>
+    <div class="modal-content modal-chart">
+
+      <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
       <div class="modal-body">
         <!--Week Chart -->
-        <p>Weekly Impact</p>
+        <p>Your Impact (g CO2e)</p>
         <!--graph -->
         <canvas
           data-weekly-impact="<%= @impact_week_hash.to_json %>"
