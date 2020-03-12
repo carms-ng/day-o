@@ -20,10 +20,10 @@
 
         <div id="mass-section">
           <% if @can_mass_create %>
-            <%= link_to action_completions_mass_create_path, method: :post do %>
-              <i id='addon-checkable' class="fas fa-check-circle"></i>
-            <% end %>
+            <%= render "shared/mass_create_button", display: true %>
+            <i id='addon-uncheckable' class="fas fa-check-circle d-none"></i>
           <% else %>
+            <%= render "shared/mass_create_button", display: false %>
             <i id='addon-uncheckable' class="fas fa-check-circle"></i>
           <% end %>
         </div>

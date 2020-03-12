@@ -29,15 +29,20 @@ class ActionCompletionsController < ApplicationController
   end
 
   def mass_create
+    new_impact = 0
     current_user.action_settings.where(checked: true, habit: true).each do |setting|
-      ActionCompletion.create(action: setting.action, challenge_subscription: setting.challenge_subscription)
+      if !setting.done_today?
+        new_impact += setting.action.impact
+        ActionCompletion.create(action: setting.action, challenge_subscription: setting.challenge_subscription)
+      end
     end
-    redirect_to habit_path
     # respond_to do |format|
     #   format.html { render 'pages/habit' }
     #   format.js  # <-- idem
     # end
-    flash[:notice] = "Sweetttt!"
+    # redirect_to habit_path
+    # flash[:notice] = "Sweetttt!"
+    render json: { new_impact: new_impact }
   end
 
   private

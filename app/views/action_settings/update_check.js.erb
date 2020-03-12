@@ -33,14 +33,20 @@ if (checked === 0) {
 // AJAX Mass-Create Button
 massSection = document.getElementById('mass-section');
 
+uncheckable = massSection.querySelector("#addon-uncheckable");
+checkable = massSection.querySelector("#habit-bottom-btn");
+
+
+
 if (checked === 0) {
-  fullLink = `<i id='addon-uncheckable' class="fas fa-check-circle"></i>`;
-  massSection.innerHTML = fullLink;
+  // fullLink = `<i id='addon-uncheckable' class="fas fa-check-circle"></i>`;
+  // massSection.innerHTML = fullLink;
+  uncheckable.classList.remove("d-none");
+  checkable.classList.add("d-none");
 } else {
-  fullLink = `<%= link_to action_completions_mass_create_path, method: :post do %>
-                <i id='addon-checkable' class="fas fa-check-circle"></i>
-              <% end %>`;
-  massSection.innerHTML = fullLink;
+  // massSection.innerHTML = '<%= j render "shared/mass_create_button" %>';
+  uncheckable.classList.add("d-none");
+  checkable.classList.remove("d-none");
 }
 
 // AJAX for Habit Page => END

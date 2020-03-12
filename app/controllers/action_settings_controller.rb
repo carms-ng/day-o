@@ -6,8 +6,12 @@ class ActionSettingsController < ApplicationController
 
     @setting.save
     if @setting.habit
-      redirect_to dashboard_path
-      flash[:notice] = "Great! It's added to your habits!"
+      respond_to do |format|
+        format.html { render 'pages/dashboard' }
+        format.js  # <-- idem
+      end
+      # redirect_to dashboard_path
+      # flash[:notice] = "Great! It's added to your habits!"
     else
       redirect_to habit_path
     end
