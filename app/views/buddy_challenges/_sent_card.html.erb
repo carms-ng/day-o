@@ -16,11 +16,10 @@
 
   <div class="accept-buttons">
     <% if sent.status == true %>
-      <% result = 'Accepted' %>
+      <p class="status">Accepted</p>
     <% else %>
-      <% result = 'Pending'  %>
+      <p class="status" style="background-color: #C1C1C1; border: 1px solid #C1C1C1;">Pending</p>
     <% end %>
-    <p class="status"><%= result %></p>
     <%= link_to "Cancel", buddy_challenge_path(sent), method: :delete,  class: "cancel", remote: true%>
 
   </div>

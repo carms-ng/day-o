@@ -1,10 +1,8 @@
 setTimeout(() => {
   const modalChallenges = document.querySelectorAll(".modal-challenge")
   const modalBuddies = document.querySelectorAll(".modal-buddy")
-  // const buddyChallengeButton = document.querySelector("#challenge-buddy")
-  const buddyChallengeButtons = document.querySelectorAll("#challenge-buddy")
-  const backToChallenge = document.querySelector("#back-to-challenge")
-
+  // const buddyChallengeButton = document.querySelector(".challenge-buddy")
+  const buddyChallengeButtons = document.querySelectorAll(".challenge-buddy")
 
   buddyChallengeButtons.forEach((buddyChallengeButton) => {
     buddyChallengeButton.addEventListener('click', (event)=> {
@@ -21,7 +19,7 @@ setTimeout(() => {
         modalBuddy.classList.add("d-none");
       });
 
-      const buddyUsers = document.querySelectorAll(".buddy-user")
+      const buddyUsers = document.querySelectorAll(".buddy-card")
       buddyUsers.forEach((user) => {
         user.addEventListener('click', ()=>{
           const challengeForm = document.querySelector(`#challenge-receiver-${challengeId}`)
@@ -38,12 +36,19 @@ setTimeout(() => {
           newChallengeButton = document.querySelector(`#new-challenge-button-${challengeId}`);
           newChallengeButton.classList.add("d-none");
 
+          buddyChallengeButton.classList.add("d-none");
+
+
+          const avatarContainer = modalChallenge.querySelector(".buddies-avatar-container");
+
+          const buddyUserAvatar = modalChallenge.querySelector(".buddies-avatar-container > img:last-child");
+          buddyUserAvatar.src = user.dataset.userPhoto;
+
+          challengeForm.querySelector("input[type='submit']").value = `Challenge ${user.dataset.userUsername}`;
+
           const newBuddyChallengeform = document.querySelector(`#new-buddy-challenge-form-${challengeId}`);
           challengeForm.classList.remove("d-none");
           newBuddyChallengeform.classList.remove("d-none");
-          // const hidingButton = (buddyChallengeButton) => {
-          //   buddyChallengeButton
-          // };
         });
       });
     });

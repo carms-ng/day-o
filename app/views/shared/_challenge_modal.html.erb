@@ -28,18 +28,19 @@
 
           <div class="links">
             <!-- the big button that should work :)  -->
-            <div id="avatar-container">
+            <div class="buddies-avatar-container">
               <% if current_user.photo.present? %>
                 <%= image_tag current_user.photo, class: "profile-avatar" %>
               <% else %>
                 <%= image_tag "user.png", class: "profile-avatar" %>
               <% end %>
+              <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Grey_background.jpg/339px-Grey_background.jpg", class: "profile-avatar" %>
             </div>
-            <p id="challenge-buddy" data-challenge="<%= challenge.id %>">challenge your buddy</p>
+            <p class="challenge-buddy" data-challenge="<%= challenge.id %>">Challenge your Buddies</p>
 
-            <%= simple_form_for [challenge, buddy_challenge], html: { class: "d-none", id: "challenge-receiver-#{challenge.id}" } do |f| %>
+            <%= simple_form_for [challenge, buddy_challenge], html: { class: "d-none new-buddy-challenge-form justify-content-center", id: "challenge-receiver-#{challenge.id}" } do |f| %>
               <%= f.input :receiver_id, as: :hidden %>
-              <%= f.submit "Challenge the name", class: "btn-buddy", id: "new-buddy-challenge-form-#{challenge.id}" %>
+              <%= f.submit "Challenge", class: "btn-buddy", id: "new-buddy-challenge-form-#{challenge.id}" %>
             <% end %>
 
             <%= link_to 'START CHALLENGE', challenge_challenge_subscriptions_path(challenge), method: :post, class: "btn-start", id: "new-challenge-button-#{challenge.id}" %>
@@ -58,21 +59,26 @@
     <div class="modal-content modal-buddy d-none" id="modal-buddy-<%= challenge.id %>">
       <div class="modal-body">
         <div class="challenge-with-actions">
-          <p id="back-to-challenge" class="back-button-challenge-<%= challenge.id%>">Back</p>
+          <p id="back-to-challenge" class="back-button-challenge-<%= challenge.id%> close"><i class="far fa-times-circle"></i></p>
+
           <div class="section-title">
             <h4>Select a Buddy</h4>
             <div class="line"></div>
           </div>
-          <div class="actions-card">
+
+          <div class="buddies-cards">
             <% User.where.not(id: current_user.id).each do |u| %>
-            <div class="action-card">
-                <p
-                  class="buddy-user"
+            <div class="buddy-card"
                   data-challenge="<%= challenge.id %>"
                   data-user-id="<%= u.id %>"
-                  data-user-username="<%= u.username %>"
-                  data-user-photo="<%= u.photo %>"
-                ><%= u.username.capitalize %></p>
+                  data-user-username="<%= u.username.capitalize %>"
+                  data-user-photo="<%= u.photo %>">
+              <% if u.photo.present? %>
+                <%= image_tag u.photo, class: "avatar" %>
+              <% else %>
+                <%= image_tag "user.png", class: "avatar" %>
+              <% end %>
+                <p><%= u.username.capitalize %></p>
             </div>
             <% end %>
           </div>
