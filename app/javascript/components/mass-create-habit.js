@@ -2,6 +2,7 @@ import { CountUp } from 'countup.js';
 
 const loadMassCreateModal = () => {
   const btn = document.getElementById('habit-bottom-btn');
+  if (btn === null) { return; }
   btn.addEventListener('ajax:success', (event) => {
     console.log(event.detail[0].new_impact);
     $('#massCreateModal').modal('show')
