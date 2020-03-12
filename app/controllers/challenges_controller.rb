@@ -20,6 +20,10 @@ class ChallengesController < ApplicationController
     else
       @challenges = Challenge.all
     end
+      @challenges = @challenges.to_a.select do |challenge|
+        !challenge.users.include?(current_user)
+      end
+
       @buddy_challenge = BuddyChallenge.new
 
   end
