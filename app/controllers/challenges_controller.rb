@@ -20,11 +20,11 @@ class ChallengesController < ApplicationController
     else
       @challenges = Challenge.all
     end
+      @buddy_challenge = BuddyChallenge.new
 
   end
 
   def show
     @challenge = Challenge.find(params[:id])
-    @buddy_challenge = BuddyChallenge.new
   end
 end

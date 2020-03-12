@@ -2,7 +2,6 @@ class BuddyChallengesController < ApplicationController
   def index
     @received = current_user.received_challenges
     @sent = current_user.sent_challenges
-    @sent_status = request_status(@sent)
 
     @link_active = "buddy"
 
@@ -26,19 +25,10 @@ class BuddyChallengesController < ApplicationController
   def destroy
     @buddy_challenge = BuddyChallenge.find(params[:id])
     @buddy_challenge.destroy
-    redirect_to buddy_challenges_path
-  end
-
-
-  private
-
-  def request_status(sent)
-    sent.each do |r|
-      if r.status == true
-        return 'Accepted'
-      else
-        return 'Pending'
-      end
+    respond_to do |format|
+      format.html { render 'buddy_challenge/index' }
+      format.js
     end
   end
+
 end

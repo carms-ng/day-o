@@ -18,7 +18,7 @@
       <!-- challenge cards start -->
       <div>
         <% @challenges.each do |challenge| %>
-          <%= render "shared/challenge_modal", { challenge: challenge } %>
+          <%= render "shared/challenge_modal", { challenge: challenge, buddy_challenge: @buddy_challenge } %>
             <div class="card-challenge" data-toggle="modal" data-target="#challenge-<%= challenge.id %>">
               <div class="card-property">
                 <div>

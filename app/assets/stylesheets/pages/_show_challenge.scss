@@ -1,3 +1,29 @@
+
+.modal-challenge {
+  position: relative;
+  border-radius: 10px;
+
+  #close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    z-index: 2;
+  }
+}
+
+.modal-buddy {
+  position: relative;
+  border-radius: 10px;
+}
+
+.challenge-buddy {
+  text-align: center;
+  color: #B0B0B0;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
 .actions-card {
   margin-bottom: 40px;
 }
@@ -39,11 +65,17 @@
   }
 
 }
-
-
+// width: 100px;
+//     height: 100px;
+//     border-radius: 50%;
 .links {
   display: flex;
   flex-direction: column;
+  .profile-avatar {
+    align-self: center;
+    margin-top: 0;
+    margin-bottom: 18px;
+  }
 }
 
 .btn-start {
@@ -87,3 +119,60 @@
   line-height: 16px;
   padding: 10px;
 }
+
+
+
+.new-buddy-challenge-form {
+  display: flex;
+}
+
+.buddies-avatar-container {
+  height: 120px;
+  text-align: center;
+
+  img:first-child  {
+    position: relative;
+    left: 15px;
+    z-index: 2;
+  }
+
+  img:last-child {
+    position: relative;
+    right: 15px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+
+.buddies-cards {
+  margin-bottom: 40px;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+ }
+
+ .buddy-card {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
+  border-radius: 25px;
+  margin: 14px;
+
+  display: flex;
+  align-items: center;
+  p {
+    margin: 0 0 0 10px;
+    font-family: Nunito;
+    font-style: normal;
+    font-size: 18px;
+    color: #3F4C29;
+    font-weight: 450;
+  }
+ }
+
+ .fa-times-circle:before {
+  position: relative;
+  bottom: 24px;
+ }
