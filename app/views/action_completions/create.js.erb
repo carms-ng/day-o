@@ -1,3 +1,4 @@
+// AJAX for Dashboard Page check "Done"
 
 action = document.getElementById('act-<%= @completed_action.action.id %>');
 
@@ -20,7 +21,7 @@ setTimeout(() => {
   // add the done icon
   title.insertAdjacentHTML('beforeend', `<i class="fas fa-check-circle"
     style="color: #4C6C6F; font-size: 16px;
-    transition: all 0.7s ease;
+    transition: all 0.9s ease;
     z-index: 2;
     transform: rotate(360deg) scale(2);
     position: absolute; right: -20px;"></i>`)
