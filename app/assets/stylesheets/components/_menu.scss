@@ -8,6 +8,19 @@
   margin-bottom: 10px;
 }
 
+.buddy-notification-badge {
+  position: absolute;
+  right: 6px;
+  top: -7px;
+  background-color: red;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  font-size: 10px;
+}
+
 .menu {
   // background-color: $turquoise;
   // border: 1px solid $black;
@@ -33,6 +46,7 @@
 }
 
 .icon-label {
+  position: relative;
   height: 44px;
   display: flex;
   flex-direction: column;

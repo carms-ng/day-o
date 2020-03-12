@@ -11,16 +11,30 @@
             <% if sub.created_at.in_time_zone('Eastern Time (US & Canada)').to_date == Date.today %>
               <div class="ribbon ribbon-top-right"><span>New</span></div>
             <% end %>
-            <h2><%= link_to sub.challenge.name, challenge_path(sub.challenge) %>
-            <span class="badge badge-pill badge-warning"><%= sub.challenge.total_impact %>g CO2</span>
-            </h2>
-            <div class="challenge-status">
-            <% if sub.num_actions_done == sub.challenge.actions.count %>
-              <p style="color: #4C6C6F;">Challenge completed!</p>
-            <% else %>
-              <p><%= sub.num_actions_done - sub.num_actions_habit %> out of <%= sub.challenge.actions.count - sub.num_actions_habit %> completed</p>
-            <% end %>
+            <div class="d-flex">
+              <% buddy = sub.buddy_user %>
+
+              <% if buddy %>
+                <% if buddy.photo.present? %>
+                  <%= image_tag buddy.photo, class: "avatar", style: "margin-right: 10px;" %>
+                <% else %>
+                  <%= image_tag "user.png", class: "avatar", style: "margin-right: 10px;" %>
+                <% end %>
+              <% end %>
+              <div>
+                <h2><%= link_to sub.challenge.name, challenge_path(sub.challenge) %>
+                  <span class="badge badge-pill badge-warning"><%= sub.challenge.total_impact %>g CO2</span>
+                </h2>
+                <div class="challenge-status">
+                  <% if sub.num_actions_done == sub.challenge.actions.count %>
+                    <p style="color: #4C6C6F;">Challenge completed!</p>
+                  <% else %>
+                    <p><%= sub.num_actions_done - sub.num_actions_habit %> out of <%= sub.challenge.actions.count - sub.num_actions_habit %> completed</p>
+                  <% end %>
+                </div>
+              </div>
             </div>
+
 
             <div class="progress" style="height: 6px; margin-bottom: 10px;">
               <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%= (sub.num_actions_done - sub.num_actions_habit).to_f / (sub.challenge.actions.count - sub.num_actions_habit)  * 100 %>%"></div>

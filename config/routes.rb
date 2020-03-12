@@ -27,5 +27,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :notifications, only: [:index]
+
   post '/action_completions/mass_create', to: 'action_completions#mass_create', as: :action_completions_mass_create
 end
