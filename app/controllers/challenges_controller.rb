@@ -20,11 +20,15 @@ class ChallengesController < ApplicationController
     else
       @challenges = Challenge.all
     end
+      @challenges = @challenges.to_a.select do |challenge|
+        !challenge.users.include?(current_user)
+      end
+
+      @buddy_challenge = BuddyChallenge.new
 
   end
 
   def show
     @challenge = Challenge.find(params[:id])
-    @buddy_challenge = BuddyChallenge.new
   end
 end

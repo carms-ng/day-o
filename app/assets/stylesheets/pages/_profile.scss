@@ -46,10 +46,10 @@
 .impact-charts-container {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   flex-wrap: wrap;
 }
-
 
 .daily-score {
   width: 115px;
@@ -79,6 +79,7 @@
   background: $white;
   border-radius: 5px;
   margin-top: 8px;
+  margin-bottom: 8px;
   box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
 }
 

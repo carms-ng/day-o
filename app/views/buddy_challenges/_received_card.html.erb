@@ -1,0 +1,21 @@
+<div class="buddy-cards">
+
+  <div class="buddy-ch-info">
+    <% if receive.sender.photo.present? %>
+      <%= image_tag receive.sender.photo, class: "avatar" %>
+    <% else %>
+      <%= image_tag "user.png", class: "avatar" %>
+    <% end %>
+
+    <div class="ch-info">
+      <p class="receiver"><%= receive.sender.username.capitalize %></p>
+      <p class="buddy-ch"><%= receive.challenge.name %></p>
+    </div>
+
+  </div>
+
+  <div class="accept-buttons">
+    <%= link_to "Accept", buddy_challenge_path(receive), method: :patch, class: "status", remote: true %>
+    <%= link_to "Decline", buddy_challenge_path(receive), method: :delete, class: "cancel", remote: true %>
+  </div>
+</div>
