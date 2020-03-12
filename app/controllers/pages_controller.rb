@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   def dashboard
     @link_active = "dashboard"
     @incomplete_sub = current_user.challenge_subscriptions.to_a.select do |sub|
-      sub.num_actions_done != sub.challenge.actions.count
+      sub.num_actions_habit != sub.challenge.actions.count
     end
   end
 
