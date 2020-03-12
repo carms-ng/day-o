@@ -5,6 +5,7 @@ class ActionSettingsController < ApplicationController
     @setting.toggle_habit!
 
     @setting.save
+    @setting.reload
     if @setting.habit
       respond_to do |format|
         format.html { render 'pages/dashboard' }
