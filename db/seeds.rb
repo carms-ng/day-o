@@ -21,23 +21,23 @@ waste   = Category.create!(name: 'Waste', icon: "https://res.cloudinary.com/dhc2
 
 # Challenge to show in detail
 nine_five = Challenge.create!(name: '9-fivers', num_days: 5, difficulty: 1)
-coffee_diet = Action.create!(title: "Morning Coffee!",
-                              description: "Swap out Cow milk for Non-dairy. That cup of coffee’s footprint just got reduces by ~50% CO2e! Try Oat milk! It's delicous!",
+coffee_diet = Action.create!(title: "Oat milk in AM coffee",
+                              description: " That cup of coffee’s footprint just got reduces by ~50% CO2e! Try Oat milk! It's delicous!",
                               impact: 30,
                               challenge: nine_five)
-bike_commute = Action.create!(title: "Commute via Bike",
+bike_commute = Action.create!(title: "Commute by Bike",
                               description: "Or Public Transit or walk. If your commute is 20-miles, the switch could lower your carbon footprint by 4,800 pounds annually",
                               impact: 6000,
                               challenge: nine_five)
-flexitarian_diet = Action.create!(title: "Prep flexitarian meal for lunches",
+flexitarian_diet = Action.create!(title: "Prep flexitarian lunch!",
                                   description: 'Checkout this awesome app called "began"!',
                                   impact: 1200,
                                   challenge: nine_five)
-electronics_energy = Action.create!(title: "Switch off your electronics when you leave the office",
+electronics_energy = Action.create!(title: "Day-end: Shut gadgets off",
                                     description: "A computer that is on for 8 hours a day emits 175 kg of CO2 per year.",
                                     impact: 450,
                                     challenge: nine_five)
-beer_diet = Action.create!(title: "Choose a local beer at the 5a7, instead of an imported one",
+beer_diet = Action.create!(title: "local beer @ 5a7",
                             description: "300g CO2e: locally brewed cask ale at the pub vs. 500g CO2e: local bottled beer from a shop or foreign beer in a pub",
                             impact: 200,
                             challenge: nine_five)
@@ -50,11 +50,11 @@ ActionCategory.create!(action: beer_diet, category: diet)
 
 # 1st Challenge that you completed
 starter = Challenge.create!(name: 'Starter Pack', num_days: 7, difficulty: 1)
-bottle_plastic = Action.create!(title: "Use Reusable Water Bottle",
+bottle_plastic = Action.create!(title: "Reusable Water Bottle",
               description: "1 million bottles are bought every min, according to some studies.",
               impact: 83,
               challenge: starter)
-tupperware_plastic = Action.create!(title: "Use tupperware for leftovers / takeout",
+tupperware_plastic = Action.create!(title: "tupperware for takeouts",
                 description: "2.2 billion take-out containers being used each year in EU alone.",
                 impact: 150,
                 challenge: starter)
@@ -62,15 +62,15 @@ bag_plastic = Action.create!(title: 'Prep reusable bag',
               description: "An average plastic grocery bag weighs 5.5 grams therefore 1 kg of plastic contains approximately 180 bags",
               impact: 33,
               challenge: starter)
-local_diet = Action.create!(title: "Look up Local Farmer's Market / Bulk Store",
-              description: "######",
+local_diet = Action.create!(title: "Look up Bulk Store",
+              description: "and Farmer's market while you are at it!",
               impact: 0,
               challenge: starter)
-grocery_diet = Action.create!(title: 'Grocery Shop: Replace 1 Meat with 1 plant-based protein',
-              description: "######",
+grocery_diet = Action.create!(title: 'Grocery Shop: replace 1 Meat',
+              description: 'for 1 plant-based protein',
               impact: 1200,
               challenge: starter)
-repair_waste = Action.create!(title: 'Repair Something Broken, instead of buying new',
+repair_waste = Action.create!(title: 'Repair Something Broken',
               description: "Reach out to somebody in your community that can teach you it to fix it?",
               impact: 500,
               challenge: starter)
@@ -284,18 +284,17 @@ cs.update!(created_at: 7.day.ago)
 
 cs.challenge.actions.each_with_index do |action, i|
   if i < 2
-    ActionSetting.create!(challenge_subscription: cs, action: action, habit: true, checked: true )
+    # ActionSetting.create!(challenge_subscription: cs, action: action).update!(habit: true, checked: true)
     5. times do
       ActionCompletion.create!(challenge_subscription: cs, action: action).update(created_at: rand(2..5).day.ago)
     end
   elsif i == 2
-    ActionSetting.create!(challenge_subscription: cs, action: action, habit: true, checked: false )
+    # ActionSetting.create!(challenge_subscription: cs, action: action).update!(habit: true, checked: false)
     ActionCompletion.create!(challenge_subscription: cs, action: action).update(created_at: 2.day.ago)
   else
-    ActionSetting.create!(challenge_subscription: cs, action: action)
+    # ActionSetting.create!(challenge_subscription: cs, action: action)
   end
 end
-
 
 # user faker for now
 20. times do
