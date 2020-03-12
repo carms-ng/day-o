@@ -5,8 +5,9 @@
     <div class="col-xs-12" style="width: 100%;">
 
       <div class="cards-sub">
-        <% current_user.challenge_subscriptions.reverse.each do |sub| %>
+        <% @incomplete_sub.reverse.each do |sub| %>
           <div class="card-sub">
+
             <% if sub.created_at.in_time_zone('Eastern Time (US & Canada)').to_date == Date.today %>
               <div class="ribbon ribbon-top-right"><span>New</span></div>
             <% end %>
@@ -21,7 +22,7 @@
             <% end %>
             </div>
 
-            <div class="progress" style="height: 6px;">
+            <div class="progress" style="height: 6px; margin-bottom: 10px;">
               <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%= (sub.num_actions_done - sub.num_actions_habit).to_f / (sub.challenge.actions.count - sub.num_actions_habit)  * 100 %>%"></div>
             </div>
 
