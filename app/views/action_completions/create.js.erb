@@ -1,0 +1,66 @@
+
+action = document.getElementById('act-<%= @completed_action.action.id %>');
+
+doneButton = action.querySelector('.action-done-btn');
+
+buttonDiv = action.querySelector('.buttons-action');
+
+titleSection = action.querySelector('.title-action');
+title = action.querySelector('.action-title-name');
+
+distance = titleSection.offsetWidth - title.offsetWidth - 20;
+
+// remove Done Button
+buttonDiv.innerHTML = "";
+
+setTimeout(() => {
+  // add Habit button
+  buttonDiv.innerHTML = '<%= j render "pages/add_habit_link", action: @completed_action.action %>';
+
+  // add the done icon
+  title.insertAdjacentHTML('beforeend', `<i class="fas fa-check-circle"
+    style="color: #4C6C6F; font-size: 16px;
+    transition: all 0.7s ease;
+    z-index: 2;
+    transform: rotate(360deg) scale(2);
+    position: absolute; right: -20px;"></i>`)
+
+  //move the done icon
+  setTimeout(() => {
+    title.lastElementChild.style.right = `${distance}px`;
+    title.lastElementChild.style.transform = 'rotate(0deg) scale(1)';
+  }, 10);
+}, 500);
+
+
+sub = action.parentElement;
+numNotDone = sub.querySelectorAll('.fa-circle').length;
+numAll = sub.querySelectorAll('.section-action').length;
+progress = parseFloat((numAll - numNotDone) / numAll);
+
+// AJAX Progress Bar
+progressBar = sub.querySelector('.progress-bar');
+progressBar.style.width = `${progress * 100}%`;
+
+// AJAX Challenge Status Text
+statusChallenge = sub.querySelector('.challenge-status');
+if (numNotDone === 0) {
+  statusChallenge.innerHTML = '<p style="color: #4C6C6F;">Challenge completed!</p>';
+} else {
+  statusChallenge.innerHTML = `<p>${numAll - numNotDone} out of ${numAll} completed</p>`;
+}
+
+
+
+// var elem = document.getElementById("animate");
+// var pos = 0;
+// var id = setInterval(frame, 5);
+// function frame() {
+//   if (pos == 350) {
+//     clearInterval(id);
+//  } else {
+//     pos++;
+//     elem.style.top = pos + 'px';
+//     elem.style.left = pos + 'px';
+//   }
+// }

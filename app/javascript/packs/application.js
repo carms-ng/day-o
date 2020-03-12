@@ -5,6 +5,8 @@ import Chart from 'chart.js';
 import { loadActionDropdown } from '../components/dropdown';
 loadActionDropdown();
 
+import { loadConfetti } from '../components/confetti';
+loadConfetti();
 
 // chart
 const drawChart = (data) => {
