@@ -26,4 +26,12 @@ class User < ApplicationRecord
       UserCategory.create(user: self, category: category, impact: 0)
     end
   end
+
+  def give_notification
+    self.update(notification_count: notification_count + 1)
+  end
+
+  def clear_notifications
+    self.update(notification_count: 0)
+  end
 end

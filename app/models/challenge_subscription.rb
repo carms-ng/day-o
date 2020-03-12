@@ -22,4 +22,17 @@ class ChallengeSubscription < ApplicationRecord
       ActionSetting.create(challenge_subscription: self, action: action)
     end
   end
+
+  # returns the buddy of therefore user for this challenge
+  def buddy_user
+    if self.sent_challenges.first
+      if self.sent_challenges.first.user_is_sender(self.user)
+        self.sent_challenges.first.receiver
+      end
+    elsif self.received_challenges.first
+      if self.received_challenges.first.user_is_receiver(self.user)
+        self.received_challenges.first.sender
+      end
+    end
+  end
 end
