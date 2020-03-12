@@ -44,8 +44,9 @@ setTimeout(() => {
           const buddyUserAvatar = modalChallenge.querySelector(".buddies-avatar-container > img:last-child");
           buddyUserAvatar.src = user.dataset.userPhoto;
 
-          challengeForm.querySelector("input[type='submit']").value = `Challenge ${user.dataset.userUsername}`;
-
+          const submitBtn = challengeForm.querySelector("input[type='submit']");
+          submitBtn.value = `Challenge ${user.dataset.userUsername}`;
+          submitBtn.dataset.disableWith = `Challenge ${user.dataset.userUsername}`;
           const newBuddyChallengeform = document.querySelector(`#new-buddy-challenge-form-${challengeId}`);
           challengeForm.classList.remove("d-none");
           newBuddyChallengeform.classList.remove("d-none");
