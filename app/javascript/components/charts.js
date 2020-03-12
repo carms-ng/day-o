@@ -1,5 +1,4 @@
 import Chart from 'chart.js';
-console.log("dgdf")
 
 const initChart = () => {
   //// chart (small)
