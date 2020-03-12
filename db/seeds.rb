@@ -37,7 +37,7 @@ electronics_energy = Action.create!(title: "Day-end: Shut gadgets off",
                                     description: "A computer that is on for 8 hours a day emits 175 kg of CO2 per year.",
                                     impact: 450,
                                     challenge: nine_five)
-beer_diet = Action.create!(title: "local beer @ 5a7",
+beer_diet = Action.create!(title: "Local beer @ 5a7",
                             description: "300g CO2e: locally brewed cask ale at the pub vs. 500g CO2e: local bottled beer from a shop or foreign beer in a pub",
                             impact: 200,
                             challenge: nine_five)
@@ -54,7 +54,7 @@ bottle_plastic = Action.create!(title: "Reusable Water Bottle",
               description: "1 million bottles are bought every min, according to some studies.",
               impact: 83,
               challenge: starter)
-tupperware_plastic = Action.create!(title: "tupperware for takeouts",
+tupperware_plastic = Action.create!(title: "Tupperware for takeouts",
                 description: "2.2 billion take-out containers being used each year in EU alone.",
                 impact: 150,
                 challenge: starter)
@@ -84,23 +84,23 @@ ActionCategory.create!(action: repair_waste, category: waste)
 
 # 2nd Challenge that you completed
 activism = Challenge.create!(name: 'Enviro Activism 101', num_days: 5, difficulty: 2)
-Action.create!(title: 'Watch a documentary. How about "Cowspiracy"?',
+Action.create!(title: 'Watch an eco documentary',
+              description: "Watch an eco documentary (How about Cowspiracy) ",
+              impact: 0,
+              challenge: activism)
+Action.create!(title: 'Converse about Sustainability',
               description: "######",
               impact: 0,
               challenge: activism)
-Action.create!(title: 'Have a conversation with your stranger about Sustainability',
+Action.create!(title: 'Visit a local environmental group',
               description: "######",
               impact: 0,
               challenge: activism)
-Action.create!(title: 'Check out a local environmental group / organizing',
+Action.create!(title: 'Be united with the Indigenous Community',
               description: "######",
               impact: 0,
               challenge: activism)
-Action.create!(title: 'Be in solidarity with the Indigenous Community in your land',
-              description: "######",
-              impact: 0,
-              challenge: activism)
-Action.create!(title: 'Renew your commitment <3',
+Action.create!(title: 'Renew your commitment',
               description: "######",
               impact: 0,
               challenge: activism)
@@ -123,7 +123,7 @@ laundry_energy = Action.create!(title: "Suspend your laundry",
               description: "In many households, the dryer is the third-most energy-hungry appliance, after the refrigerator and washer. Air-drying your clothes can reduce the average household’s carbon footprint by a whopping 2,400 pounds a year.",
               impact: 83,
               challenge: student)
-tupperware_plastic = Action.create!(title: "Use tupperware for leftovers / takeout",
+tupperware_plastic = Action.create!(title: "Use tupperware for leftovers",
                 description: "2.2 billion take-out containers being used each year in EU alone.",
                 impact: 150,
                 challenge: student)
@@ -135,12 +135,12 @@ power_energy = Action.create!(title: "Power down",
               description: "When you’re not using appliances or you’re not in a room, turn off lights and other electronics.",
               impact: 300,
               challenge: student)
-light_energy = Action.create!(title: 'Use Energy Efficient Light Bulbs',
+light_energy = Action.create!(title: 'Use Energy Saving Lights',
               description: "Try to switch your bulbs to energy-efficient compact fluorescent (CFLs) or LED bulbs.",
               impact: 1200,
               challenge: student)
-repair_waste = Action.create!(title: 'Repair Something Broken, instead of buying new',
-              description: "Reach out to somebody in your community that can teach you it to fix it?",
+repair_waste = Action.create!(title: 'Repair Something Broken',
+              description: "Repair something broken, instead of buying something new. Reach out to somebody in your community that can teach you it to fix it?",
               impact: 500,
               challenge: student)
 
@@ -158,7 +158,7 @@ laundry_energy = Action.create!(title: "Suspend your laundry",
               description: "In many households, the dryer is the third-most energy-hungry appliance, after the refrigerator and washer. Air-drying your clothes can reduce the average household’s carbon footprint by a whopping 2,400 pounds a year.",
               impact: 83,
               challenge: parent)
-tupperware_plastic = Action.create!(title: "Use tupperware for leftovers / takeout",
+tupperware_plastic = Action.create!(title: "Use tupperware for leftovers",
                 description: "2.2 billion take-out containers being used each year in EU alone.",
                 impact: 150,
                 challenge: parent)
@@ -166,15 +166,15 @@ bag_plastic = Action.create!(title: 'Prep reusable bag',
               description: "An average plastic grocery bag weighs 5.5 grams therefore 1 kg of plastic contains approximately 180 bags",
               impact: 33,
               challenge: parent)
-local_diet = Action.create!(title: "Look up Local Farmer's Market / Bulk Store",
+local_diet = Action.create!(title: "Discover Local Farmer's Market",
               description: "######",
               impact: 0,
               challenge: parent)
-grocery_diet = Action.create!(title: 'Grocery Shop: Replace 1 Meat with 1 plant-based protein',
-              description: "######",
+grocery_diet = Action.create!(title: 'Replace 1 Meat meal',
+              description: "Replace 1 Meat meal with 1 plant-based protein",
               impact: 1200,
               challenge: parent)
-repair_waste = Action.create!(title: 'Repair Something Broken, instead of buying new',
+repair_waste = Action.create!(title: 'Repair Something Broken',
               description: "Reach out to somebody in your community that can teach you it to fix it?",
               impact: 500,
               challenge: parent)
@@ -210,7 +210,7 @@ gt      = Challenge.create!(name: 'Grow a green thumb', num_days: 100, difficult
 # ActionCategory.create!(challenge: gt, category: energy)
 
 holiday = Challenge.create!(name: 'Holiday shopping hack', num_days: 3, difficulty: 1)
-tree_waste = Action.create!(title: "Recycle or compost your christmas tree",
+tree_waste = Action.create!(title: "Recycle your christmas tree",
               description: " If you already have a compost heap, your tree will have a happy home. If not, tree branches provide a great base layer for composting.",
               impact: 83,
               challenge: holiday)
@@ -222,11 +222,11 @@ holidaytravel_travel = Action.create!(title: 'Carbon offsets for holiday travel'
               description: "A carbon offset project is one that offers services to sequester carbon—examples include reforestation and agroforestry projects.",
               impact: 150,
               challenge: holiday)
-holidaytable_diet = Action.create!(title: "Set a more earth-friendly holiday table",
+holidaytable_diet = Action.create!(title: "Set a more eco-friendly holiday table",
               description: "The choices you make when you’re at the grocery store can help you reduce your personal agricultural carbon footprint. ",
               impact: 0,
               challenge: holiday)
-onlineshopping_waste = Action.create!(title: "Smile and don't choose two-day shipping",
+onlineshopping_waste = Action.create!(title: "Don't choose two-day shipping",
               description: "One- or two-day shipping is extremely convenient, but the emissions from such rapid shipment methods tend to be extreme in comparison to slower methods.",
               impact: 400,
               challenge: holiday)

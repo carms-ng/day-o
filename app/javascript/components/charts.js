@@ -96,18 +96,29 @@ const initChart = () => {
   const weeklyDataModal = JSON.parse(timeChartModal.dataset.weeklyImpact);
   const monthlyDataModal = JSON.parse(timeChartModal.dataset.monthlyImpact);
   const allTimeDataModal = JSON.parse(timeChartModal.dataset.allTimeImpact);
+// All Time Line Chart Modal Legend
+  const sevenDaysBtn = document.querySelector("#seven-days-modal")
+  const monthlyBtn = document.querySelector("#thirty-days-modal")
+  const allTimesBtn = document.querySelector("#all-time-modal")
 
-
-  document.querySelector("#seven-days-modal").addEventListener("click", () => {
+  sevenDaysBtn.addEventListener("click", () => {
+    monthlyBtn.classList.remove("active-modal-button")
+    allTimesBtn.classList.remove("active-modal-button")
+    sevenDaysBtn.classList.add("active-modal-button")
     drawChartModal(weeklyDataModal);
   });
 
-  document.querySelector("#thirty-days-modal").addEventListener("click", () => {
+  monthlyBtn.addEventListener("click", () => {
+    sevenDaysBtn.classList.remove("active-modal-button")
+    allTimesBtn.classList.remove("active-modal-button")
+    monthlyBtn.classList.add("active-modal-button")
     drawChartModal(monthlyDataModal);
-
   });
 
-  document.querySelector("#all-time-modal").addEventListener("click", () => {
+  allTimesBtn.addEventListener("click", () => {
+    monthlyBtn.classList.remove("active-modal-button")
+    sevenDaysBtn.classList.remove("active-modal-button")
+    allTimesBtn.classList.add("active-modal-button")
     drawChartModal(allTimeDataModal);
 
   });
