@@ -248,7 +248,7 @@ ActionCategory.create!(action: gifts_waste, category: waste)
 
 nour = User.create!(username: 'Nour', email: 'nour@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1579149593/iim2zl17j0v23pfdx7xj.jpg")
 laurence = User.create!(username: 'laurence', email: 'laurence@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1579045386/pk9il9h1gsobqbzehlpb.jpg")
-clem = User.create!(username: 'Clem', email: 'clem@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://lh3.googleusercontent.com/j4zwi0uxUGpcTL34MXH3wiz1IWuKwDgbzUNGd1M9QfuAkjaMi_TuN7aAcT_dEekXPrCzeA=s85")
+clem = User.create!(username: 'Clem', email: 'clem@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars0.githubusercontent.com/u/30819439?v=4")
 carms = User.create!(username: 'Carms', email: 'carms@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars1.githubusercontent.com/u/59268689?v=4")
 felix = User.create!(username: 'Felix', email: 'felix@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars3.githubusercontent.com/u/54404722?v=4")
 erin = User.create!(username: 'Erin', email: 'erin@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://avatars2.githubusercontent.com/u/26800578?v=4")
