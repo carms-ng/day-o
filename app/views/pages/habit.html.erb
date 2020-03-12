@@ -1,8 +1,8 @@
 <%= content_for(:title) { "Habits" } %>
 
 <div class="container">
-  <div class="row d-flex justify-content-center">
-    <div class="col-xs-12">
+  <div class="row">
+    <div class="col-xs-12" style="width: 100%;">
 
       <div class="cards-habits">
         <% (@habits.sort_by { |obj| obj.created_at }).each do |habit| %>
@@ -15,13 +15,13 @@
               <div class="buttons-action">
                 <% if habit.done_today? %>
                   <p>DONE</p>
-                  <i class="fas fa-check" style="color: #4C6C6F; font-size: 25px;"></i>
+                  <i class="fas fa-check" style="margin-left: 3px; color: #4C6C6F; font-size: 25px;"></i>
                 <% else %>
-                  <%= link_to update_check_action_setting_path(habit), method: :patch do %>
+                  <%= link_to update_check_action_setting_path(habit), method: :patch, remote: true do %>
                     <% if habit.checked %>
-                      <i class="fas fa-check-circle" style="color: lightgray; font-size: 30px;"></i>
+                      <i id='habit-<%= habit.id %>' class="fas fa-check-circle habit-checkbox-checked" style="color: lightgray; font-size: 30px;"></i>
                     <% else %>
-                      <i class="far fa-circle" style="color: lightgray; font-size: 30px;"></i>
+                      <i id='habit-<%= habit.id %>' class="far fa-circle habit-checkbox-unchecked" style="color: lightgray; font-size: 30px;"></i>
                     <% end %>
                   <% end %>
                 <% end %>
@@ -46,4 +46,3 @@
   </div>
 
 </div>
-

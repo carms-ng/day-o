@@ -4,6 +4,13 @@ import "../components/buddy_challenge";
 
 import Chart from 'chart.js';
 
+import { loadActionDropdown } from '../components/dropdown';
+loadActionDropdown();
+
+import { loadConfetti } from '../components/confetti';
+loadConfetti();
+
+//// chart (small)
 const drawChart = (data) => {
   const xAxis = Object.keys(data);
   const yAxis = Object.values(data);
@@ -35,7 +42,6 @@ const drawChart = (data) => {
   });
 }
 
-
 const timeChart = document.getElementById('time-chart');
 
 const weeklyData = JSON.parse(timeChart.dataset.weeklyImpact);
@@ -60,18 +66,73 @@ document.querySelector("#all-time").addEventListener("click", () => {
 // initialally, start with week
 drawChart(weeklyData);
 
+//// Chart (modal)
+const drawChartModal = (data) => {
+  const xAxis = Object.keys(data);
+  const yAxis = Object.values(data);
 
-// Life Chart
+  new Chart(timeChartModal, {
+    type: 'line',
+    data: {
+      labels: xAxis,
+      datasets: [{
+        label: "",
+        data: yAxis,
+        // backgroundColor: ['#7CB518'],
+        borderColor: ['#7CB518'],
+        borderWidth: 2
+      }]
+    },
+    options: {
+      legend: {
+        display: false,
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+}
+
+const timeChartModal = document.getElementById('time-chart-modal');
+
+const weeklyDataModal = JSON.parse(timeChartModal.dataset.weeklyImpact);
+const monthlyDataModal = JSON.parse(timeChartModal.dataset.monthlyImpact);
+const allTimeDataModal = JSON.parse(timeChartModal.dataset.allTimeImpact);
+
+
+document.querySelector("#seven-days-modal").addEventListener("click", () => {
+  drawChartModal(weeklyDataModal);
+});
+
+document.querySelector("#thirty-days-modal").addEventListener("click", () => {
+  drawChartModal(monthlyDataModal);
+
+});
+
+document.querySelector("#all-time-modal").addEventListener("click", () => {
+  drawChartModal(allTimeDataModal);
+
+});
+
+drawChartModal(weeklyDataModal);
+
+
+//// Life Chart (small)
 const ctxLifeChart = document.getElementById('lifeChart');
 
 const categoryData = JSON.parse(ctxLifeChart.dataset.categoryImpact);
 
-const plastic = categoryData['Plastic']
-const commute = categoryData['Commute']
-const waste = categoryData['Waste']
-const energy = categoryData['Energy']
-const travel = categoryData['Travel']
-const diet = categoryData['Diet']
+const plastic = categoryData['Plastic'] || 100;
+const commute = categoryData['Commute'] || 100;
+const waste = categoryData['Waste'] || 100;
+const energy = categoryData['Energy'] || 100;
+const travel = categoryData['Travel'] || 100;
+const diet = categoryData['Diet'] || 100;
 
 // For a pie chart
 
@@ -106,6 +167,7 @@ var lifeChart = new Chart(ctxLifeChart, {
       legend: {
         labels: {
           usePointStyle: true,
+          padding: 15,
         }
     },
   }
@@ -113,3 +175,30 @@ var lifeChart = new Chart(ctxLifeChart, {
     //options: options
 });
 
+//// Life chart (modal)
+const ctxLifeChartModal = document.getElementById('life-chart-modal');
+
+const categoryDataModal = JSON.parse(ctxLifeChartModal.dataset.categoryImpact);
+
+const plasticDataModal = categoryDataModal['Plastic']
+const commuteDataModal = categoryDataModal['Commute']
+const wasteDataModal = categoryDataModal['Waste']
+const energyDataModal = categoryDataModal['Energy']
+const travelDataModal = categoryDataModal['Travel']
+const dietDataModal = categoryDataModal['Diet']
+
+
+var lifeChartModal = new Chart(ctxLifeChartModal, {
+    type: 'pie',
+    data: dataLifeChart,
+    options: {
+      legend: {
+        labels: {
+          usePointStyle: true,
+          padding: 15,
+        }
+    },
+  }
+
+    //options: options
+});

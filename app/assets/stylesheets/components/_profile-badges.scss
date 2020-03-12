@@ -26,6 +26,7 @@
 .badge-list {
 
   ul {
+    font-family: nunito;
     padding-left: 0px;
     margin-bottom: 0px;
   }
@@ -42,23 +43,67 @@
   background: rgba(153, 157, 166, 0.2)
 }
 
+.graph-modal-triggered {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 175px;
+  background-color: unset !important;
+  border: none !important;
+
+  &:visited {
+    border: none !important;
+  }
+}
+
+.life-graph-modal-triggered {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 175px;
+  background-color: unset !important;
+  border: none !important;
+
+  &:visited {
+    border: none !important;
+  }
+}
+
+.modal-content {
+  height: auto;
+}
+
 .weekly-impact {
   align-self: center;
   position: relative;
+  justify-content: center;
   display: block;
-  width: 310px;
-  height: 380px;
+  width: 175px;
+  height: 280px;
   margin-left: 20px;
-  // background: $white;
-  // box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
+  background: $white;
+  box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
   margin: 5px;
   border-radius: 5px;
 
   p {
+    font-family: nunito;
+    margin-top: 5px;
     margin-bottom: 0px;
     text-align: center;
     color: $darkest-green;
     font-weight: 300px;
+  }
+}
+
+.week-graph-nav {
+  text-align: center;
+  span {
+    font-size: 12px;
   }
 }
 
@@ -67,16 +112,41 @@
   margin: 5px;
   position: relative;
   display: block;
-  width: 310px;
-  height: 380px;
-  // background: $white;
-  // box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
+  width: 175px;
+  height: 280px;
+  background: $white;
+  box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
   border-radius: 5px;
 
   p {
+    font-family: nunito;
+    margin-top: 5px;
     margin-bottom: 0px;
     text-align: center;
     color: $darkest-green;
     font-weight: 300px;
+  }
+}
+
+.modal-header {
+  display: flex;
+  box-align: start;
+  align-items: flex-start;
+  box-pack: justify;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  border-bottom: none;
+  border-top-left-radius: 1px;
+  border-top-right-radius: 1px;
+}
+
+.modal-body {
+  text-align: center;
+
+  p {
+    margin-bottom: 32px;
+    color: $dark-green;
+    font-size: 24px;
+    font-family: nunito;
   }
 }

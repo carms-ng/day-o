@@ -46,29 +46,20 @@
 .impact-charts-container {
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  margin-top: 10px;
+  flex-wrap: wrap;
 }
 
 
 .daily-score {
-  display: flex;
-  width: 360px;
-  height: 56px;
-  margin: 0 auto;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  padding: 0px 40px 0px 40px;
-  background: $white;
-  border-radius: 5px;
+  width: 115px;
   text-align: center;
-  justify-content: space-between;
-  align-items: center;
-
+  color: $darkest-green;
   p {
     margin-bottom: 0px;
     font-weight: 400px;
     color: $darkest-green;
-    font-size: 18px;
+    font-size: 12px;
   }
 
   h5 {
@@ -80,7 +71,7 @@
 
 .CO2-comparison {
   width: 360px;
-  height: 56px;
+  height: 90px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -92,7 +83,7 @@
 }
 
 .user-average-CO2 {
-  width: 175px;
+  width: 115px;
   text-align: center;
   color: $darkest-green;
   h5 {
@@ -100,9 +91,11 @@
     font-weight: 300px;
   }
 
-  h6 {
+  p {
     margin-bottom: 0px;
-    font-weight: 600px;
+    font-weight: 400px;
+    color: $darkest-green;
+    font-size: 12px;
   }
 }
 
@@ -113,7 +106,7 @@
 }
 
 .neighborhood-average-CO2 {
-  width: 175px;
+  width: 115px;
   text-align: center;
   color: $darkest-green;
   h5 {
@@ -121,8 +114,10 @@
     font-weight: 300px;
   }
 
-  h6 {
+  p {
     margin-bottom: 0px;
-    font-weight: 600px;
+    font-weight: 400px;
+    color: $darkest-green;
+    font-size: 12px;
   }
 }

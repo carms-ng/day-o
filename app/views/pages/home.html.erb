@@ -1,13 +1,42 @@
-  <div class="home-icon-banner">
+<div class="mainbackgroundmap" style="background-image: url('https://images.photowall.com/products/54305.jpg?h=699&q=85')">
+</div>
+
+<div class="home-icon-banner">
     <div class='logo-homepage'>
       <p class="day-o-home-page">day</p>
       <%= image_tag("favicon.png", class:"home-icon")%>
     </div>
     <span class="tagline-homepage" id="typed-tagline"></span>
-    <div class="line" id="line-homepage">
+    </div>
+  </div>
+
+<%= javascript_pack_tag "homepage" %>
+
+<div class="stats-card-container">
+
+  <div class="stat-card-big">
+    <p class="numbercarbon">30</p>
+    <div class="text-carbon">
+    <i class="fas fa-smog"></i>
+    <p>tons</p>
+    <p>of</p>
+    <p>CO2</p>
     </div>
   </div>
 
 
-<%= javascript_pack_tag "homepage" %>
+  <div class="stat-card">
+  <i class="fas fa-city"></i>
+  <p>cities</p>
+  <p class="numbers">203</p>
+  </div>
 
+
+
+  <div class="stat-card">
+  <i class="fas fa-users"></i>
+  <p>users</p>
+  <p class=numbers>10 456</p>
+  </div>
+
+</div>
