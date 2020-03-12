@@ -12,6 +12,7 @@
   // background-color: $turquoise;
   // border: 1px solid $black;
   background-color: #C8D7D9;
+  // background-color: #FFFFFF;
   display: flex;
   margin: 0 auto;
   width: 368px;
@@ -42,11 +43,13 @@
 }
 
 .active {
-  color: #96B85A;
+  color: #09A66D;
+  //color: #96B85A;
 }
 
 svg.active path {
-  fill: #96B85A;
+  fill: #09A66D;
+  //fill: #96B85A;
 }
 
 .menu-labels ul {
