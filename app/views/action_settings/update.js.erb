@@ -1,7 +1,7 @@
 // AJAX for Dashboard Page, when clicking "+ HABIT"
 action = document.getElementById('act-<%= @setting.action.id %>');
 
-action.classList.add('animated', 'bounceOutRight', 'delay-1s');
+action.classList.add('animated', 'bounceOutRight', 'delay-0.5s');
 
 action.addEventListener('animationend', function() { action.remove();})
 

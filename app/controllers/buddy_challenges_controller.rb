@@ -4,6 +4,8 @@ class BuddyChallengesController < ApplicationController
     @sent = current_user.sent_challenges
     @link_active = "Buddy"
     current_user.clear_notifications
+
+    @relationship_to_latest_buddy_challenge = current_user.relationship_to_latest_buddy_challenge
   end
 
   def create

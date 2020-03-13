@@ -10,7 +10,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @link_active = "dashboard"
-    @incomplete_sub = current_user.challenge_subscriptions.to_a.select do |sub|
+    @incomplete_sub = current_user.challenge_subscriptions.order(:created_at).to_a.select do |sub|
       sub.num_actions_habit != sub.challenge.actions.count
     end
   end

@@ -27,13 +27,8 @@ if (document.querySelector("meta[name='user-signed-in']").content === "true") {
             `);
 
 
-            // const times = 10;
-            // for(let i=0; i < times; i++){
-            //   const notificationIcon = document.querySelectorAll(".notification-bounce");
-            //   // const style = "animated bounce fast delay-2s";
-            //   notificationIcon.classList.add("animated");
-            //   notificationIcon.classList.add("bounce");
-            // };
+            const notificationIcon = document.querySelector(".notification-bounce");
+            notificationIcon.classList.add("animated", "bounce", "fast", "infinite");
           }
         }
 
