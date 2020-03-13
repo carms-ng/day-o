@@ -141,7 +141,7 @@ repair_waste = Action.create!(title: 'Repair, instead of buy new',
               description: "Repair something broken, instead of buying something new. Reach out to somebody in your community that can teach you it to fix it?",
               impact: 600,
               challenge: student)
-bike_commute = Action.create!(title: "Communite via Biking",
+bike_commute = Action.create!(title: "Commute by bike",
               description: "Or Public Transit or walk. If your commute is 20-miles, the switch could lower your carbon footprint by 4,800 pounds annually",
               impact: 350,
               challenge: student)
@@ -349,9 +349,11 @@ end
 
 # set up Nour's Challenge and Habits for Student
 cs_stu.challenge.actions.each_with_index do |action, i|
-  if i == 0 || (i > 2 && i < 5)
+  if i < 2 || (i > 2 && i < 5)
     ActionCompletion.create!(challenge_subscription: cs_stu, action: action).update!(created_at: rand(1..10).day.ago)
 
+  elsif i == 5
+    # do nothing
   else
     ActionSetting.find_by(challenge_subscription: cs_stu, action: action).update!(habit: true, checked: false)
 
@@ -381,12 +383,10 @@ BuddyChallenge.create!(sender_id: nour.id, status: false, challenge: holiday, re
 BuddyChallenge.create!(sender_id: nour.id, receiver_id: clem.id, challenge: prod, status: false )
 BuddyChallenge.create!(sender_id: nour.id, receiver_id: benjamin.id, challenge: mini, status: false )
 
-
-
 # creating earned badges for nour
-EarnedBadge.create!(user: nour, badge: diet_badge)
-EarnedBadge.create!(user: nour, badge: commute_badge)
-EarnedBadge.create!(user: nour, badge: energy_badge)
+# EarnedBadge.create!(user: nour, badge: diet_badge)
+# EarnedBadge.create!(user: nour, badge: commute_badge)
+# EarnedBadge.create!(user: nour, badge: energy_badge)
 
 
 
