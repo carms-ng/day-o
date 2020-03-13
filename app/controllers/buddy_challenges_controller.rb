@@ -2,8 +2,7 @@ class BuddyChallengesController < ApplicationController
   def index
     @received = current_user.received_challenges.where(status: false)
     @sent = current_user.sent_challenges
-
-    @link_active = "buddy"
+    @link_active = "Buddy"
     current_user.clear_notifications
   end
 
