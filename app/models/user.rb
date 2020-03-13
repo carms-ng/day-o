@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :username, presence: true
+
   has_many :challenge_subscriptions
   has_many :action_completions, through: :challenge_subscriptions
 
