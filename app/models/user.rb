@@ -36,4 +36,23 @@ class User < ApplicationRecord
   def clear_notifications
     self.update(notification_count: 0)
   end
+
+  def relationship_to_latest_buddy_challenge
+    last_sent =  self.sent_challenges.last
+    last_received =  self.received_challenges.last
+
+    if (
+      (last_sent && !last_received) ||
+      (last_sent && last_received && last_sent.created_at > last_received.created_at)
+    )
+      return "sent"
+    elsif (
+      (last_received && !last_sent) ||
+      (last_received && last_sent && last_sent.created_at < last_received.created_at)
+    )
+      return "received"
+    else
+      return false
+    end
+  end
 end
