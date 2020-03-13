@@ -1,8 +1,8 @@
-console.log("hello from homepage")
 
 const typed = new Typed('.element', {
-  strings: ["First sentence.", "Second sentence."],
-  typeSpeed: 30
+  strings: ["First sentence."],
+  typeSpeed: 30,
+  loop: false
 });
 
 typed();
