@@ -15,7 +15,7 @@ class ActionCompletionsController < ApplicationController
       if as.habit
         redirect_to habit_path
       else
-        update_user_categories(action)
+        # update_user_categories(action)
         # redirect_to dashboard_path
         respond_to do |format|
           format.html { render 'pages/dashboard' }
@@ -41,22 +41,22 @@ class ActionCompletionsController < ApplicationController
 
   private
 
-  def update_user_categories(action)
-    action.categories.each do |category|
-      user_category = current_user.user_categories.find_by(category: category)
+  # def update_user_categories(action)
+  #   action.categories.each do |category|
+  #     user_category = current_user.user_categories.find_by(category: category)
 
-      new_impact = user_category.impact + action.impact
-      user_category.update(impact: new_impact)
+  #     new_impact = user_category.impact + action.impact
+  #     user_category.update(impact: new_impact)
 
-      category_name = user_category.category.name
-      badge = Badge.find_by(name: category_name)
-      existing_user_badge = current_user.earned_badges.find_by(badge: badge)
-      if user_category.impact > 10000 && existing_user_badge.nil?
-        new_badge = EarnedBadge.create!(user: current_user, badge: badge)
-      end
-    end
+  #     category_name = user_category.category.name
+  #     badge = Badge.find_by(name: category_name)
+  #     existing_user_badge = current_user.earned_badges.find_by(badge: badge)
+  #     if user_category.impact > 10000 && existing_user_badge.nil?
+  #       new_badge = EarnedBadge.create!(user: current_user, badge: badge)
+  #     end
+  #   end
 
 
-  end
+  # end
 
 end

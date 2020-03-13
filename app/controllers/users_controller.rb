@@ -39,7 +39,13 @@ class UsersController < ApplicationController
     daily_impact = ((Date.today - 6)..Date.today).to_a.each.map { |day, index| [day, 0] }.to_h
 
     actions_week.each do |action|
-      daily_impact[action.created_at.in_time_zone('Eastern Time (US & Canada)').to_date] += action.impact
+      action_created_at = action.created_at.in_time_zone('Eastern Time (US & Canada)').to_date
+      if daily_impact[action_created_at]
+        daily_impact[action_created_at] += action.impact
+      else
+
+        daily_impact[action_created_at] = 0
+      end
     end
 
     # Take hash of { date => impact } and convert to { date_string => impact }
@@ -54,7 +60,13 @@ class UsersController < ApplicationController
     daily_impact = ((Date.today - 29)..Date.today).to_a.each.map { |day, index| [day, 0] }.to_h
 
     actions_monthly.each do |action|
-      daily_impact[action.created_at.in_time_zone('Eastern Time (US & Canada)').to_date] += action.impact
+      action_created_at = action.created_at.in_time_zone('Eastern Time (US & Canada)').to_date
+      if daily_impact[action_created_at]
+        daily_impact[action_created_at] += action.impact
+      else
+
+        daily_impact[action_created_at] = 0
+      end
     end
 
     # Take hash of { date => impact } and convert to { date_string => impact }
@@ -72,7 +84,12 @@ class UsersController < ApplicationController
     daily_impact = (start_date..Date.today).to_a.each.map { |day, index| [day, 0] }.to_h
 
     actions_monthly.each do |action|
-      daily_impact[action.created_at.in_time_zone('Eastern Time (US & Canada)').to_date] += action.impact
+      action_created_at = action.created_at.in_time_zone('Eastern Time (US & Canada)').to_date
+      if daily_impact[action_created_at]
+        daily_impact[action_created_at] += action.impact
+      else
+        daily_impact[action_created_at] = 0
+      end
     end
 
     # Take hash of { date => impact } and convert to { date_string => impact }
