@@ -349,7 +349,7 @@ end
 
 # set up Nour's Challenge and Habits for Student
 cs_stu.challenge.actions.each_with_index do |action, i|
-  if i < 2 || (i > 2 && i < 5)
+  if i < 2 || (i > 3 && i < 5)
     ActionCompletion.create!(challenge_subscription: cs_stu, action: action).update!(created_at: rand(1..10).day.ago)
 
   elsif i == 5
