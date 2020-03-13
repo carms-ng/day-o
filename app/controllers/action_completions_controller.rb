@@ -51,7 +51,7 @@ class ActionCompletionsController < ApplicationController
       category_name = user_category.category.name
       badge = Badge.find_by(name: category_name)
       existing_user_badge = current_user.earned_badges.find_by(badge: badge)
-      if user_category.impact > 500 && existing_user_badge.nil?
+      if user_category.impact > 10000 && existing_user_badge.nil?
         new_badge = EarnedBadge.create!(user: current_user, badge: badge)
       end
     end

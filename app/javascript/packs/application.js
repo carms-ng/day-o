@@ -24,8 +24,11 @@ if (document.querySelector("meta[name='user-signed-in']").content === "true") {
 
             badgeContainer.insertAdjacentHTML("afterbegin", `
               <span class="buddy-notification-badge">${data.count}</span>
-            `)
+            `);
 
+
+            const notificationIcon = document.querySelector(".notification-bounce");
+            notificationIcon.classList.add("animated", "bounce", "fast", "infinite");
           }
         }
 

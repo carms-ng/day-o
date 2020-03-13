@@ -290,9 +290,6 @@ richard = User.create!(username: 'Richard', email: 'richard@day-o.cc', password:
 aline = User.create!(username: 'Aline', email: 'aline@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://ca.slack-edge.com/T02NE0241-UCC9WMF43-6f6807edc16c-512")
 mg = User.create!(username: 'Marie-Gabrielle', email: 'marie-gabrielle@day-o.cc', password: '123456', location: 'Montreal, Canada', photo: "https://ca.slack-edge.com/T02NE0241-U2MK8GVRB-220c24d240e0-72")
 
-# Buddy Challenges received
-BuddyChallenge.create!(sender_id: nour.id, status: false, challenge: holiday, receiver_id: clem.id)
-# Buddy Challenges sent
 
 cs_st_carms = ChallengeSubscription.create!(user: carms, challenge: starter)
 cs_st_carms.update!(created_at: 2.day.ago)
@@ -372,6 +369,24 @@ cs_stu.challenge.actions.each_with_index do |action, i|
   end
 end
 
+# Buddy Challenges received check challenge subscription
+BuddyChallenge.create!(sender_id: mohammad.id , receiver_id: nour.id , challenge: biz, status: false )
+BuddyChallenge.create!(sender_id: martin.id , receiver_id: nour.id , challenge: boot, status: false )
+
+BuddyChallenge.create!(sender_id: james.id , receiver_id: nour.id , challenge: gt, status: false )
+
+
+# Buddy Challenges sent
+BuddyChallenge.create!(sender_id: nour.id, status: false, challenge: holiday, receiver_id: laurence.id)
+BuddyChallenge.create!(sender_id: nour.id, receiver_id: clem.id, challenge: prod, status: false )
+BuddyChallenge.create!(sender_id: nour.id, receiver_id: benjamin.id, challenge: mini, status: false )
+
+
+
+# creating earned badges for nour
+EarnedBadge.create!(user: nour, badge: diet_badge)
+EarnedBadge.create!(user: nour, badge: commute_badge)
+EarnedBadge.create!(user: nour, badge: energy_badge)
 
 
 

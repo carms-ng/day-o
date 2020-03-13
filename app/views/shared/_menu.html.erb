@@ -46,7 +46,7 @@
           <span class="<%= @active %>">Challenges</span>
         <% end %>
 
-        <%= link_to buddy_challenges_path, class: "icon-label" do %>
+        <%= link_to buddy_challenges_path, class: "icon-label notification-bounce" do %>
           <% if current_user.notification_count > 0 %>
             <span class="buddy-notification-badge"><%= current_user.notification_count %></span>
           <% end %>
@@ -103,10 +103,11 @@
           <span class="<%= @active %>">Challenges</span>
         <% end %>
 
-          <%= link_to buddy_challenges_path, class: "icon-label" do %>
+          <%= link_to buddy_challenges_path, class: "icon-label notification-bounce" do %>
             <% if current_user.notification_count > 0 %>
               <span class="buddy-notification-badge"><%= current_user.notification_count %></span>
-            <% end %>            <% @active = @link_active == 'buddy' ? 'active' : '' %>
+            <% end %>
+            <% @active = @link_active == 'buddy' ? 'active' : '' %>
             <span class="iconify <%= @active %>" data-icon="simple-line-icons:people" data-inline="false" data-width="22" data-height="20"></span>
             <span class="<%= @active %>">Buddy</span>
           <% end %>
@@ -154,7 +155,7 @@
           <span class="<%= @active %>">Challenges</span>
         <% end %>
 
-        <%= link_to buddy_challenges_path, class: "icon-label" do %>
+        <%= link_to buddy_challenges_path, class: "icon-label notification-bounce" do %>
           <% if current_user.notification_count > 0 %>
             <span class="buddy-notification-badge"><%= current_user.notification_count %></span>
           <% end %>
