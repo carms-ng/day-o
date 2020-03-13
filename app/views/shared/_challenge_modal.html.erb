@@ -36,7 +36,7 @@
               <% end %>
               <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Grey_background.jpg/339px-Grey_background.jpg", class: "profile-avatar" %>
             </div>
-            <p class="challenge-buddy" data-challenge="<%= challenge.id %>">Challenge your Buddies</p>
+            <p class="challenge-buddy" data-challenge="<%= challenge.id %>">CHALLENGE YOUR BUDDY</p>
 
             <%= simple_form_for [challenge, buddy_challenge], html: { class: "d-none new-buddy-challenge-form justify-content-center", id: "challenge-receiver-#{challenge.id}" } do |f| %>
               <%= f.input :receiver_id, as: :hidden %>
