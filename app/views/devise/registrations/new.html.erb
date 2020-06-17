@@ -1,46 +1,64 @@
-<div class="bg-devise">
-  <div class="container">
-    <div class="row">
-      <class class="col-xs-12 display-devise">
-
-        <h1 id='logo'>day<span class="iconify" id='logo' data-icon="vaadin:globe" data-inline="false"></span></h1>
-        <p id='app-genre'>Climate Habit Builder</p>
-        <h3 id='tagline'>A Climate Battle We Can Win. Together.</h3>
-
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= f.error_notification %>
-
-          <div class="form-inputs">
-            <%= f.input :username,
-                        required: true,
-                        autofocus: true %>
-            <%= f.input :email,
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "email" }%>
-            <%= f.input :password,
-                        required: true,
-                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                        input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
-                        required: true,
-                        input_html: { autocomplete: "new-password" } %>
-          </div>
-
-          <div class="form-actions">
-            <%= f.button :submit, "Join now", class: 'btn btn-outline-warning' %>
-          </div>
-        <% end %>
-
-        <p class='mt-2'>Already have an account?</p>
-
-        <%= render "devise/shared/links" %>
-
-
-      </class>
-
+<div class="container-devise">
+  <div class="logo-devise">
+    <h3>day-o</h3>
+    <p>Climate Habit Builder</p>
+    <div id="logo-i">
+      <span class="iconify" id='logo' data-icon="vaadin:globe" data-inline="false"></span>
     </div>
   </div>
+
+  <div class="form-devise">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <h1>Sign up</h1>
+      <%= f.error_notification %>
+      <div class="form-inputs">
+        <div class="form-input">
+          <span class="iconify" data-icon="clarity:user-line" data-inline="false"></span>
+          <%= f.input :username,
+                      required: true,
+                      placeholder: "Username", 
+                      label: false,
+                      autofocus: true %>
+        </div>
+
+        <div class="form-input">
+          <span class="iconify" data-icon="mdi-light:email" data-inline="false"></span>
+          <%= f.input :email,
+                      required: true,
+                      placeholder: "Email", 
+                      label: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }%>
+        </div>
+        
+        <div class="form-input">
+          <span class="iconify" data-icon="cil:lock-unlocked" data-inline="false"></span>
+          <%= f.input :password,
+                      required: true,
+                      placeholder: "Password", 
+                      label: false,
+                      input_html: { autocomplete: "new-password" } %>
+        </div>
+        <div class="form-input">
+          <span class="iconify" data-icon="cil:lock-locked" data-inline="false"></span>
+          <%= f.input :password_confirmation,
+                      placeholder: "Confirm password", 
+                      label: false,
+                      required: true,
+                      input_html: { autocomplete: "new-password" } %>
+        </div>
+        
+      </div>
+
+      <div class="form-actions align-right">
+        <%= f.button :submit, '➜', class: 'btn-arrow' %>
+      </div>
+    <% end %>
+
+  </div>
+
+  <%= link_to "Log in to your account", new_session_path(resource_name), class: 'btn-outline-brown mb-some' %>
+
 </div>
 
 
