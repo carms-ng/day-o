@@ -1,5 +1,5 @@
-meta_product_name: "Day-o"
-meta_title: "Day-o - A Climate Battle We Can Win. Together."
-meta_description: "Day-o is a habit tracking app that helps you introduce new habits to your life through fun challenges."
+meta_product_name: "day-o"
+meta_title: "day-o | Climate Habit Builder: A Climate Battle We Can Win. Together."
+meta_description: "day-o is a habit tracking app that helps you introduce new habits to your life through fun challenges."
 meta_image: "day0.png" # should exist in `app/assets/images/`
 twitter_account: "@day-o_twitter_account"   # required for Twitter Cards
