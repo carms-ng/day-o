@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  # skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home]
   before_action :mass_create?, only: [:habit]
   before_action :num_habit_checkable, only: [:habit]
   before_action :num_habit_checked, only: [:habit]

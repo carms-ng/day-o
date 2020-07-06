@@ -1,34 +1,3 @@
-.logo-devise {
-    padding: 20px 10px;
-    border-radius: 5px;
-    margin: 35px auto 25px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    
-    h3 {
-        font-family: 'MuseoModerno', cursive !important;
-        font-size: 3.5rem;
-        font-weight: 200;
-        color: var(--brown);
-        margin: 0;
-    }
-    #logo-i svg{
-        position: absolute;
-        font-size: 1.8rem;
-        color: var(--brown);
-        top: 45px;
-        right: -3px;
-    }
-    p {
-        text-transform: uppercase;
-        font-size: 0.8rem;
-        color: var(--light-brown);
-    }
-}
-
 .form-devise {
     background: rgba(255, 244, 232, 0.8);
     border-radius: 10px;
@@ -53,10 +22,6 @@
 
     }
 }
-// .form-inputs {
-//     display: flex;
-//     flex-direction: column;
-// }
 
 .form-input {
     display: flex;

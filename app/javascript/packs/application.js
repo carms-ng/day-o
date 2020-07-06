@@ -1,7 +1,19 @@
 import "bootstrap";
 import "../components/buddy_challenge";
 
+import { initChart } from '../components/charts';
+import { loadActionDropdown } from '../components/dropdown';
+import { loadMassCreateModal } from '../components/mass-create-habit';
+import { loadCarousel } from '../components/carousel';
 
+
+initChart();
+loadActionDropdown();
+loadConfetti();
+loadMassCreateModal();
+loadCarousel();
+
+// notification
 if (document.querySelector("meta[name='user-signed-in']").content === "true") {
   let lastNumberOfChallenges;
 
@@ -26,7 +38,6 @@ if (document.querySelector("meta[name='user-signed-in']").content === "true") {
               <span class="buddy-notification-badge">${data.count}</span>
             `);
 
-
             const notificationIcon = document.querySelector(".notification-bounce");
             notificationIcon.classList.add("animated", "bounce", "fast", "infinite");
           }
@@ -37,16 +48,4 @@ if (document.querySelector("meta[name='user-signed-in']").content === "true") {
   }, 1000);
 }
 
-
-import { initChart } from '../components/charts';
-initChart();
-
-import { loadActionDropdown } from '../components/dropdown';
-loadActionDropdown();
-
 import { loadConfetti } from '../components/confetti';
-loadConfetti();
-
-import { loadMassCreateModal } from '../components/mass-create-habit';
-loadMassCreateModal();
-
