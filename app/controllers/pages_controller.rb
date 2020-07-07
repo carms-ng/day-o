@@ -4,7 +4,6 @@ class PagesController < ApplicationController
   before_action :num_habit_checkable, only: [:habit]
   before_action :num_habit_checked, only: [:habit]
 
-
   def home
   end
 

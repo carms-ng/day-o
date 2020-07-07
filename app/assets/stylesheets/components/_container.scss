@@ -1,14 +1,15 @@
 .container-page {
-    background: white;
+    background: rgba(76, 108, 111, 0.1);
     width: 375px;
     height: 667px;
     margin: 0 auto;
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 
 #home.container-page {
-    // overflow-x: hidden;
+    padding: 10px;
+    position: relative;
 }
 
 #devise.container-page {

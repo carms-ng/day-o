@@ -1,5 +1,5 @@
 .carousel {
-    height: 300px;
+    height: 400px;
     width: 100%;
     position: relative;
 }
@@ -18,14 +18,10 @@
     width: 100%;
     height: 100%;
     padding: 10px;
-    // border: 1px solid red;
     
     img {
-        // border: 1px solid red;
-        border-radius: 50px;
-        padding: 10px;
         width: 100%;
-        height: 75%;
+        height: 100%;
         object-fit: cover;
     }
 }
@@ -41,10 +37,10 @@
         border-radius: 50%;
         width: 12px;
         height: 12px;
-        background: lightgreen;
+        background: var(--light-brown);
         margin: 0 6px;
     }
     .carousel__nav_item.active {
-        background: green;
+        background: var(--brown);
     }
 }

@@ -1,11 +1,13 @@
 <div class="container-page" id='devise'>
-  <div class="logo">
-    <h3>day-o</h3>
-    <p>Climate Habit Builder</p>
-    <div class="logo-i">
-      <span class="iconify" id='logo' data-icon="vaadin:globe" data-inline="false"></span>
+  <%= link_to root_path do %>
+    <div class="logo">
+      <h3>day-o</h3>
+      <p>Climate Habit Builder</p>
+      <div class="logo-i">
+        <span class="iconify" id='logo' data-icon="vaadin:globe" data-inline="false"></span>
+      </div>
     </div>
-  </div>
+  <% end %>
 
   <div class="form-devise">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
