@@ -1,6 +1,6 @@
 <%= content_for(:title) { "Habits" } %>
 
-<div class="container-page">
+<div class="container-page" id="habit">
   <div class="cards-habits">
     <% (@habits.sort_by { |obj| obj.created_at }).each do |habit| %>
       <div class="card-habit">

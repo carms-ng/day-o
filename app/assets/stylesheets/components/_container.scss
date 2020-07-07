@@ -12,6 +12,14 @@
     position: relative;
 }
 
+#habit.container-page,
+#buddy.container-page,
+#dashboard.container-page,
+#challenge.container-page,
+#browse.container-page {
+    padding-top: 68px;
+}
+
 #devise.container-page {
     background-image: 
         linear-gradient(110deg, rgba(76, 108, 111, 0.8), rgba(76, 108, 111, 0.8)),
