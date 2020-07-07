@@ -1,3 +1,5 @@
+<%= content_for(:title) { "" } %>
+
 <div class="container-page">
   <!-- Profile Row -->
   <div id="user-info-card">
@@ -106,7 +108,7 @@
         data-all-time-impact="<%= @impact_all_time_hash.to_json %>"
         id="time-chart"
         width="80"
-        height="100"
+        height="75"
       ></canvas>
       <div class="week-graph-nav">
         <span id="seven-days">7 Days | </span>
