@@ -1,7 +1,7 @@
 <%= content_for(:title) { "Habits" } %>
 
-<div class="container-page">
-  <div class="cards-habits">
+<div class="container-page" id="habit">
+  <div style="margin-bottom: 75px">
     <% (@habits.sort_by { |obj| obj.created_at }).each do |habit| %>
       <div class="card-habit">
         <div class="info-habit">

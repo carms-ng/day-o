@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @impact_per_category_hash = impact_per_category
     # 7 is today
     @impact_today = @impact_week_hash[Date.today.strftime("%b%e")]
-    @link_active = "profile"
+    @link_active = "home"
   end
 
   private
