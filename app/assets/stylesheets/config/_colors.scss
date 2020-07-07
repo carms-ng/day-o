@@ -1,15 +1,8 @@
-// Define variables for your color scheme
 
-// For example:
-// $red: #FD1015;
 $red: #eb6a6a;
-// $blue: #167FFB;
 $blue: #171219;
 $yellow: #FFC65A;
-// $orange: #E67E22;
 $orange: #ECD0B4;
-
-/* $green: #1EDD88; */
 $green: #96B85A;
 $gray: #0E0000;
 $light-gray: #FAFAFA;
@@ -18,14 +11,14 @@ $light-green: #C4E2E5;
 $dark-green: #4C6C6F;
 $darkest-green:#3F4C29;
 
-$white: #FFFFFF;
+$white: #FAFAFA;
 $black: #3F4C29;
 $turquoise: #4C6C6F;
 $pink: #E1C9AF;
 
 
 :root {
-    --green: #00D9C0;
+    --light-green: #E9ECEC;
     --blue: #084C61;
     --red: #FF4365;
     --grey: #4F6D7A;
