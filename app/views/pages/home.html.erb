@@ -1,42 +1,53 @@
-<div class="mainbackgroundmap" style="background-image: url('https://images.photowall.com/products/54305.jpg?h=699&q=85')">
-</div>
-
-<div class="home-icon-banner">
-    <div class='logo-homepage'>
-      <p class="day-o-home-page">day</p>
-      <%= image_tag("favicon.png", class:"home-icon")%>
-    </div>
-    <span class="tagline-homepage" id="typed-tagline"></span>
+<div class="container-page" id="home">
+  <div class="logo">
+    <h3>day-o</h3>
+    <div class="logo-i">
+      <span class="iconify" id='logo' data-icon="vaadin:globe" data-inline="false"></span>
     </div>
   </div>
 
-<%= javascript_pack_tag "homepage" %>
+  <div class="carousel">
+    <ul class="carousel__slides">
+      <li class="carousel__slide">
+        <%= image_tag 'together.png' %>
+        <div class="carousel__text">
+          <h6>Climate Habit Builder</h6>
+          <p>A Climate Battle We Can Win. Together.</p>
+        </div>
+      </li>
+      <li class="carousel__slide">
+        <%= image_tag 'track.png' %>
+        <div class="carousel__text">
+          <h6>Track Daily Impact</h6>
+          <p>How's your impact trending? Let's find out!</p>
+        </div>
+      </li>
+      <li class="carousel__slide">
+        <%= image_tag 'habit.png' %>
+        <div class="carousel__text">
+          <h6>Introduce New Habits</h6>
+          <p>Check out day-o's fun multi-day challenges!</p>
+        </div>
+      </li>
+      <li class="carousel__slide">
+        <%= image_tag 'buddy.png' %>
+        <div class="carousel__text">
+          <h6>Buddy System</h6>
+          <p>While you are at it... Grab a buddy and support each other!</p>
+        </div>
+      </li>
+    </ul>
 
-<div class="stats-card-container">
-
-  <div class="stat-card-big">
-    <p class="numbercarbon">30</p>
-    <div class="text-carbon">
-    <i class="fas fa-smog"></i>
-    <p>tons</p>
-    <p>of</p>
-    <p>CO2</p>
+    <div class="carousel__nav">
+      <button class="carousel__nav_item active"></button>
+      <button class="carousel__nav_item"></button>
+      <button class="carousel__nav_item"></button>
+      <button class="carousel__nav_item"></button>
     </div>
   </div>
 
-
-  <div class="stat-card">
-  <i class="fas fa-city"></i>
-  <p>cities</p>
-  <p class="numbers">203</p>
-  </div>
-
-
-
-  <div class="stat-card">
-  <i class="fas fa-users"></i>
-  <p>users</p>
-  <p class=numbers>10 456</p>
+  <div class="btn-home">
+    <button href="/users/sign_in" class="btn-arrow">➜</button>
   </div>
 
 </div>

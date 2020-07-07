@@ -1,53 +1,48 @@
-<div class="wrapper-devise">
-  <div class="container-devise" >
-    <div class="logo-devise">
+<div class="container-page" id='devise'>
+  <%= link_to root_path do %>
+    <div class="logo">
       <h3>day-o</h3>
       <p>Climate Habit Builder</p>
-      <div id="logo-i">
+      <div class="logo-i">
         <span class="iconify" id='logo' data-icon="vaadin:globe" data-inline="false"></span>
       </div>
     </div>
+  <% end %>
 
-    <div class="form-devise">
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <h1>Log in</h1>
-        <div class="form-inputs">
-          <div class="form-input">
-            <span class="iconify" data-icon="mdi-light:email" data-inline="false"></span>
-            <%= f.input :email,
-                        required: false,
-                        autofocus: true,
-                        placeholder: "Email", 
-                        label: false,
-                        input_html: { autocomplete: "email" } %>
-          </div>
-          <div class="form-input mb-zero">
-            <span class="iconify" data-icon="bi:lock" data-inline="false"></span>
-            <%= f.input :password,
-                        required: false,
-                        placeholder: "Password", 
-                        label: false,
-                        input_html: { autocomplete: "current-password" } %>
-          </div>
-          <div class="content-right">
-            <%= link_to "Forgot password?", new_password_path(resource_name), class: 'reset-link' %><br />
-          </div>
-          
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  <div class="form-devise">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <h1>Log in</h1>
+      <div class="form-inputs">
+        <div class="form-input">
+          <span class="iconify" data-icon="mdi-light:email" data-inline="false"></span>
+          <%= f.input :email,
+                      required: false,
+                      autofocus: true,
+                      placeholder: "Email", 
+                      label: false,
+                      input_html: { autocomplete: "email" } %>
         </div>
-
-        <div class="form-actions align-right">
-          <%= f.button :submit, '➜', class: 'btn-arrow' %>
-          
+        <div class="form-input mb-zero">
+          <span class="iconify" data-icon="bi:lock" data-inline="false"></span>
+          <%= f.input :password,
+                      required: false,
+                      placeholder: "Password", 
+                      label: false,
+                      input_html: { autocomplete: "current-password" } %>
         </div>
-      <% end %>
+        <div class="content-right">
+          <%= link_to "Forgot password?", new_password_path(resource_name), class: 'reset-link' %><br />
+        </div>
+        
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
 
-    </div>
-    
-    <%= link_to "Create new account", new_registration_path(resource_name), class: 'btn-outline-brown mb-some' %>
-      
+      <div class="form-actions align-right">
+        <%= f.button :submit, '➜', class: 'btn-arrow' %>
+        
+      </div>
+    <% end %>
 
   </div>
-
+  <%= link_to "Create new account", new_registration_path(resource_name), class: 'btn-outline-brown mb-some' %>
 </div>
-

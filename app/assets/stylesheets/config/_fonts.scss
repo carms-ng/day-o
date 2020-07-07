@@ -4,23 +4,3 @@
 // Define fonts for body and headers
 $body-font: "Work Sans", "Helvetica", "sans-serif";
 $headers-font: "Nunito", "Helvetica", "sans-serif";
-
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
-
-:root {
-    --green: #00D9C0;
-    --blue: #084C61;
-    --red: #FF4365;
-    --grey: #4F6D7A;
-    --light-brown: #FFF4E8;
-    --brown: #F5B788;
-    --dark-brown: #9C8876;
-}
