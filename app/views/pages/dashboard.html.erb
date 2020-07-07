@@ -1,92 +1,88 @@
 <%= content_for(:title) { "Challenges" } %>
 
-<div class="container">
-  <div class="row d-flex justify-content-center">
-    <div class="col-xs-12" style="width: 100%;">
+<div class="container-page">
 
-      <div class="cards-sub">
-        <% @incomplete_sub.reverse.each do |sub| %>
-          <div class="card-sub">
+  <div class="cards-sub">
+    <% @incomplete_sub.reverse.each do |sub| %>
+      <div class="card-sub">
 
-            <% if sub.created_at.in_time_zone('Eastern Time (US & Canada)').to_date == Date.today %>
-              <div class="ribbon ribbon-top-right"><span>New</span></div>
+        <% if sub.created_at.in_time_zone('Eastern Time (US & Canada)').to_date == Date.today %>
+          <div class="ribbon ribbon-top-right"><span>New</span></div>
+        <% end %>
+        <div class="d-flex">
+          <% buddy = sub.buddy_user %>
+
+          <% if buddy %>
+            <% if buddy.photo.present? %>
+              <%= image_tag buddy.photo, class: "avatar", style: "margin-right: 10px;" %>
+            <% else %>
+              <%= image_tag "user.png", class: "avatar", style: "margin-right: 10px;" %>
             <% end %>
-            <div class="d-flex">
-              <% buddy = sub.buddy_user %>
-
-              <% if buddy %>
-                <% if buddy.photo.present? %>
-                  <%= image_tag buddy.photo, class: "avatar", style: "margin-right: 10px;" %>
-                <% else %>
-                  <%= image_tag "user.png", class: "avatar", style: "margin-right: 10px;" %>
-                <% end %>
+          <% end %>
+          <div>
+            <h2><%= link_to sub.challenge.name, challenge_path(sub.challenge) %>
+              <span class="badge badge-pill badge-warning"><%= sub.challenge.total_impact %>g CO2</span>
+            </h2>
+            <div class="challenge-status">
+              <% if sub.num_actions_done == sub.challenge.actions.count %>
+                <p style="color: #4C6C6F;">Challenge completed!</p>
+              <% else %>
+                <p><%= sub.num_actions_done - sub.num_actions_habit %> out of <%= sub.challenge.actions.count - sub.num_actions_habit %> completed</p>
               <% end %>
-              <div>
-                <h2><%= link_to sub.challenge.name, challenge_path(sub.challenge) %>
-                  <span class="badge badge-pill badge-warning"><%= sub.challenge.total_impact %>g CO2</span>
-                </h2>
-                <div class="challenge-status">
-                  <% if sub.num_actions_done == sub.challenge.actions.count %>
-                    <p style="color: #4C6C6F;">Challenge completed!</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="progress" style="height: 6px; margin-bottom: 10px;">
+          <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%= (sub.num_actions_done - sub.num_actions_habit).to_f / (sub.challenge.actions.count - sub.num_actions_habit)  * 100 %>%"></div>
+        </div>
+
+        <% sub.challenge.actions.each do |action| %>
+          <% if !action.setting_for(current_user).habit %>
+            <hr>
+            <div class="section-action" id="act-<%= action.id %>">
+
+              <div class="section-top-action">
+
+                <i class="fas fa-chevron-right dd-chevron" style="margin-right: 8px;"></i>
+                <h3 class="title-action" style="position: relative;">
+                  <span class="action-title-name">
+                    <%= action.title %>
+                  </span>
+                  <span>
+                    <% if ActionCompletion.find_by(action: action, challenge_subscription: sub) %>
+                      <i class="fas fa-check-circle" style="color: #4C6C6F; font-size: 16px;"></i>
+                    <% end %>
+                  </span>
+                </h3>
+                <div class="buttons-action">
+                  <% if ActionCompletion.find_by(action: action, challenge_subscription: sub) %>
+                    <%= render 'add_habit_link', action: action %>
+
                   <% else %>
-                    <p><%= sub.num_actions_done - sub.num_actions_habit %> out of <%= sub.challenge.actions.count - sub.num_actions_habit %> completed</p>
+                    <%= link_to action_action_completions_path(action), method: :post, remote: true do %>
+                      <!-- <i id="icon-inactive" class="far fa-circle"></i> -->
+                      <p class='action-done-btn'><i class="far fa-circle"></i> DONE</p>
+                    <% end %>
                   <% end %>
                 </div>
+
+              </div>
+
+              <div class="action-dropdown" id="action-<%= action.id %>">
+                <p><%= action.description %></p>
+                <p><strong>Impact</strong>: <%= action.impact %>g CO2</p>
               </div>
             </div>
 
-
-            <div class="progress" style="height: 6px; margin-bottom: 10px;">
-              <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%= (sub.num_actions_done - sub.num_actions_habit).to_f / (sub.challenge.actions.count - sub.num_actions_habit)  * 100 %>%"></div>
-            </div>
-
-            <% sub.challenge.actions.each do |action| %>
-              <% if !action.setting_for(current_user).habit %>
-                <hr>
-                <div class="section-action" id="act-<%= action.id %>">
-
-                  <div class="section-top-action">
-
-                    <i class="fas fa-chevron-right dd-chevron" style="margin-right: 8px;"></i>
-                    <h3 class="title-action" style="position: relative;">
-                      <span class="action-title-name">
-                        <%= action.title %>
-                      </span>
-                      <span>
-                        <% if ActionCompletion.find_by(action: action, challenge_subscription: sub) %>
-                          <i class="fas fa-check-circle" style="color: #4C6C6F; font-size: 16px;"></i>
-                        <% end %>
-                      </span>
-                    </h3>
-                    <div class="buttons-action">
-                      <% if ActionCompletion.find_by(action: action, challenge_subscription: sub) %>
-                        <%= render 'add_habit_link', action: action %>
-
-                      <% else %>
-                        <%= link_to action_action_completions_path(action), method: :post, remote: true do %>
-                          <!-- <i id="icon-inactive" class="far fa-circle"></i> -->
-                          <p class='action-done-btn'><i class="far fa-circle"></i> DONE</p>
-                        <% end %>
-                      <% end %>
-                    </div>
-
-                  </div>
-
-                  <div class="action-dropdown" id="action-<%= action.id %>">
-                    <p><%= action.description %></p>
-                    <p><strong>Impact</strong>: <%= action.impact %>g CO2</p>
-                  </div>
-                </div>
-
-              <% end %>
-            <% end %>
-
-          </div>
-
+          <% end %>
         <% end %>
 
       </div>
 
-    </div>
+    <% end %>
+
   </div>
+
 </div>

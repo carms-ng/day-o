@@ -47,7 +47,11 @@
   </div>
 
   <div class="btn-home">
-    <a href="/users/sign_in" class="btn-arrow">➜</a>
+    <% if user_signed_in? %>
+      <%= link_to '➜', user_path(current_user), class: 'btn-arrow' %>
+    <% else %>
+      <a href="/users/sign_in" class="btn-arrow">➜</a>
+    <% end %>
   </div>
 
 </div>

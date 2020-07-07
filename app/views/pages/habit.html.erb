@@ -1,50 +1,43 @@
 <%= content_for(:title) { "Habits" } %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12" style="width: 100%;">
-
-      <div class="cards-habits">
-        <% (@habits.sort_by { |obj| obj.created_at }).each do |habit| %>
-          <div class="card-habit">
-            <div class="info-habit">
-              <h5><%= habit.action.title %></h5>
-              <p>Impact: <%= habit.action.impact %>g CO2</p>
-            </div>
-            <div class="options-babit">
-              <div class="buttons-action">
-                <% if habit.done_today? %>
-                  <p>DONE</p>
-                  <i class="fas fa-check" style="margin-left: 6px; color: #4C6C6F; font-size: 25px;"></i>
+<div class="container-page">
+  <div class="cards-habits">
+    <% (@habits.sort_by { |obj| obj.created_at }).each do |habit| %>
+      <div class="card-habit">
+        <div class="info-habit">
+          <h5><%= habit.action.title %></h5>
+          <p>Impact: <%= habit.action.impact %>g CO2</p>
+        </div>
+        <div class="options-babit">
+          <div class="buttons-action">
+            <% if habit.done_today? %>
+              <p>DONE</p>
+              <i class="fas fa-check" style="margin-left: 6px; color: #4C6C6F; font-size: 25px;"></i>
+            <% else %>
+              <%= link_to update_check_action_setting_path(habit), method: :patch, remote: true do %>
+                <% if habit.checked %>
+                  <i id='habit-<%= habit.id %>' class="fas fa-check-circle habit-checkbox-checked" style="color: lightgray; font-size: 30px;"></i>
                 <% else %>
-                  <%= link_to update_check_action_setting_path(habit), method: :patch, remote: true do %>
-                    <% if habit.checked %>
-                      <i id='habit-<%= habit.id %>' class="fas fa-check-circle habit-checkbox-checked" style="color: lightgray; font-size: 30px;"></i>
-                    <% else %>
-                      <i id='habit-<%= habit.id %>' class="far fa-circle habit-checkbox-unchecked" style="color: lightgray; font-size: 30px;"></i>
-                    <% end %>
-                  <% end %>
+                  <i id='habit-<%= habit.id %>' class="far fa-circle habit-checkbox-unchecked" style="color: lightgray; font-size: 30px;"></i>
                 <% end %>
-              </div>
-
-              <!-- dropdown -->
-              <div class="dropdown">
-                <a href="#" data-toggle="dropdown"><i id="three-dots" class="fas fa-ellipsis-v"></i></a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <%= link_to 'Done', action_action_completions_path(habit.action), method: :post, class: 'dropdown-item' %>
-                    <%= link_to 'Remove', action_setting_path(habit), method: :patch, class: 'dropdown-item' %>
-                </div>
-              </div>
-            </div>
-
+              <% end %>
+            <% end %>
           </div>
 
-        <% end %>
+          <!-- dropdown -->
+          <div class="dropdown">
+            <a href="#" data-toggle="dropdown"><i id="three-dots" class="fas fa-ellipsis-v"></i></a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <%= link_to 'Done', action_action_completions_path(habit.action), method: :post, class: 'dropdown-item' %>
+                <%= link_to 'Remove', action_setting_path(habit), method: :patch, class: 'dropdown-item' %>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-    </div>
+    <% end %>
   </div>
-
 </div>
 
 <!-- Modal for Impact -->
