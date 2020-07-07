@@ -1,52 +1,48 @@
-<%= content_for(:title) { "Challenges" } %>
+<div class="container-page">
+  <%= content_for(:title) { "Challenges" } %>
 
-<div class="container">
-  <div class="row d-flex justify-content-center">
-    <div class="col-xs-12" style="width: 100%;">
+        <div class="section-title">
+          <% if @category.present? %>
+            <h4>Category: <%= @category.name %> </h4>
+          <% elsif @query.present? %>
+            <h4>Search Result: <%= @query %> </h4>
+          <% else %>
+            <h4>All Challenges</h4>
+          <% end %>
+          <div class="line"></div>
+        </div>
 
-      <div class="section-title">
-        <% if @category.present? %>
-          <h4>Category: <%= @category.name %> </h4>
-        <% elsif @query.present? %>
-          <h4>Search Result: <%= @query %> </h4>
-        <% else %>
-          <h4>All Challenges</h4>
-        <% end %>
-        <div class="line"></div>
-      </div>
-
-      <!-- challenge cards start -->
-      <div>
-        <% @challenges.each do |challenge| %>
-          <%= render "shared/challenge_modal", { challenge: challenge, buddy_challenge: @buddy_challenge } %>
-            <div class="card-challenge" data-toggle="modal" data-target="#challenge-<%= challenge.id %>">
-              <div class="card-property">
-                <div>
-                  <p><%= challenge.num_days %> DAYS CHALLENGE</p>
-                  <p><%= challenge.total_impact %>G CO2 OFFSET</p>
+        <!-- challenge cards start -->
+        <div>
+          <% @challenges.each do |challenge| %>
+            <%= render "shared/challenge_modal", { challenge: challenge, buddy_challenge: @buddy_challenge } %>
+              <div class="card-challenge" data-toggle="modal" data-target="#challenge-<%= challenge.id %>">
+                <div class="card-property">
+                  <div>
+                    <p><%= challenge.num_days %> DAYS CHALLENGE</p>
+                    <p><%= challenge.total_impact %>G CO2 OFFSET</p>
+                  </div>
+                  <p>DIFFICULTY:
+                    <% challenge.difficulty.times do %>
+                      <i class="fas fa-circle" style="color: #4C6C6F;"></i>
+                    <% end %>
+                    <% (3 - challenge.difficulty).times do %>
+                      <i class="fas fa-circle" style="color: #C8D7D9"></i>
+                    <% end %>
+                  </p>
                 </div>
-                <p>DIFFICULTY:
-                  <% challenge.difficulty.times do %>
-                    <i class="fas fa-circle" style="color: #4C6C6F;"></i>
+                <h5><%= challenge.name %></h5>
+                <div class="challenge-category-icons">
+                  <!-- display category icon by color & image tag -->
+                  <% categories = challenge.actions.map { |action| action.categories }.flatten.uniq %>
+                  <% categories.each do |category| %>
+                    <%= image_tag(category.icon, id: "card-category-#{category.name.downcase}", class:"small-icons")%>
                   <% end %>
-                  <% (3 - challenge.difficulty).times do %>
-                    <i class="fas fa-circle" style="color: #C8D7D9"></i>
-                  <% end %>
-                </p>
+                </div>
               </div>
-              <h5><%= challenge.name %></h5>
-              <div class="challenge-category-icons">
-                <!-- display category icon by color & image tag -->
-                <% categories = challenge.actions.map { |action| action.categories }.flatten.uniq %>
-                <% categories.each do |category| %>
-                  <%= image_tag(category.icon, id: "card-category-#{category.name.downcase}", class:"small-icons")%>
-                <% end %>
-              </div>
-            </div>
-        <% end %>
-      </div>
-      <!-- challenge cards end -->
+          <% end %>
+        </div>
+        <!-- challenge cards end -->
 
-    </div>
-  </div>
+
 </div>
