@@ -3,8 +3,11 @@
     width: 375px;
     height: 667px;
     margin: 0 auto;
-    overflow-y: hidden;
+    overflow-y: scroll;
     overflow-x: hidden;
+}
+.container-page::-webkit-scrollbar {
+  display: none;
 }
 
 #home.container-page {
