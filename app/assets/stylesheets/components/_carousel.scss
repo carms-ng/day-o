@@ -42,5 +42,7 @@
     }
     .carousel__nav_item.active {
         background: var(--brown);
+        width: 24px;
+        border-radius: 6px;
     }
 }
