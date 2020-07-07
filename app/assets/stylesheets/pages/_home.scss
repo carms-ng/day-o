@@ -36,12 +36,16 @@
     }
   }
 }
+
 .btn-home {
   position: absolute;
   bottom: 2rem;
   right: 2rem;
 
   .btn-arrow {
-    background: rgba(76, 108, 111, 0.7)
+    display: block;
+    background: rgba(76, 108, 111, 0.7);
+    text-align: center;
+    padding: 9px; // dirty fix to veritcal-align
   }
 }
