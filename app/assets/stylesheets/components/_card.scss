@@ -48,17 +48,19 @@
 
 .cards-genre {
   display: flex;
-  justify-content: center;
   overflow-x: scroll;
   margin-bottom: 50px;
+}
+.cards-genre::-webkit-scrollbar {
+  display: none;
 }
 
 .card-genre {
   // width: auto;
   background-color: white;
   box-shadow: 0px 4px 15px rgba(206, 206, 206, 0.33);
-  margin: 20px 10px 20px 10px;
-  padding: 40px;
+  margin: 20px 10px;
+  padding: 25px 50px 20px 50px;
   color: $dark-green;
   text-align: center;
   border-radius: 10px;
