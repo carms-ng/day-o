@@ -1,7 +1,6 @@
 <!-- controller_name == 'pages'  -->
 
 <% if (
-  (controller_name == "users" && action_name == "show") ||
   (controller_name == "sessions") ||
   (controller_name == "registrations") ||
   (controller_name == "pages" && action_name == "home")
@@ -10,15 +9,38 @@
 
 <!-- render nothing -->
 
+<% elsif (
+  (controller_name == "users" && action_name == "show")
+) %>
+
+  <div class="nav-header" style="background: transparent">
+    <%= link_to :back do %>
+      <span class="iconify" data-icon="ic:round-arrow-back" data-inline="false"></span>
+    <% end %>
+    <h1><%= yield :title %></h1>
+    <div class="dropdown">
+      <a href="#" data-toggle="dropdown">
+        <span class="iconify" data-icon="gg:menu-right-alt" data-inline="false"></span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="#">Settings</a>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      </div>
+    </div>
+  </div>
+
+
 <% else %>
 
   <div class="nav-header">
     <%= link_to :back do %>
-      <i class="fas fa-chevron-left"></i>
+      <span class="iconify" data-icon="ic:round-arrow-back" data-inline="false"></span>
     <% end %>
     <h1><%= yield :title %></h1>
     <div class="dropdown">
-      <a href="#" data-toggle="dropdown"><i class="fas fa-ellipsis-v"></i></a>
+      <a href="#" data-toggle="dropdown">
+        <span class="iconify" data-icon="gg:menu-right-alt" data-inline="false"></span>
+      </a>
       <div class="dropdown-menu dropdown-menu-right">
         <a class="dropdown-item" href="#">Settings</a>
         <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>

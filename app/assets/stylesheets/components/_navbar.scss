@@ -7,8 +7,8 @@
   position: absolute;
   top: 0;
   left: calc((100vw - 375px) / 2);
+
   width: 375px;
-  margin: 0 auto;
   border-radius: 0px 0px 8px 8px;
   color: white;
   padding: 20px;
@@ -21,9 +21,9 @@
     margin-bottom: 0px;
   }
 
-  i {
-    color: white;
-    margin: 0 10px;
+  svg {
+    color: var(--light-brown);
+    font-size: 1.5rem;
   }
 }
 

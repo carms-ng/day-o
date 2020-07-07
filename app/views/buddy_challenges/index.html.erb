@@ -1,6 +1,6 @@
+<%= content_for(:title) { "Requests" } %>
 
 <div class="container-page">
-  <%= content_for(:title) { "Requests" } %>
   <div class="requests">
     <section id="tabs">
 
@@ -10,16 +10,17 @@
           <a class="nav-item nav-link <%= "active" if @relationship_to_latest_buddy_challenge == "received" %>" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false" style="flex: 50%;">Received</a>
         </div>
       </nav>
+
       <div class="tab-content py-3 px-sm-0" id="nav-tabContent">
+
         <div class="tab-pane fade <%= "show active" if @relationship_to_latest_buddy_challenge == "sent" %>" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" >
           <% @sent.order(created_at: :desc).each do |sent| %>
             <div id="<%= sent.id%>">
               <%= render 'sent_card', sent: sent  %>
             </div>
-
           <% end %>
-
         </div>
+
         <div class="tab-pane fade <%= "show active" if @relationship_to_latest_buddy_challenge == "received" %>" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" style="height: 120px;;" >
           <% @received.order(created_at: :desc).each do |receive| %>
             <div id="<%= receive.id%>">
@@ -28,14 +29,11 @@
           <% end %>
         </div>
 
-        </div>
-
       </div>
 
     </section>
 
   </div>
-
 </div>
 
 
