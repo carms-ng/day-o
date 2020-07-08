@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
   def show
-    # Should other user be able to see your profile page?
-    # @user = current_user
     @user = User.find(params[:id])
 
     # actions_today = ActionCompletion.joins(:challenge_subscription)
@@ -16,6 +14,8 @@ class UsersController < ApplicationController
     @impact_per_category_hash = impact_per_category
     # 7 is today
     @impact_today = @impact_week_hash[Date.today.strftime("%b%e")]
+
+    # for menu
     @link_active = "home"
   end
 
@@ -75,7 +75,7 @@ class UsersController < ApplicationController
   end
 
   def all_time
-    start_date = [current_user.created_at, Date.today - 29].min
+    start_date = [current_user.created_at.in_time_zone('Eastern Time (US & Canada)').to_date, Date.today - 29].min
 
     actions_monthly = ActionCompletion.joins(:challenge_subscription)
       .where(challenge_subscriptions: { user_id: @user.id} )
