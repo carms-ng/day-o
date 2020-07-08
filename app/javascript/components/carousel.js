@@ -21,6 +21,7 @@ const loadCarousel = () => {
             carouselNavBtns[currentIndex].classList.remove('active');
             carouselNavBtns[targetIndex].classList.add('active');
         }
+
         carouselNavBtns.forEach((btn, index) => {
             btn.addEventListener('click', (e) => {
                 const activeBtn = carouselNav.querySelector('.active');
@@ -29,6 +30,7 @@ const loadCarousel = () => {
                 updateNav(index, currentIndex);
             })
         })
+
     }
 }
 
