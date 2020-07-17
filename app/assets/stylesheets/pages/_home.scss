@@ -36,8 +36,10 @@
   position: absolute;
   bottom: 2rem;
   right: 2rem;
+  left: 2rem;
 
   .btn-arrow {
+    width: auto;
     display: block;
     background: rgba(76, 108, 111, 0.7);
     text-align: center;
