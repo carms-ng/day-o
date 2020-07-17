@@ -6,17 +6,12 @@
     grid-row: 1 / 3;
     grid-column: 1 / -1;
     z-index: 1;
-    border-radius: 40px;
-    background: white;
-    margin: 0 10px;
-    width: calc(100% - 20px);
-    box-shadow: 1px 5px 5px $turquoise;
   }
   .carousel__text {
     border-radius: 40px;
     grid-row: 2 / 4;
     grid-column: 1 / -1;
-    background: $turquoise;
+    background: var(--light-brown);
     
     display: flex;
     flex-direction: column;
@@ -24,14 +19,14 @@
     align-items: center;
     text-align: center;
     padding: 0 20px;
-    box-shadow: 1px 5px 10px $turquoise;
     
     h6 {
       font-size: 1.25rem;
       color: var(--brown);
+      text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
     }
     p {
-      color: white;
+      color: $turquoise;
       margin-bottom: 1.5rem;
     }
   }
@@ -41,8 +36,10 @@
   position: absolute;
   bottom: 2rem;
   right: 2rem;
+  left: 2rem;
 
   .btn-arrow {
+    width: auto;
     display: block;
     background: rgba(76, 108, 111, 0.7);
     text-align: center;
