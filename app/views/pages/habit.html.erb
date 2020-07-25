@@ -38,34 +38,34 @@
 
     <% end %>
   </div>
-</div>
+  <!-- Modal for Impact -->
+  <div class="modal fade" id="massCreateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content modal-impact">
+        <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-body impact-text">
 
-<!-- Modal for Impact -->
-<div class="modal fade" id="massCreateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content modal-impact">
-      <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <div class="modal-body impact-text">
-
-        <h2 id="count-up"></h2>
-        <p>gCO2e</p>
-        <h4>IMPACT MADE</h4>
-      </div>
-      <div class="modal-nav-btn">
-        <%= link_to dashboard_path, class: "modal-btn" do %>
-          <p>Challenges<span class="iconify" data-icon="mdi-light:format-list-checks"></span></p>
-        <% end %>
-
-        <%  if current_user %>
-          <%= link_to user_path(current_user.id), class: "modal-btn"  do %>
-            <p>Analytics<span class="iconify" data-icon="ei:user" data-inline="false"></span></p>
+          <h2 id="count-up"></h2>
+          <p>gCO2e</p>
+          <h4>IMPACT MADE</h4>
+        </div>
+        <div class="modal-nav-btn">
+          <%= link_to dashboard_path, class: "modal-btn" do %>
+            <p>Challenges<span class="iconify" data-icon="mdi-light:format-list-checks"></span></p>
           <% end %>
-        <% end %>
+
+          <%  if current_user %>
+            <%= link_to user_path(current_user.id), class: "modal-btn"  do %>
+              <p>Analytics<span class="iconify" data-icon="ei:user" data-inline="false"></span></p>
+            <% end %>
+          <% end %>
+
+        </div>
 
       </div>
-
     </div>
   </div>
 </div>
+
