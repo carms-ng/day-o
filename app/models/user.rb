@@ -21,12 +21,17 @@ class User < ApplicationRecord
   has_many :received_challenges, class_name: 'BuddyChallenge', foreign_key: 'receiver_id', dependent: :destroy
 
 
-  after_create :initialize_user_categories
+  after_create :initialize_user_categories, :initialize_challenge_subscription
 
   def initialize_user_categories
     Category.all.each do |category|
       UserCategory.create(user: self, category: category, impact: 0)
     end
+  end
+
+  def initialize_challenge_subscription
+    starter = Challenge.find_by(name: "Starter Pack")
+    ChallengeSubscription.create(user: self, challenge: starter)
   end
 
   def give_notification
