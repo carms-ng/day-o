@@ -7,7 +7,7 @@ A mobile application that provides analytics on your impact, i.e. Carbon Saving 
 # Features
 * Analytics Dashboard
 * Built-in Challenges
-* Buddy Challenges
+* Buddy Challenges with notification
 * Daily Habit Log
 * Unlock Badges
 
