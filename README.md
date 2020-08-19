@@ -24,6 +24,7 @@ A mobile application that provides analytics on your impact, i.e. Carbon Saving 
 * Home page is revamped.
 
 # What needs to be done?
+* Authorization with Pundit Gem
 * Improve Analytics
 * Aggregate and compile Community Statistics
 * Manage Visibility of Stats
